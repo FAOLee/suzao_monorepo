@@ -1,12 +1,3 @@
 packages:
-  # pnpm-workspace.yaml 是 pnpm 的工作空间配置文件
-  # 用于定义 monorepo 项目的工作空间结构
-  # 通过 packages 字段配置需要包含的子包路径
-  
-  # 放置各种项目
-  # '*' 表示匹配packages目录下的一级子目录
+  - 'apps/*'
   - 'packages/*'
-  
-  # 放置各种公用代码
-  # '**' 表示匹配_public_目录下的所有子目录(包括嵌套子目录) 
-  - '_public_/**'

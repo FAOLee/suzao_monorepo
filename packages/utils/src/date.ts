@@ -28,10 +28,12 @@ type TimeInput = string | number | Date
  */
 const parseTime = (time: TimeInput, cFormat = '{y}-{m}-{d} {h}:{i}:{s}'): string | void => {
   let date: Date
-  if (isValidDate(new Date(time))) {
-    date = new Date(time)
+  if (time instanceof Date) {
+    date = time
   } else if (typeof time === 'string') {
     date = new Date(time.replace(/-/g, '/'))
+  } else if (typeof time === 'number') {
+    date = new Date(time)
   } else {
     return console.error('非法time')
   }
