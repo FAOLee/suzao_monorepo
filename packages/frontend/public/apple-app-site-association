@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "LGWBD3GP2J.com.suzao.ios.data",
+                "paths": ["/app/*","*","/qq_conn/appid/*","/mobile/sharePlasticDownZh"]
+            }
+        ]
+    }
+}
