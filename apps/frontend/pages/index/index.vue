@@ -5,6 +5,11 @@
 </template>
 
 <script setup lang="ts">
+
+function useSeoMeta(arg0: { title: string; description: string; keywords: string; meta: { name: string; content: string; }[]; }) {
+  throw new Error("Function not implemented.");
+}
+
 useSeoMeta({
   title: '首页',
   description: '首页描述',

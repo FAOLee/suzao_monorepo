@@ -1,45 +1,21 @@
 {
   "compilerOptions": {
-    // 启用项目引用功能,允许将TypeScript项目分解成更小的部分
-    "composite": true,
-    
-    // 启用增量编译,只重新编译发生变化的文件
-    "incremental": true,
-    
-    // 生成对应的.d.ts声明文件
-    "declaration": true,
-    
-    // 生成声明文件的sourcemap
-    "declarationMap": true,
-    
-    // 只输出声明文件,不输出编译后的JavaScript文件
-    "emitDeclarationOnly": true,
-    
-    // 当有错误时不生成输出文件
-    "noEmitOnError": true,
-    
-    // 跳过声明文件的类型检查,提高编译速度
-    "skipLibCheck": true,
-    
-    // 启用ES模块互操作性
-    "esModuleInterop": true,
-    
-    // 允许从没有默认导出的模块中导入
-    "allowSyntheticDefaultImports": true,
-    
-    // 允许导入JSON文件
-    "resolveJsonModule": true,
-    
-    // Set module resolution to node to support JSON imports
-    "moduleResolution": "node",
-    
-    // 启用所有严格类型检查选项
-    "strict": true,
-
-    // 指定ECMAScript目标版本
-    "target": "ES2017",
-    
-    // 指定要包含的库文件
-    "lib": ["ES2017", "DOM"]
+    "outDir": "dist", // 输出的目录
+    "sourceMap": true, //采用sourcemap
+    "target": "ES2020", // 目标语法
+    "module": "ESNext", // 模块格式
+    "moduleResolution": "node", //模块解析方式
+    "strict": true, // 严格模式
+    "resolveJsonModule": true, //解析json模块
+    "esModuleInterop": true, //允许通过es6语法引入commonjs模块
+    "jsx": "preserve", // jsx 不转义
+    "lib": [
+      "ESNext",
+      "DOM"
+    ], //支持的类库 esnext及dom
+    "baseUrl": ".",
+    "paths": {
+      "@suzao/*": ["packages/*/src"]
+    }
   }
 }

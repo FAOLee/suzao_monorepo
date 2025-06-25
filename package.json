@@ -2,13 +2,22 @@
   "name": "suzao_monorepo",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
+    "dev": "node scripts/dev.js utils -f esm",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.1",
-    "eslint": "^9.27.0"
+    "@nuxtjs/tailwindcss": "6.0.0",
+    "esbuild": "^0.25.5",
+    "eslint": "^9.27.0",
+    "minimist": "^1.2.8",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
   }
 }

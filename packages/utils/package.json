@@ -1,9 +1,17 @@
 {
-  "name": "suzao-utils",
+  "name": "@suzao/utils",
   "version": "1.0.0",
   "private": true,
   "main": "./src/index.ts",
-  "scripts": {
-    "debug": "ts-node ./src/index.ts"
+  "module": "dist/utils.esm.js",
+  "types": "dist/utils.d.ts",
+  "buildOptions": {
+    "name": "suzaoUtils",
+    "formats": [
+      "esm-bundler",
+      "esm-browser",
+      "cjs",
+      "global"
+    ]
   }
 }
