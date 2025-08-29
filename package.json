@@ -1,23 +1,29 @@
 {
-  "name": "suzao_monorepo",
-  "version": "1.0.0",
+  "name": "suzao-monorepo",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "node scripts/dev.js utils -f esm",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "dev:ui": "pnpm --filter @suzao/ui dev",
+    "dev:utils": "pnpm --filter @suzao/utils dev",
+    "dev:frontend": "pnpm --filter suzao-frontend dev",
+    "dev": "concurrently -n UI,Utils,Frontend -c blue,magenta,green \"pnpm run dev:ui\" \"pnpm run dev:utils\" \"pnpm run dev:frontend\"",
+    "build:ui": "pnpm --filter @suzao/ui build",
+    "build:utils": "pnpm --filter @suzao/utils build",
+    "build:frontend": "pnpm --filter suzao-frontend build",
+    "build:test": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend -- --dotenv .env.test",
+    "build:prod": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend -- --dotenv .env.production"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.13.1",
-    "@nuxtjs/tailwindcss": "6.0.0",
-    "esbuild": "^0.25.5",
-    "eslint": "^9.27.0",
-    "minimist": "^1.2.8",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "vue": "^3.5.13"
+    "@types/node": "^24.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-vue": "^9.14.0",
+    "pnpm": "^8.0.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.6.2",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

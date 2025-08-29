@@ -2,16 +2,11 @@
   "name": "@suzao/utils",
   "version": "1.0.0",
   "private": true,
-  "main": "./src/index.ts",
-  "module": "dist/utils.esm.js",
-  "types": "dist/utils.d.ts",
-  "buildOptions": {
-    "name": "suzaoUtils",
-    "formats": [
-      "esm-bundler",
-      "esm-browser",
-      "cjs",
-      "global"
-    ]
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
   }
 }
