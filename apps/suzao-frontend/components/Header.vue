@@ -9,7 +9,7 @@
         </picture>
       </nuxt-link>
       <div class="down a attracting">
-        <nuxt-link class="a" href="/page/technologyAndSupport">
+        <nuxt-link class="a" href="/page/technology-and-support">
           <img
             src="/public/static/page/technology-and-support/technology-and-support-btn.png"
             alt=""
@@ -17,8 +17,8 @@
           />
         </nuxt-link>
         <div class="box">
-          <nuxt-link href="/page/technologyAndSupport?tab=rnd"> 改性技术服务 </nuxt-link>
-          <nuxt-link href="/page/technologyAndSupport?tab=ul"> 企业申请UL技术指导 </nuxt-link>
+          <nuxt-link href="/page/technology-and-support?tab=rnd"> 改性技术服务 </nuxt-link>
+          <nuxt-link href="/page/technology-and-support?tab=ul"> 企业申请UL技术指导 </nuxt-link>
         </div>
       </div>
     </div>
