@@ -32,9 +32,9 @@
       <nuxt-link href="/plastic/advanceSearch" class="list a"> 性能搜索 </nuxt-link>
       <nuxt-link class="list a" href="/plastic/sgCalculator"> 改性配方编辑器 </nuxt-link>
       <div class="down a attracting">
-        <nuxt-link class="list" href="/page/attracting-merchants?tab=settled"
-          ><span> 产品与服务 </span></nuxt-link
-        >
+        <nuxt-link class="list" href="/page/attracting-merchants?tab=settled">
+          <span> 产品与服务 </span>
+        </nuxt-link>
         <div class="box">
           <nuxt-link href="/page/attracting-merchants?tab=settled"> 代理商入驻服务 </nuxt-link>
           <nuxt-link href="/page/attracting-merchants?tab=app"> 材料智能助手APP </nuxt-link>
