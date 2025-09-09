@@ -1,0 +1,59 @@
+.suzao-main {
+  background: linear-gradient(217deg, #404C7E 0%, #2A3251 100%);
+}
+.footer {
+  width: 100%;
+  background-color: #fff;
+}
+.footer footer {
+  margin: auto;
+}
+.member-redemption .main {
+  display: flex;
+  align-items: center;
+}
+.member-redemption .main .left {
+  width: 550px;
+}
+.member-redemption .main .left .title {
+  font-weight: 600;
+  font-size: 22px;
+  color: #fff;
+}
+.member-redemption .main .left .el-form {
+  padding-top: 30px;
+  width: 350px;
+}
+.member-redemption .main .left .el-form .el-form-item {
+  margin-bottom: 30px;
+}
+.member-redemption .main .left .el-form .el-input__inner,
+.member-redemption .main .left .el-form .el-button {
+  border-radius: 22px;
+}
+.member-redemption .main .left .el-form .el-input__inner {
+  padding-left: 25px;
+}
+.member-redemption .main .left .el-form .el-button {
+  font-size: 18px;
+  width: 100%;
+  background: linear-gradient(90deg, #FFE7C4 0%, #FFE9C8 24%, #FFCC8A 100%);
+}
+.member-redemption .main .left .el-form .el-button,
+.member-redemption .main .left .el-form .el-button:focus,
+.member-redemption .main .left .el-form .el-button:hover {
+  color: #333;
+}
+.member-redemption .main .left .con-text {
+  font-size: 12px;
+  line-height: 2;
+  color: #F5F5F5;
+}
+.member-redemption .main .right {
+  flex: 1;
+  padding-left: 10px;
+}
+.member-redemption .main .right .img {
+  width: 100%;
+  max-width: 385px;
+}

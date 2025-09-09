@@ -1,0 +1,67 @@
+@import (reference) '../_variables.less';
+.suzao-footer {
+  position: relative;
+  border: 1px solid @border-color;
+  padding: 0;
+
+  &.background {
+    background: @background-color;
+  }
+
+  span,
+  a {
+    color: @text-color3;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 0.4s;
+    .maxWidthFit(12,font-size);
+    .minWidthFit(18,font-size);
+    .maxWidthFit(5,margin-left);
+    .maxWidthFit(5,margin-right);
+  }
+  a:hover {
+    color: @text-color;
+    text-decoration: underline;
+  }
+  .main-width {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .mainWidth();
+    .maxWidthFit(15,padding-top);
+    .maxWidthFit(15,padding-bottom);
+    .minWidthFit(10,padding-top);
+    .minWidthFit(10,padding-bottom);
+    @media (max-width: @ipadH) {
+      .wapdn {
+        display: none;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: @fff;
+  .maxWidthFit(10,padding-top);
+  .maxWidthFit(10,padding-bottom);
+
+  &.background {
+    background: @background-color;
+  }
+  &,
+  a {
+    .maxWidthFit(12,font-size);
+    line-height: 1.5;
+    color: @placeholder-color;
+  }
+  a:hover {
+    color: @text-color2;
+  }
+  .main-width {
+    .mainWidth;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+  }
+}

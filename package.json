@@ -20,10 +20,13 @@
     "concurrently": "^8.2.0",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vue": "^9.14.0",
     "pnpm": "^8.0.0",
     "prettier": "^3.1.0",
     "typescript": "^5.6.2",
+    "vite": "^7.1.4",
     "vite-tsconfig-paths": "^5.1.4"
-  }
+  },
+  "packageManager": "pnpm@8.5.0+sha1.83c41fe4ebdb61e08446f8bb68a75fb48756b330"
 }

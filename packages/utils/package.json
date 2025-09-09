@@ -2,9 +2,16 @@
   "name": "@suzao/utils",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsc -w",
-    "build": "tsc"
+    "build": "tsc",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "typescript": "^5.6.2"

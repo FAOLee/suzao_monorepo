@@ -4,10 +4,12 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "isolatedModules": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "esModuleInterop": true,
     "paths": {
       "~/*": [
         "./*"
@@ -16,5 +18,9 @@
         "./*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

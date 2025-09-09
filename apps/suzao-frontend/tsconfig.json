@@ -1,23 +1,38 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
     "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
     "types": [
-      "@types/node",
-      "vite/client"
+      "node",
+      "@types/node"
     ],
+    "baseUrl": ".",
     "paths": {
+      "#app": [
+        ".nuxt/imports.d.ts"
+      ],
+      "#imports": [
+        ".nuxt/imports.d.ts"
+      ],
       "~/*": [
         "./*"
       ],
       "@/*": [
         "./*"
+      ],
+      "@suzao/ui": [
+        "../../packages/ui/src/index.ts"
+      ],
+      "@suzao/ui/*": [
+        "../../packages/ui/src/*"
+      ],
+      "@suzao/utils": [
+        "../../packages/utils/src/index.ts"
+      ],
+      "@suzao/utils/*": [
+        "../../packages/utils/src/*"
       ]
     }
   },
@@ -25,14 +40,18 @@
     "./**/*.ts",
     "./**/*.d.ts",
     "./**/*.vue",
+    ".nuxt/**/*.ts",
+    "nuxt.config.ts",
+    "composables/**/*.{ts,js}",
+    "plugins/**/*.{ts,js}",
+    "types/**/*.d.ts",
     "../../packages/ui/src/**/*.ts",
     "../../packages/ui/src/**/*.vue",
     "../../packages/utils/src/**/*.ts",
-    "nuxt.config.ts"
   ],
   "exclude": [
     "node_modules",
-    ".nuxt",
-    "dist"
+    "dist",
+    ".nuxt"
   ]
 }

@@ -1,0 +1,188 @@
+@import (reference) '../_variables.less';
+.compare-warp {
+  position: fixed;
+  margin-right: -10px;
+  margin-top: 10px;
+  .bd(4);
+  overflow: hidden;
+  .maxWidthFit(14,font-size);
+  z-index: 1002;
+  .box-shadow;
+  border: 1px solid @border-color;
+  .maxWidthFit(@header-height,top);
+  right: calc((100% + ~'@{maxWidth}px') / 2);
+  @media (max-width: 1720px) {
+    right: auto;
+    margin-right: 0;
+    left: 0;
+  }
+
+  .compare-thumbnail {
+    cursor: pointer;
+    color: @fff;
+    background: @color;
+    .maxWidthFit(40,width);
+    .maxWidthFit(8,padding-top);
+    .maxWidthFit(8,padding-bottom);
+    .maxWidthFit(12,padding-left);
+    .maxWidthFit(12,padding-right);
+
+    .lang-en & .contrast {
+      writing-mode: vertical-rl;
+    }
+    .num {
+      .maxWidthFit(12,font-size);
+      line-height: 1;
+      width: 14px;
+      height: 14px;
+      color: @color;
+      background-color: @fff;
+      border-radius: 50%;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      .maxWidthFit(5,margin-top);
+    }
+  }
+
+  .compare-table {
+    background-color: @fff;
+    .maxWidthFit(240,width);
+    .minWidthFit(240,width);
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background-color: @background-color;
+      color: @text-color;
+      .maxWidthFit(10,padding-top);
+      .maxWidthFit(10,padding-bottom);
+      .maxWidthFit(20,padding-left);
+      .maxWidthFit(20,padding-right);
+
+      span {
+        .maxWidthFit(16,font-size);
+        line-height: 1;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          .maxWidthFit(2,margin-right);
+          content: '';
+          width: 23px;
+          height: 18px;
+          display: block;
+          background: url('/frontend/assets/ai/pk.png?@{ver}') no-repeat;
+          background-size: contain;
+        }
+      }
+      i {
+        .maxWidthFit(20,font-size);
+        cursor: pointer;
+      }
+    }
+    .el-table--enable-row-hover .el-table__body tr:hover > td {
+      background-color: rgba(0, 0, 0, 0) !important;
+    }
+    .el-table {
+      .maxWidthFit(14,font-size);
+
+      .el-table__empty-block,
+      .el-table__body {
+        table-layout: auto;
+      }
+
+      .cell {
+        .maxWidthFit(20,padding-left);
+        .maxWidthFit(20,padding-right);
+        min-height: 35px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        line-height: 1.25;
+      }
+
+      .delete {
+        padding: 0;
+        .cell {
+          padding-left: 0;
+        }
+
+        .el-icon-delete {
+          cursor: pointer;
+          .maxWidthFit(18,font-size);
+          .maxWidthFit(8,padding);
+          border-radius: 50%;
+          transition: background-color 0.4s;
+
+          &:hover {
+            background-color: @background-color;
+          }
+        }
+      }
+    }
+
+    .el-table__empty-text {
+      .maxWidthFit(15,padding-top);
+      .maxWidthFit(15,padding-bottom);
+      line-height: 1.36;
+      .maxWidthFit(14,font-size);
+      width: 80%;
+    }
+
+    .compare-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      .maxWidthFit(20,padding);
+      .maxWidthFit(10,padding-top);
+
+      .el-button,
+      .el-link {
+        flex: 1;
+      }
+    }
+
+    .btnLink {
+      vertical-align: top;
+      border: 1px solid @border-color;
+      line-height: 1;
+      white-space: nowrap;
+      text-align: center;
+      outline: 0;
+      margin: 0;
+      .maxWidthFit(12,padding-top);
+      .maxWidthFit(12,padding-bottom);
+      .maxWidthFit(20,padding-left);
+      .maxWidthFit(20,padding-right);
+      .bd(4);
+      background-color: @colorHover;
+      color: @fff;
+      border-color: @colorHover;
+      &:hover {
+        color: @fff;
+      }
+      &.is-disabled {
+        background-color: @fff;
+        color: @text-color3;
+        border-color: @border-color;
+      }
+    }
+
+    .el-button {
+      .maxWidthFit(12,padding-top);
+      .maxWidthFit(12,padding-bottom);
+      .maxWidthFit(20,padding-left);
+      .maxWidthFit(20,padding-right);
+
+      & + .el-link {
+        .maxWidthFit(20,margin-left);
+      }
+    }
+  }
+}

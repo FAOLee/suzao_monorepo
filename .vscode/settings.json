@@ -1,20 +1,8 @@
 {
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.suggest.autoImports": true,
+  "volar.takeOverMode.enabled": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.validate.enable": true,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "volar.useWorkspaceTsdk": true,
-  "volar.format.enable": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
-  },
-  "tailwindCSS.includeLanguages": {
-    "vue": "html",
-    "typescript": "javascript"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    "tw`([^`]*)`",
-    "tw\\(([^)]*)\\)"
-  ],
-  "tailwindCSS.emmetCompletions": true
+  "nuxt.isNuxtApp": true,
+  "typescript.preferences.useLabelDetailsInCompletionEntries": true
 }
