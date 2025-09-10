@@ -1,19 +1,10 @@
 <template>
-  <el-dialog 
-    v-model="visible" 
-    class="login-dialog" 
-    :close-on-click-modal="false"
-    width="988px"
-    :before-close="handleClose"
-  >
+  <el-dialog v-model="visible" class="login-dialog" :close-on-click-modal="false" width="988px"
+    :before-close="handleClose">
     <div class="login-box">
       <!-- 左侧图片区域 -->
       <div class="login-pic">
-        <ByShare 
-          v-for="item in shareItems" 
-          :key="item.id"
-          :item="item" 
-        />
+        <ByShare v-for="item in shareItems" :key="item.id" :item="item" />
       </div>
 
       <!-- 右侧登录内容 -->
@@ -22,7 +13,7 @@
           <!-- 账号密码登录 -->
           <div v-if="activeTab === 0" class="title poab-top">
             <div class="logo">
-              <img src="/frontend/assets/share-logo.svg" alt="Logo" />
+              <img src="/static/share-logo.svg" alt="Logo" />
             </div>
           </div>
 
@@ -38,43 +29,19 @@
           </div>
 
           <!-- 登录表单 -->
-          <el-tabs 
-            v-if="activeTab === 0" 
-            :class="{ wx: isWeChat }" 
-            v-model="activeName" 
-            @tab-click="handleTabClick"
-          >
+          <el-tabs v-if="activeTab === 0" :class="{ wx: isWeChat }" v-model="activeName" @tab-click="handleTabClick">
             <!-- 账号密码登录 -->
             <el-tab-pane label="账号密码" name="login">
-              <el-form 
-                ref="loginFormRef" 
-                :model="loginForm" 
-                :rules="loginRules"
-                @submit.prevent="submitLogin"
-              >
+              <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" @submit.prevent="submitLogin">
                 <el-form-item prop="username">
-                  <el-input 
-                    v-model="loginForm.username" 
-                    placeholder="输入手机/邮箱" 
-                    name="username" 
-                    type="text"
-                  />
+                  <el-input v-model="loginForm.username" placeholder="输入手机/邮箱" name="username" type="text" />
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input 
-                    v-model="loginForm.password" 
-                    type="password" 
-                    placeholder="输入密码" 
-                    @keyup.enter="submitLogin"
-                  />
+                  <el-input v-model="loginForm.password" type="password" placeholder="输入密码"
+                    @keyup.enter="submitLogin" />
                 </el-form-item>
                 <el-form-item class="btn-box tar">
-                  <el-button 
-                    class="suzao-btn" 
-                    type="primary" 
-                    @click="submitLogin"
-                    :loading="loading"
-                  >
+                  <el-button class="suzao-btn" type="primary" @click="submitLogin" :loading="loading">
                     登录
                   </el-button>
                   <el-link href="/login/forget">忘记密码？</el-link>
@@ -85,43 +52,21 @@
 
             <!-- 短信验证码登录 -->
             <el-tab-pane label="短信验证码" name="sms">
-              <el-form 
-                ref="smsFormRef" 
-                :model="smsForm" 
-                :rules="smsRules"
-                @submit.prevent="submitSmsLogin"
-              >
+              <el-form ref="smsFormRef" :model="smsForm" :rules="smsRules" @submit.prevent="submitSmsLogin">
                 <el-form-item prop="cellphone">
-                  <el-input 
-                    v-model="smsForm.cellphone" 
-                    placeholder="输入手机号"
-                    @input="checkCaptcha"
-                  />
+                  <el-input v-model="smsForm.cellphone" placeholder="输入手机号" @input="checkCaptcha" />
                 </el-form-item>
                 <el-form-item prop="captcha">
                   <div id="captcha-element"></div>
                 </el-form-item>
                 <el-form-item prop="smsCode" class="code">
-                  <el-input 
-                    v-model="smsForm.smsCode" 
-                    placeholder="请输入短信验证码"
-                    @keyup.enter="submitSmsLogin"
-                  />
-                  <el-button 
-                    class="captcha-btn" 
-                    :disabled="smsButtonDisabled"
-                    @click="sendSmsCode"
-                  >
+                  <el-input v-model="smsForm.smsCode" placeholder="请输入短信验证码" @keyup.enter="submitSmsLogin" />
+                  <el-button class="captcha-btn" :disabled="smsButtonDisabled" @click="sendSmsCode">
                     {{ smsButtonText }}
                   </el-button>
                 </el-form-item>
                 <el-form-item>
-                  <el-button 
-                    class="suzao-btn" 
-                    type="success" 
-                    @click="submitSmsLogin"
-                    :loading="loading"
-                  >
+                  <el-button class="suzao-btn" type="success" @click="submitSmsLogin" :loading="loading">
                     {{ isWeChat ? '绑定手机' : '登录/注册' }}
                   </el-button>
                 </el-form-item>
@@ -137,50 +82,25 @@
           </div>
 
           <!-- 完善信息表单 -->
-          <el-form 
-            v-else-if="activeTab === 2" 
-            ref="fillInfoFormRef" 
-            :model="fillInfoForm" 
-            :rules="fillInfoRules"
-            @submit.prevent="submitFillInfo"
-          >
+          <el-form v-else-if="activeTab === 2" ref="fillInfoFormRef" :model="fillInfoForm" :rules="fillInfoRules"
+            @submit.prevent="submitFillInfo">
             <el-form-item prop="name">
-              <el-input 
-                v-model="fillInfoForm.name" 
-                placeholder="输入姓名" 
-                name="name" 
-                type="text"
-              />
+              <el-input v-model="fillInfoForm.name" placeholder="输入姓名" name="name" type="text" />
             </el-form-item>
             <el-form-item prop="password">
-              <el-input 
-                v-model="fillInfoForm.password" 
-                type="password" 
-                placeholder="输入登录密码"
-              />
+              <el-input v-model="fillInfoForm.password" type="password" placeholder="输入登录密码" />
             </el-form-item>
             <el-form-item prop="passwordRepeat">
-              <el-input 
-                v-model="fillInfoForm.passwordRepeat" 
-                type="password" 
-                placeholder="再次输入密码" 
-                @keyup.enter="submitFillInfo"
-              />
+              <el-input v-model="fillInfoForm.passwordRepeat" type="password" placeholder="再次输入密码"
+                @keyup.enter="submitFillInfo" />
             </el-form-item>
             <el-form-item>
-              <el-button 
-                class="suzao-btn" 
-                @click="submitFillInfo"
-                :loading="loading"
-              >
+              <el-button class="suzao-btn" @click="submitFillInfo" :loading="loading">
                 保存信息并进入
               </el-button>
             </el-form-item>
             <el-form-item>
-              <el-button 
-                class="suzao-border-btn" 
-                @click="skipFillInfo"
-              >
+              <el-button class="suzao-border-btn" @click="skipFillInfo">
                 后续完善，直接进入
               </el-button>
             </el-form-item>
@@ -189,19 +109,10 @@
 
         <!-- 底部切换 -->
         <div class="bottom">
-          <el-button 
-            v-if="activeTab === 0 && !isWeChat" 
-            class="wx-btn" 
-            plain 
-            @click="switchToWechat"
-          >
+          <el-button v-if="activeTab === 0 && !isWeChat" class="wx-btn" plain @click="switchToWechat">
             <i class="iconfont icon-weixin" /> 微信登录/注册
           </el-button>
-          <el-button 
-            v-else-if="activeTab === 1" 
-            plain 
-            @click="switchToAccount"
-          >
+          <el-button v-else-if="activeTab === 1" plain @click="switchToAccount">
             账号登录
           </el-button>
           <p class="agreement">
@@ -221,6 +132,16 @@
 
 import { ref, computed, onMounted, nextTick } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
+
+// 使用 Nuxt 消息提示
+const { $message } = useNuxtApp()
+
+// API 响应类型
+interface ApiResponse<T = any> {
+  code: number
+  message?: string
+  data?: T
+}
 
 // 类型定义
 interface LoginForm {
@@ -327,7 +248,7 @@ const fillInfoRules: FormRules = {
   passwordRepeat: [
     { required: true, message: '请再次输入密码', trigger: 'blur' },
     {
-      validator: (rule, value, callback) => {
+      validator: (_rule: any, value: any, callback: any) => {
         if (value !== fillInfoForm.value.password) {
           callback(new Error('两次输入密码不一致'))
         } else {
@@ -395,13 +316,13 @@ const initAliyunCaptcha = () => {
 
 const sendSmsCode = async () => {
   if (!smsForm.value.cellphone) {
-    ElMessage.error('请输入手机号')
+    $message.error('请输入手机号')
     return
   }
 
   try {
     loading.value = true
-    const response = await $fetch('/api/sms/send', {
+    const response = await $fetch<ApiResponse>('/api/sms/send', {
       method: 'POST',
       body: {
         cellphone: smsForm.value.cellphone,
@@ -410,14 +331,14 @@ const sendSmsCode = async () => {
     })
 
     if (response.code === 200) {
-      ElMessage.success('验证码已发送')
+      $message.success('验证码已发送')
       startCountdown()
     } else {
-      ElMessage.error(response.message || '发送失败')
+      $message.error(response.message || '发送失败')
     }
   } catch (error) {
     console.error('发送验证码失败:', error)
-    ElMessage.error('发送失败，请重试')
+    $message.error('发送失败，请重试')
   } finally {
     loading.value = false
   }
@@ -443,26 +364,26 @@ const startCountdown = () => {
 const submitLogin = async () => {
   if (!loginFormRef.value) return
 
-  await loginFormRef.value.validate(async (valid) => {
+  await loginFormRef.value.validate(async (valid: boolean) => {
     if (!valid) return
 
     try {
       loading.value = true
-      const response = await $fetch('/api/auth/login', {
+      const response = await $fetch<ApiResponse>('/api/auth/login', {
         method: 'POST',
         body: loginForm.value
       })
 
       if (response.code === 200) {
-        ElMessage.success('登录成功')
+        $message.success('登录成功')
         emit('login-success', response.data.user)
         handleClose()
       } else {
-        ElMessage.error(response.message || '登录失败')
+        $message.error(response.message || '登录失败')
       }
     } catch (error) {
       console.error('登录失败:', error)
-      ElMessage.error('登录失败，请重试')
+      $message.error('登录失败，请重试')
     } finally {
       loading.value = false
     }
@@ -472,26 +393,26 @@ const submitLogin = async () => {
 const submitSmsLogin = async () => {
   if (!smsFormRef.value) return
 
-  await smsFormRef.value.validate(async (valid) => {
+  await smsFormRef.value.validate(async (valid: boolean) => {
     if (!valid) return
 
     try {
       loading.value = true
-      const response = await $fetch('/api/auth/sms-login', {
+      const response = await $fetch<ApiResponse>('/api/auth/sms-login', {
         method: 'POST',
         body: smsForm.value
       })
 
       if (response.code === 200) {
-        ElMessage.success('登录成功')
+        $message.success('登录成功')
         emit('login-success', response.data.user)
         handleClose()
       } else {
-        ElMessage.error(response.message || '登录失败')
+        $message.error(response.message || '登录失败')
       }
     } catch (error) {
       console.error('短信登录失败:', error)
-      ElMessage.error('登录失败，请重试')
+      $message.error('登录失败，请重试')
     } finally {
       loading.value = false
     }
@@ -501,26 +422,26 @@ const submitSmsLogin = async () => {
 const submitFillInfo = async () => {
   if (!fillInfoFormRef.value) return
 
-  await fillInfoFormRef.value.validate(async (valid) => {
+  await fillInfoFormRef.value.validate(async (valid: boolean) => {
     if (!valid) return
 
     try {
       loading.value = true
-      const response = await $fetch('/api/auth/fill-info', {
+      const response = await $fetch<ApiResponse>('/api/auth/fill-info', {
         method: 'POST',
         body: fillInfoForm.value
       })
 
       if (response.code === 200) {
-        ElMessage.success('信息保存成功')
+        $message.success('信息保存成功')
         emit('login-success', response.data.user)
         handleClose()
       } else {
-        ElMessage.error(response.message || '保存失败')
+        $message.error(response.message || '保存失败')
       }
     } catch (error) {
       console.error('保存信息失败:', error)
-      ElMessage.error('保存失败，请重试')
+      $message.error('保存失败，请重试')
     } finally {
       loading.value = false
     }
@@ -536,7 +457,7 @@ const skipFillInfo = () => {
 const generateWechatQR = async () => {
   try {
     wxLoading.value = true
-    const response = await $fetch('/api/auth/wechat-qr', {
+    const response = await $fetch<ApiResponse>('/api/auth/wechat-qr', {
       method: 'GET'
     })
 
@@ -546,7 +467,7 @@ const generateWechatQR = async () => {
     }
   } catch (error) {
     console.error('获取微信二维码失败:', error)
-    ElMessage.error('获取二维码失败')
+    $message.error('获取二维码失败')
   } finally {
     wxLoading.value = false
   }

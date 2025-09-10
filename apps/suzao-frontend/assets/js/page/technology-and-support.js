@@ -1,4 +1,3 @@
-// import Swiper from '/js/lib/swiper/swiper-bundle.esm.browser.min.js'
 addEventListener('load', () => {
   const attractingMerchants = new Vue({
     el: '#technology-and-support',

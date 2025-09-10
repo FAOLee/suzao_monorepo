@@ -22,6 +22,33 @@ export const useErrorHandler = () => {
 
     // 根据状态码返回用户友好的消息
     const getUserFriendlyMessage = (code: number, originalMessage: string) => {
+      // 如果没有国际化支持，返回默认消息
+      if (!$i18n?.t) {
+        switch (code) {
+          case 400:
+            return '请求参数错误'
+          case 401:
+            return '未授权，请登录'
+          case 403:
+            return '禁止访问'
+          case 404:
+            return '资源不存在'
+          case 422:
+            return originalMessage // 验证错误显示原始消息
+          case 429:
+            return '请求过于频繁'
+          case 500:
+            return '服务器错误'
+          case 502:
+          case 503:
+          case 504:
+            return '服务暂时不可用'
+          default:
+            return originalMessage || '未知错误'
+        }
+      }
+
+      // 使用国际化
       switch (code) {
         case 400:
           return $i18n.t('error.badRequest')
@@ -53,7 +80,7 @@ export const useErrorHandler = () => {
     }
 
     // 在开发环境打印详细错误信息
-    if (process.dev) {
+    if (import.meta.dev) {
       console.error('Error details:', error)
     }
 

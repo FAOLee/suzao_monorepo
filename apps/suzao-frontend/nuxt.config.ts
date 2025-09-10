@@ -27,28 +27,44 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    [
-      '@nuxtjs/i18n',
-      {
-        locales: [
-          { code: 'zh', file: 'zh.json', name: '中文' },
-          { code: 'en', file: 'en.json', name: 'English' }
-        ],
-        defaultLocale: 'zh',
-        langDir: 'locales/',
-        lazy: true,
-        strategy: 'prefix_except_default',
-        detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'i18n_redirected',
-          alwaysRedirect: false,
-          fallbackLocale: 'zh'
-        }
-      }
-    ],
-    '@vueuse/nuxt'
+    '@nuxtjs/i18n',
+    '@vueuse/nuxt',
+    '@element-plus/nuxt'
   ],
-  css: ['@/assets/css/tailwind.css'],
+  elementPlus: {
+    /** Options */
+    namespace: 'el',
+    importStyle: 'scss',
+    themes: ['dark'],
+    injectionID: {
+      prefix: 1024,
+      current: 0,
+    },
+  },
+  i18n: {
+    locales: [
+      { code: 'zh', file: 'zh.json', name: '中文' },
+      { code: 'en', file: 'en.json', name: 'English' }
+    ],
+    defaultLocale: 'zh',
+    langDir: 'locales',
+    lazy: true,
+    strategy: 'prefix_except_default',
+    bundle: {
+      optimizeTranslationDirective: false
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: false,
+      fallbackLocale: 'zh'
+    }
+  },
+  css: [
+    '@/assets/css/element-theme.scss',
+    '@/assets/css/global.css',
+    '@/assets/css/iconfont.css'
+  ],
   postcss: {
     plugins: {
       '@tailwindcss/postcss': {},

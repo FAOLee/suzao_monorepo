@@ -1,0 +1,54 @@
+{
+  "header": {
+    "materialsAssistant": "Materials Assistant",
+    "propertyTable": "Property Table",
+    "performanceSearch": "Performance Search",
+    "formulaEditor": "Modified Formula Editor",
+    "appDownload": "APP Download",
+    "productsAndServices": "Products & Services",
+    "quotation": "Publish Quotation",
+    "login": "Login",
+    "activateVIP": "Activate VIP",
+    "userCenter": "User Center",
+    "agencyService": "Agency Service",
+    "rndService": "R&D Service",
+    "ulService": "UL Technical Guidance"
+  },
+  "footer": {
+    "company": "Shenzhen Suzao New Materials Technology Co., Ltd.",
+    "phone": "400-869-1788",
+    "email": "Contact Email: service at 17suzao.com",
+    "about": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "copyright": "Copyright © 2014 - {year} 17SUZAO",
+    "beian": "ICP License No. 14067911",
+    "license": "Telecom Business License Guangdong B2-20221366"
+  },
+  "member": {
+    "myProfile": "My Profile",
+    "orderCenter": "Order Center",
+    "dataCenter": "Data Center",
+    "messages": "Messages",
+    "myMembers": "My Members",
+    "favorites": "Favorites",
+    "accountSettings": "Account Settings",
+    "feedback": "Feedback",
+    "logout": "Logout"
+  },
+  "common": {
+    "language": "Language",
+    "currentLanguage": "Current Language",
+    "switchLanguage": "Switch Language"
+  },
+  "error": {
+    "badRequest": "Bad Request",
+    "unauthorized": "Unauthorized",
+    "forbidden": "Forbidden",
+    "notFound": "Not Found",
+    "tooManyRequests": "Too Many Requests",
+    "serverError": "Internal Server Error",
+    "serviceUnavailable": "Service Unavailable",
+    "unknown": "Unknown Error"
+  }
+}

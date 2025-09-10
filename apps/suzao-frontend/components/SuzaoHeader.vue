@@ -1,103 +1,116 @@
 <template>
-  <header class="suzao-navbar" :class="props.className">
+  <header class="w-full h-16 flex items-center justify-between px-5 bg-white border-b border-gray-200 relative z-50">
     <!-- Logo -->
-    <div class="logo-box">
-      <NuxtLink class="logo" to="/">
+    <div class="flex-shrink-0">
+      <NuxtLink class="block" to="/">
         <picture>
           <source 
             media="(max-width: 1440px)" 
-            :srcset="`/static/assets/share-logo.png?v=${cssVersion}`" 
+            :srcset="`/static/share-logo.png?v=${cssVersion}`" 
           />
           <source 
             media="(min-width: 1441px)" 
-            :srcset="`/static/assets/share-logo.svg?v=${cssVersion}`" 
+            :srcset="`/static/share-logo.svg?v=${cssVersion}`" 
           />
           <img 
-            :src="`/static/assets/share-logo.svg?v=${cssVersion}`" 
-            :alt="$t('塑造')"
+            :src="`/static/share-logo.svg?v=${cssVersion}`" 
+            :alt="$t('nav.塑造')"
+            class="h-10 w-auto"
           />
         </picture>
       </NuxtLink>
     </div>
 
     <!-- 导航菜单 -->
-    <div class="nav-list">
+    <div class="flex items-center gap-8 flex-1 justify-center">
       <NuxtLink 
         to="/merchant" 
-        class="list a" 
-        :class="{ active: isActiveRoute('/merchant') }"
+        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
+        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/merchant') }"
       >
-        <span>{{ $t('商城') }}</span>
+        <span>{{ $t('nav.商城') }}</span>
       </NuxtLink>
 
       <NuxtLink 
         to="/plastic/ai" 
-        class="list a" 
-        :class="{ active: isActiveRoute('/plastic/ai') }"
+        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
+        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/ai') }"
       >
-        <span>{{ $t('材料智能助手') }}</span>
+        <span>{{ $t('header.materialsAssistant') }}</span>
       </NuxtLink>
 
       <NuxtLink 
         to="/plastic/search" 
-        class="list a" 
-        :class="{ active: isActiveRoute('/plastic/search') }"
+        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
+        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/search') }"
       >
-        <span>{{ $t('物性表') }}</span>
+        <span>{{ $t('header.propertyTable') }}</span>
       </NuxtLink>
 
       <NuxtLink 
         to="/plastic/advance-search" 
-        class="list a" 
-        :class="{ active: isActiveRoute('/plastic/advance-search') }"
+        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
+        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/advance-search') }"
       >
-        {{ $t('性能搜索') }}
+        {{ $t('header.performanceSearch') }}
       </NuxtLink>
 
       <NuxtLink 
         to="/plastic/sg-calculator" 
-        class="list a" 
-        :class="{ active: isActiveRoute('/plastic/sg-calculator') }"
+        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
+        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/sg-calculator') }"
       >
-        {{ $t('改性配方编辑器') }}
+        {{ $t('header.formulaEditor') }}
       </NuxtLink>
 
       <!-- 产品与服务下拉菜单 -->
-      <div class="down a attracting">
-        <NuxtLink class="list" to="/page/attracting-merchants?tab=settled">
-          <span>{{ $t('产品与服务') }}</span>
+      <div class="relative group">
+        <NuxtLink class="text-gray-700 py-2.5 transition-colors hover:text-blue-600" to="/page/attracting-merchants?tab=settled">
+          <span>{{ $t('header.productsAndServices') }}</span>
         </NuxtLink>
-        <div class="box">
-          <NuxtLink to="/page/attracting-merchants?tab=settled">
-            {{ $t('代理商入驻服务') }}
+        <div class="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-md p-2.5 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[1000]">
+          <NuxtLink 
+            to="/page/attracting-merchants?tab=settled"
+            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            {{ $t('header.agencyService') }}
           </NuxtLink>
-          <NuxtLink to="/page/attracting-merchants?tab=app">
-            {{ $t('材料智能助手APP') }}
+          <NuxtLink 
+            to="/page/attracting-merchants?tab=app"
+            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            {{ $t('nav.材料智能助手APP') }}
           </NuxtLink>
-          <NuxtLink to="/page/technology-and-support?tab=rnd">
-            {{ $t('改性技术服务') }}
+          <NuxtLink 
+            to="/page/technology-and-support?tab=rnd"
+            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            {{ $t('header.rndService') }}
           </NuxtLink>
-          <NuxtLink to="/page/technology-and-support?tab=ul">
-            {{ $t('企业申请UL技术指导') }}
+          <NuxtLink 
+            to="/page/technology-and-support?tab=ul"
+            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            {{ $t('header.ulService') }}
           </NuxtLink>
         </div>
       </div>
 
       <!-- APP下载 -->
-      <div class="down a down-app">
-        <NuxtLink class="name list" to="/page/attracting-merchants?tab=app">
+      <div class="relative group">
+        <NuxtLink class="text-gray-700 py-2.5 transition-colors hover:text-blue-600" to="/page/attracting-merchants?tab=app">
           APP下载
         </NuxtLink>
-        <div class="box">
-          <img src="/static/images/frontend/layouts/app.jpg" alt="扫码下载塑造APP" />
-          <div class="text">
-            <p class="p1">扫码下载塑造APP</p>
-            <p class="p2">
-              <span>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-md p-2.5 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[1000]">
+          <img src="/static/layout/app.jpg" alt="扫码下载塑造APP" class="w-full" />
+          <div class="mt-2">
+            <p class="text-sm text-gray-500">扫码下载塑造APP</p>
+            <p class="text-xs text-gray-400 mt-1">
+              <span class="inline-flex items-center gap-1">
                 <i class="iconfont icon-icon_pingguo"></i>
                 <i class="iconfont icon-a-icon_anzhuofuben"></i>
               </span>
-              <span>
+              <span class="inline-flex items-center gap-1 ml-2">
                 <i class="iconfont icon-icon_anzhuo-18"></i>
                 <i class="iconfont icon-icon_anzhuo-20"></i>
               </span>
@@ -108,135 +121,136 @@
     </div>
 
     <!-- 用户信息区域 -->
-    <div class="info">
+    <div class="flex items-center gap-5 flex-shrink-0">
       <!-- 报价按钮 -->
-      <div class="down">
+      <div class="relative group">
         <NuxtLink 
           v-if="user?.domain === 'a'" 
-          class="a quotation hot label vibrate" 
+          class="block transition-transform hover:scale-105 active:scale-95" 
           to="/page/merchant-registration"
           @click="trackEvent('我要报价')"
         >
-          <img src="/static/assets/page/pay/quotation-btn.png" alt="" />
+          <img src="/static/page/pay/quotation-btn.png" alt="" class="h-auto" />
         </NuxtLink>
         <NuxtLink 
           v-else 
-          class="a quotation hot label vibrate" 
+          class="block transition-transform hover:scale-105 active:scale-95" 
           to="/login?refer=/page/merchant-registration"
         >
-          <img src="/static/assets/page/pay/quotation-btn.png" alt="" />
+          <img src="/static/page/pay/quotation-btn.png" alt="" class="h-auto" />
         </NuxtLink>
       </div>
 
       <!-- VIP激活按钮 -->
       <div 
         v-if="user && vipStatus !== 'up'" 
-        class="activate-vip a" 
+        class="cursor-pointer transition-transform hover:scale-105 active:scale-95" 
         @click="openMemberVipDialog"
       >
-        <img src="/static/assets/layout/icon-activate-vip.png" alt="" />
+        <img src="/static/layout/icon-activate-vip.png" alt="" class="h-auto" />
       </div>
 
       <!-- 用户菜单 -->
       <div v-if="user">
         <div 
           v-if="user.domain === 'a'" 
-          class="down member2" 
-          :class="{ enterprise: isEnterprise }"
+          class="relative group" 
+          :class="{ 'enterprise': isEnterprise }"
         >
-          <NuxtLink class="name list" to="/member">
-            <span class="span">
+          <NuxtLink class="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors py-2.5 px-4" to="/member">
+            <span class="flex items-center gap-1">
               <img 
                 v-if="vipStatus === 'up'" 
-                src="/static/assets/layout/icon-vip.png" 
+                src="/static/layout/icon-vip.png" 
                 alt=""
+                class="w-4 h-4"
               />
-              {{ $t('用户中心') }}
+              {{ $t('header.userCenter') }}
             </span>
-            <span v-if="unreadTotal" class="tip-num">{{ unreadTotal }}</span>
+            <span v-if="unreadTotal" class="bg-red-500 text-white rounded-full px-2 py-0.5 text-xs min-w-[20px] text-center">{{ unreadTotal }}</span>
           </NuxtLink>
           
-          <div class="box">
-            <div class="top">
-              <NuxtLink class="user-name" to="/member#/personal">
-                {{ memberInfo.userName }} <span>></span>
-                <span class="sign-vip" :class="vipStatus">至尊会员</span>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-md p-4 min-w-[250px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[1000] shadow-lg">
+            <div class="border-b border-gray-200 pb-3 mb-3">
+              <NuxtLink class="block text-gray-700 hover:text-blue-600 transition-colors text-sm" to="/member#/personal">
+                {{ memberInfo.userName }} <span class="text-gray-400">></span>
+                <span class="inline-block px-2 py-0.5 text-xs rounded" :class="vipStatus === 'up' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-500'">至尊会员</span>
               </NuxtLink>
               <NuxtLink 
                 v-if="memberInfo.upOrderCount" 
-                class="user-name" 
+                class="block text-gray-700 hover:text-blue-600 transition-colors text-sm mt-1" 
                 to="/member#/order-list"
               >
-                已投：<span class="blue">{{ memberInfo.upOrderCount }}</span>
+                已投：<span class="text-blue-600 font-medium">{{ memberInfo.upOrderCount }}</span>
               </NuxtLink>
             </div>
             
-            <div class="center">
-              <div class="left">
-                <NuxtLink class="num" to="/member#/info-by-page/list">
+            <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3">
+              <div class="text-center">
+                <NuxtLink class="block text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors" to="/member#/info-by-page/list">
                   {{ memberInfo.exposure }}
                 </NuxtLink>
-                <p class="p">商品总曝光量</p>
+                <p class="text-xs text-gray-500 mt-1">商品总曝光量</p>
               </div>
-              <NuxtLink class="btn" to="/page/merchant-registration">
+              <NuxtLink class="bg-blue-600 text-white px-3 py-1.5 rounded text-sm hover:bg-blue-700 transition-colors" to="/page/merchant-registration">
                 + 发布商品
               </NuxtLink>
             </div>
             
-            <div class="member-btn bottom">
-              <NuxtLink class="name list" to="/member#/personal">
-                {{ $t('我的资料') }}
+            <div class="space-y-1">
+              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/personal">
+                {{ $t('member.myProfile') }}
               </NuxtLink>
               <NuxtLink 
                 v-if="isEnterprise" 
-                class="name list" 
+                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" 
                 to="/member#/order-list"
               >
-                {{ $t('订单中心') }}
+                {{ $t('member.orderCenter') }}
               </NuxtLink>
               <NuxtLink 
                 v-if="isEnterprise" 
-                class="name list" 
+                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" 
                 to="/member#/info-by-page"
               >
-                {{ $t('数据中心') }}
+                {{ $t('member.dataCenter') }}
               </NuxtLink>
-              <NuxtLink class="name list" to="/member#/message">
-                {{ $t('消息中心') }}
-                <span v-if="unread.message" class="tip-num">
+              <NuxtLink class="flex items-center justify-between py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/message">
+                <span>{{ $t('member.messages') }}</span>
+                <span v-if="unread.message" class="bg-red-500 text-white rounded-full px-1.5 py-0.5 text-xs min-w-[18px] text-center">
                   {{ unread.message }}
                 </span>
               </NuxtLink>
-              <NuxtLink class="name list" to="/member#/member-interest">
-                {{ $t('我的会员') }}
+              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/member-interest">
+                {{ $t('member.myMembers') }}
               </NuxtLink>
-              <NuxtLink class="name list" to="/member#/fav">
-                {{ $t('我的收藏') }}
+              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/fav">
+                {{ $t('member.favorites') }}
               </NuxtLink>
-              <NuxtLink class="name list" to="/member#/info">
-                {{ $t('账户设置') }}
+              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/info">
+                {{ $t('member.accountSettings') }}
               </NuxtLink>
-              <NuxtLink class="name list" to="/member#/suggestion">
-                {{ $t('意见反馈') }}
-                <span v-if="unread.suggestion" class="tip-num">
+              <NuxtLink class="flex items-center justify-between py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/suggestion">
+                <span>{{ $t('member.feedback') }}</span>
+                <span v-if="unread.suggestion" class="bg-red-500 text-white rounded-full px-1.5 py-0.5 text-xs min-w-[18px] text-center">
                   {{ unread.suggestion }}
                 </span>
               </NuxtLink>
-              <a class="name list" @click="logout">
-                {{ $t('退出登录') }}
+              <a class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm cursor-pointer" @click="logout">
+                {{ $t('member.logout') }}
               </a>
             </div>
           </div>
         </div>
         
-        <NuxtLink v-else class="name list" to="/enterprise">
-          {{ $t('商家管理') }}
+        <NuxtLink v-else class="text-gray-700 hover:text-blue-600 transition-colors py-2.5 px-4" to="/enterprise">
+          {{ $t('nav.商家管理') }}
         </NuxtLink>
       </div>
       
       <!-- 登录按钮 -->
-      <div v-else class="name list" @click="openLoginDialog">
-        {{ $t('登录') }}
+      <div v-else class="text-gray-700 hover:text-blue-600 transition-colors py-2.5 px-4 cursor-pointer" @click="openLoginDialog">
+        {{ $t('header.login') }}
       </div>
     </div>
   </header>
@@ -294,7 +308,9 @@ interface Unread {
 // Nuxt 3 Composables - 现在 ESLint 应该能正确识别
 const config = useRuntimeConfig()
 const route = useRoute()
-const { $t } = useI18n()
+
+// 使用官方推荐的 Nuxt 3 + @nuxtjs/i18n 方式
+const { t: $t } = useI18n()
 
 // 响应式数据
 const user = ref<User | null>(null) // 用户信息，需要从认证系统获取
@@ -364,114 +380,3 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-@import '@/assets/css/vendor/top-nav.css';
-
-.suzao-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  background: #fff;
-  border-bottom: 1px solid #e6e6e6;
-  position: relative;
-  z-index: 999;
-}
-
-.logo-box {
-  flex-shrink: 0;
-}
-
-.logo img {
-  height: 40px;
-  width: auto;
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  flex: 1;
-  justify-content: center;
-}
-
-.nav-list .list {
-  color: #333;
-  text-decoration: none;
-  padding: 10px 0;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.nav-list .list:hover,
-.nav-list .list.active {
-  color: #007bff;
-}
-
-.nav-list .list.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 2px;
-  background: #007bff;
-}
-
-.down {
-  position: relative;
-}
-
-.down .box {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
-  padding: 10px;
-  min-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 1000;
-}
-
-.down:hover .box {
-  opacity: 1;
-  visibility: visible;
-}
-
-.info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-shrink: 0;
-}
-
-.tip-num {
-  background: #ff4444;
-  color: white;
-  border-radius: 10px;
-  padding: 2px 6px;
-  font-size: 12px;
-  min-width: 18px;
-  height: 18px;
-  line-height: 14px;
-  text-align: center;
-}
-
-/* 响应式设计 */
-@media (max-width: 1024px) {
-  .nav-list {
-    display: none;
-  }
-  
-  .suzao-navbar {
-    padding: 0 10px;
-  }
-}
-
-</style>

@@ -95,7 +95,7 @@ const cssVersion = computed(() => {
 </script>
 
 <style scoped>
-@import '@/assets/css/vendor/right-bar.css';
+@import '@/assets/less/vendor/right-bar.css';
 
 .right-bar {
   position: fixed;

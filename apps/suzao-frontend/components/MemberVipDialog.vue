@@ -6,7 +6,7 @@
     :before-close="handleClose"
   >
     <div class="header">
-      <img class="header-icon" src="/static/assets/layout/icon-diamond.png" alt="VIP图标" />
+      <img class="header-icon" src="/static/layout/icon-diamond.png" alt="VIP图标" />
       <div class="header-text">
         <div class="header-title">开通超级VIP专享</div>
         <div v-if="vipStatus !== 'up'" class="header-tip">
@@ -73,8 +73,16 @@
 
           <div class="pay-con">
             <div class="con-left">
-              <div class="QR-code" v-loading="!QRCode" id="QRCode">
-                <div v-if="QRCode" v-html="QRCode"></div>
+              <div class="QR-code" v-loading="!paymentUrl" id="QRCode">
+                <VueQrcode 
+                  v-if="paymentUrl" 
+                  :value="paymentUrl" 
+                  :size="100" 
+                  :margin="1"
+                  :color="{ dark: '#000000', light: '#ffffff' }"
+                  type="image/png"
+                  error-correction-level="M"
+                />
               </div>
               <p>打开微信扫一扫</p>
             </div>
@@ -108,6 +116,7 @@
 
 import { ref, computed, watch, onMounted } from 'vue'
 import { useToast } from '~/composables/useToast'
+import VueQrcode from 'vue-qrcode'
 
 // 类型定义
 interface GoodsItem {
@@ -128,7 +137,7 @@ interface PayMethod {
 interface PaymentResponse {
   code: number
   data: {
-    qrcode: string
+    qrcode: string  // 支付URL而不是HTML
   }
 }
 
@@ -168,7 +177,7 @@ const emit = defineEmits<Emits>()
 // 响应式数据
 const goodsId = ref('')
 const payMethod = ref('wx_pay')
-const QRCode = ref('')
+const paymentUrl = ref('')
 const agree = ref(false)
 
 // 模拟数据 - 实际项目中从API获取
@@ -176,17 +185,17 @@ const contentData = ref<ContentData>({
   title: 'VIP会员特权',
   list: [
     {
-      img: '/static/assets/vip/privilege1.png',
+      img: '/static/vip/privilege1.png',
       title: '专属客服',
       tip: '1对1专属服务'
     },
     {
-      img: '/static/assets/vip/privilege2.png', 
+      img: '/static/vip/privilege2.png', 
       title: '数据下载',
       tip: '无限次数据导出'
     },
     {
-      img: '/static/assets/vip/privilege3.png',
+      img: '/static/vip/privilege3.png',
       title: '高级搜索',
       tip: '更多筛选条件'
     }
@@ -215,12 +224,12 @@ const goodsList = ref<GoodsItem[]>([
 const payTab = ref<PayMethod[]>([
   {
     id: 'wx_pay',
-    icon: '/static/assets/pay/wechat.png',
+    icon: '/static/pay/wechat.png',
     text: '微信支付'
   },
   {
     id: 'ali_pay',
-    icon: '/static/assets/pay/alipay.png', 
+    icon: '/static/pay/alipay.png', 
     text: '支付宝'
   }
 ])
@@ -255,7 +264,7 @@ const generateQRCode = async () => {
   if (!selectedGoods.value || !agree.value) return
   
   try {
-    QRCode.value = ''
+    paymentUrl.value = ''
     
     // 模拟生成支付二维码
     const response = await $fetch<PaymentResponse>('/api/payment/qrcode', {
@@ -268,7 +277,7 @@ const generateQRCode = async () => {
     })
     
     if (response.code === 200) {
-      QRCode.value = response.data.qrcode
+      paymentUrl.value = response.data.qrcode
     }
   } catch (error) {
     console.error('生成支付二维码失败:', error)

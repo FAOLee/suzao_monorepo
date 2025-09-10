@@ -4,21 +4,21 @@
       <i class="iconfont icon-icon_zhongshi" /> 重试
     </div>
     <div v-if="item.ansId" class="operate-btn copy" @click="eventCopy(item)">
-      <i class="el-icon-document-copy" /> 复制
+      <el-icon><DocumentCopy /></el-icon> 复制
     </div>
     <div 
       v-if="item.ansId" 
       :class="{ 'operate-btn': true, active: lickActive, like: true }" 
       @click="eventLike(item.ansId)"
     >
-      <i class="el-icon-check" /> 对
+      <el-icon><Check /></el-icon> 对
     </div>
     <div 
       v-if="item.ansId" 
       :class="{ 'operate-btn': true, active: dissActive, dislikes: true }" 
       @click="eventDislikes(item.ansId)"
     >
-      <i class="el-icon-close" /> 错
+      <el-icon><Close /></el-icon> 错
     </div>
     <div class="right-flex-end">
       <div 
@@ -26,7 +26,7 @@
         class="operate-btn become" 
         @click="openBecomeDialog(item)"
       >
-        <i class="iconfont el-icon-edit" /> 申请成为商家
+        <el-icon><Edit /></el-icon> 申请成为商家
       </div>
       <NuxtLink 
         v-if="!['ENTERPRISE', 'REPLACE01'].includes(item.ansResultType) && item.total > item.length" 
@@ -35,7 +35,7 @@
         :to="toLink(item)"
       >
         查看更多<span class="color">{{ item.total }}条</span>相关内容
-        <i class="iconfont el-icon-arrow-right" />
+        <el-icon><ArrowRight /></el-icon>
       </NuxtLink>
       <div 
         v-if="['REPLACE01'].includes(item.ansResultType) && item.total > 6" 
@@ -43,8 +43,8 @@
         :class="{ foldingState }" 
         @click="changeList(item)"
       >
-        <div class="open">查看更多 <i class="el-icon-arrow-down" /></div>
-        <div class="close">收起 <i class="el-icon-arrow-up" /></div>
+        <div class="open">查看更多 <el-icon><ArrowDown /></el-icon></div>
+        <div class="close">收起 <el-icon><ArrowUp /></el-icon></div>
       </div>
     </div>
   </div>
@@ -55,6 +55,15 @@
 
 import { ref, computed, onMounted, inject } from 'vue'
 import { useToast } from '~/composables/useToast'
+import { 
+  DocumentCopy, 
+  Check, 
+  Close, 
+  Edit, 
+  ArrowRight, 
+  ArrowDown, 
+  ArrowUp 
+} from '@element-plus/icons-vue'
 
 // 类型定义
 interface ChatItem {

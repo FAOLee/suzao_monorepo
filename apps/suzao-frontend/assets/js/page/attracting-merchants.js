@@ -1,5 +1,5 @@
-import { CountUp } from '/js/countUp.min.js'
-import Swiper from '/js/lib/swiper/swiper-bundle.esm.browser.min.js'
+import { CountUp } from './countUp.min.js'
+import Swiper from '../lib/swiper/swiper-bundle.esm.browser.min.js'
 // import becomeForm from '/frontend/js/components/becomeForm.js'
 
 addEventListener('load', () => {

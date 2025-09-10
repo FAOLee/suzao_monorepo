@@ -31,7 +31,7 @@
 <script setup lang="ts">
 /// <reference path="../types/global.d.ts" />
 
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, inject } from 'vue'
 
 // 类型定义
 interface ChatButton {
@@ -63,7 +63,7 @@ const backBottom2 = inject<() => void>('backBottom2', () => {})
 const renderStart = inject<() => void>('renderStart', () => {})
 const renderEnd = inject<() => void>('renderEnd', () => {})
 const handleSearch = inject<(params: any) => void>('handleSearch', () => {})
-const myRandom = inject<(arr: any[], count: number) => any[]>('myRandom', (arr, count) => arr.slice(0, count))
+const myRandom = inject<(arr: any[], count: number) => any[]>('myRandom', (arr: any[], count: number) => arr.slice(0, count))
 
 // 响应式数据
 const displayText = ref<string[]>([])

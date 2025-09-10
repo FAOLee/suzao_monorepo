@@ -51,7 +51,7 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <style scoped>
-@import '@/assets/css/vendor/footer.css';
+@import '@/assets/less/vendor/footer.css';
 
 .suzao-footer {
   background-color: #f8f9fa;

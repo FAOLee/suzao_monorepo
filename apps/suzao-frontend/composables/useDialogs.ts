@@ -1,7 +1,5 @@
 /// <reference path="../types/global.d.ts" />
 
-import { ref, reactive } from 'vue'
-
 interface DialogState {
   memberVip: boolean
   login: boolean

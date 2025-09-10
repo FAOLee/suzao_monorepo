@@ -25,9 +25,14 @@ declare global {
   const useRouter: () => Router
   const useNuxtApp: () => {
     $router: Router
+    $i18n?: any
     [key: string]: any
   }
   const navigateTo: (url: string, options?: { replace?: boolean }) => Promise<void>
+  const createError: (options: { statusCode: number, statusMessage: string, data?: any }) => Error
+  const useState: <T>(key: string, init?: () => T) => Ref<T>
+  const readonly: <T>(target: T) => T
+  const onUnmounted: (callback: () => void) => void
   
   // I18n Composables
   const useI18n: () => {
@@ -43,9 +48,19 @@ declare global {
   const watch: any
   const watchEffect: any
   const nextTick: () => Promise<void>
+  const reactive: <T extends object>(target: T) => T
 
   // Fetch 相关
   const $fetch: any
+
+  // 自定义 Composables
+  const useApi: () => any
+  const useStats: () => any
+  const useToast: () => any
+  const useTheme: () => any
+  const useEnv: () => any
+  const useErrorHandler: () => any
+  const useDialogs: () => any
 }
 
 export {}
