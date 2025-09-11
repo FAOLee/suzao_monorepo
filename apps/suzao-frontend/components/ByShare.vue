@@ -38,7 +38,7 @@
       </template>
       
       <!-- 广告标签，显示链接类型 -->
-      <div class="absolute top-0 right-0 text-xs text-white leading-none z-[2] pt-0.5 pb-1 pl-1.5 pr-1 rounded-bl bg-black bg-opacity-15 scale-75 origin-top-right">
+      <div class="ad-label">
         广告
       </div>
     </div>
@@ -85,7 +85,7 @@
       </template>
       
       <!-- 广告标签，显示链接类型 -->
-      <div class="absolute top-0 right-0 text-xs text-white leading-none z-[2] pt-0.5 pb-1 pl-1.5 pr-1 rounded-bl bg-black bg-opacity-15 scale-75 origin-top-right">
+      <div class="ad-label">
         {{ isH5Link(item.link) ? '广告(H5)' : '广告' }}
       </div>
     </div>
@@ -128,7 +128,7 @@
       </template>
       
       <!-- 广告标签 -->
-      <div class="absolute top-0 right-0 text-xs text-white leading-none z-[2] pt-0.5 pb-1 pl-1.5 pr-1 rounded-bl bg-black bg-opacity-15 scale-75 origin-top-right">
+      <div class="ad-label">
         广告
       </div>
     </div>
@@ -224,3 +224,23 @@ const isH5Link = (url: string): boolean => {
   return h5Indicators.some(indicator => url.includes(indicator))
 }
 </script>
+
+<style scoped>
+.ad-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  color: white;
+  line-height: 1;
+  z-index: 2;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 4px;
+  border-radius: 0 0 0 6px;
+  background-color: rgba(0, 0, 0, 0.15);
+  transform: scale(0.75);
+  transform-origin: top right;
+}
+</style>

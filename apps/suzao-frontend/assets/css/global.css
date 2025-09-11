@@ -1,9 +1,8 @@
-/* Tailwind CSS 全局样式 - 替代 init.less */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ==============================================
+   全局自定义样式 - 项目特定样式
+   ============================================== */
 
-/* 基础样式 */
+/* 基础样式重置和字体配置 */
 @layer base {
   html {
     font-family:
@@ -11,7 +10,15 @@
       'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
+  /* 防止水平滚动条 */
+  html,
   body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    /* Safe area insets for mobile devices */
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
     padding-bottom: constant(safe-area-inset-bottom);
@@ -20,6 +27,7 @@
     padding-left: env(safe-area-inset-left);
     padding-right: constant(safe-area-inset-right);
     padding-right: env(safe-area-inset-right);
+    /* 主要样式 */
     background-color: #f5f5f5;
     color: #333333;
   }
@@ -28,69 +36,37 @@
   #__nuxt {
     min-height: 100vh;
   }
+
+  /* 暗黑模式 */
+  body.dark {
+    background-color: #0f0f0f;
+    color: #ffffff;
+  }
 }
 
-/* Element Plus 组件样式覆盖 */
+/* 项目组件样式 */
 @layer components {
-  /* Dialog */
-  .el-dialog {
-    border-radius: 12px;
+  /* 主要容器宽度限制 */
+  .main-width {
+    width: 100%;
+    max-width: 1240px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
   }
 
-  /* Radio */
-  .el-radio__input.is-checked .el-radio__inner {
-    @apply bg-primary border-primary;
-  }
-
-  .el-radio__input.is-checked + .el-radio__label {
-    @apply text-primary;
-  }
-
-  /* Input & Textarea */
-  .el-input.is-active .el-input__inner,
-  .el-input__inner:focus,
-  .el-textarea__inner:focus {
-    @apply border-primary;
-  }
-
-  /* Button */
-  .el-button:focus,
-  .el-button:hover {
-    @apply text-primary border-primary bg-primary-bg;
-  }
-
-  .el-button--primary {
-    @apply bg-primary border-primary text-white;
-  }
-
-  .el-button--primary:focus,
-  .el-button--primary:hover {
-    @apply text-white bg-primary-hover border-primary-hover;
-  }
-
-  .el-button--primary.is-plain {
-    @apply bg-white border-primary text-primary;
-  }
-
-  .el-button--primary.is-plain:focus,
-  .el-button--primary.is-plain:hover {
-    @apply bg-white border-primary text-primary;
-  }
-
-  /* Dialog close button */
-  .el-dialog__headerbtn:focus .el-dialog__close,
-  .el-dialog__headerbtn:hover .el-dialog__close {
-    @apply border-primary text-primary;
-  }
-
-  /* Loading */
-  .el-loading-mask {
-    @apply z-[1000];
+  /* 响应式主容器 */
+  @media (max-width: 768px) {
+    .main-width {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 }
 
-/* 水印遮罩效果 */
+/* 工具类样式 */
 @layer utilities {
+  /* 水印遮罩效果 */
   .mask {
     @apply relative;
   }
@@ -106,5 +82,25 @@
     background: url('/static/sy-logo.png') repeat;
     background-size: 60%;
     opacity: 0.4;
+  }
+
+  /* 滚动条样式 */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
   }
 }

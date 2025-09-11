@@ -1,4 +1,5 @@
 import 'nuxt/schema'
+import type { PageMeta } from 'nuxt/schema'
 
 declare module 'nuxt/schema' {
   interface NuxtConfig {
@@ -12,6 +13,9 @@ declare global {
   interface Window {
     $nuxt?: any
   }
+  
+  // Nuxt 页面元数据函数
+  const definePageMeta: (meta: PageMeta) => void
 }
 
 export {}

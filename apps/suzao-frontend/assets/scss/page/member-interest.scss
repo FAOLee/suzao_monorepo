@@ -1,0 +1,490 @@
+@import '../_variables.scss';
+$line-color: #3d4877;
+
+.suzao {
+  background: linear-gradient(180deg, #404c7e 0%, #2a3251 100%);
+	@include maxWidthFit(30, padding-bottom);
+	@include minWidthFit(60, padding-bottom);
+
+  .member-interest {
+    section {
+	@include maxWidthFit(15, padding-left);
+	@include minWidthFit(30, padding-left);
+	@include maxWidthFit(15, padding-right);
+	@include minWidthFit(30, padding-right);
+
+      & + section {
+	@include maxWidthFit(15, padding-top);
+	@include minWidthFit(30, padding-top);
+      }
+    }
+
+    .bottom-line {
+      border-bottom: 1px solid $line-color;
+    }
+
+    .top-line {
+      border-top: 1px solid $line-color;
+    }
+
+    .header-tip {
+      font-weight: 400;
+      color: #ffe7c4;
+      line-height: 1;
+	@include maxWidthFit(12, font-size);
+	@include minWidthFit(24, font-size);
+      text-align: center;
+	@include maxWidthFit(12, padding);
+	@include minWidthFit(24, padding);
+    }
+
+    .header-title {
+	@include maxWidthFit(22, font-size);
+	@include minWidthFit(44, font-size);
+	@include maxWidthFit(5, padding-top);
+	@include minWidthFit(10, padding-top);
+	@include maxWidthFit(5, padding-bottom);
+	@include minWidthFit(10, padding-bottom);
+      font-weight: 600;
+      color: #e5b372;
+      line-height: 1.36;
+    }
+
+    .content-left {
+      display: flex;
+      flex-wrap: wrap;
+      // .maxWidthFit(15, padding);
+      // .minWidthFit(15, padding);
+      color: #ffd399;
+
+      .left-title {
+        width: 100%;
+	@include maxWidthFit(18, font-size);
+	@include minWidthFit(36, font-size);
+	@include maxWidthFit(5, padding-top);
+	@include minWidthFit(10, padding-top);
+	@include maxWidthFit(10, padding-bottom);
+	@include minWidthFit(20, padding-bottom);
+      }
+
+      .w50 {
+        width: 25%;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+	@include maxWidthFit(5, padding-bottom);
+	@include minWidthFit(10, padding-bottom);
+
+        img {
+          width: 55px;
+        }
+
+        .li-title {
+	@include maxWidthFit(12, font-size);
+	@include minWidthFit(24, font-size);
+        }
+
+        .li-tip {
+	@include maxWidthFit(10, font-size);
+	@include minWidthFit(20, font-size);
+        }
+
+        .li-title,
+        .li-tip {
+	@include maxWidthFit(5, padding-top);
+	@include minWidthFit(10, padding-top);
+        }
+      }
+    }
+
+    .content-right {
+	@include maxWidthFit(25, padding-left);
+	@include minWidthFit(25, padding-left);
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .content-ul {
+      // .maxWidthFit(10, padding-top);
+      // .minWidthFit(20, padding-top);
+      // .maxWidthFit(10, padding-bottom);
+      // .minWidthFit(20, padding-bottom);
+	@include maxWidthFit(-15, margin-right);
+	@include minWidthFit(-30, margin-right);
+
+      .ul {
+        display: flex;
+        overflow-y: hidden;
+        .scrollbar;
+	@include maxWidthFit(10, padding-top);
+	@include minWidthFit(20, padding-top);
+	@include maxWidthFit(5, padding-bottom);
+	@include minWidthFit(10, padding-bottom);
+
+        .li {
+	@include maxWidthFit(15, padding-right);
+	@include minWidthFit(30, padding-right);
+
+          .box {
+            border: 1px solid #f5d990;
+            color: #feeab6;
+	@include maxWidthFit(120, width);
+	@include minWidthFit(240, width);
+
+            .validityTime,
+            .originPrice {
+              color: $white;
+            }
+          }
+
+          &.active {
+            .box {
+              background: linear-gradient(215deg, #ffe9b0 0%, #fff1cc 33%, #ffd7a5 100%);
+              border: 1px solid #ffc681;
+
+              &,
+              .validityTime,
+              .originPrice {
+                color: #804e13;
+              }
+            }
+          }
+        }
+
+        .box {
+          position: relative;
+          border-radius: 16px;
+	@include maxWidthFit(20, padding-top);
+	@include minWidthFit(40, padding-top);
+	@include maxWidthFit(20, padding-bottom);
+	@include minWidthFit(40, padding-bottom);
+          text-align: center;
+        }
+
+        .extraNote {
+          background: linear-gradient(90deg, #fe8f16 0%, #fe5a12 100%);
+          border-radius: 13px 0px 16px 0px;
+          font-size: 11px;
+          line-height: 1;
+          color: $white;
+          text-align: center;
+          position: absolute;
+          top: -4px;
+          left: 0;
+          padding: 4px 10px;
+        }
+
+        .validityTime {
+          font-size: 14px;
+        }
+
+        .price {
+          font-weight: bold;
+          font-size: 44px;
+          letter-spacing: -2px;
+
+          span {
+            font-size: 22px;
+          }
+        }
+
+        .originPrice {
+          font-size: 14px;
+          text-decoration: line-through;
+        }
+      }
+    }
+
+    .pay-con {
+      .tab {
+        background: #f3f3f6;
+        border-radius: 8px;
+	@include maxWidthFit(2, padding);
+	@include minWidthFit(2, padding);
+        display: flex;
+      }
+
+      .li {
+        border-radius: 8px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+	@include maxWidthFit(10, padding);
+	@include minWidthFit(10, padding);
+        cursor: pointer;
+
+        .icon {
+          width: 22px;
+        }
+
+        .text {
+          font-size: 14px;
+          color: $text-color;
+	@include maxWidthFit(5, padding-left);
+	@include minWidthFit(5, padding-left);
+        }
+
+        &.active {
+          box-shadow: 0px 0px 4px 0px rgba(202, 202, 202, 0.5);
+          background: $white;
+        }
+      }
+
+      .pay-con {
+	@include maxWidthFit(20, margin-top);
+	@include minWidthFit(20, margin-top);
+	@include maxWidthFit(10, padding);
+	@include minWidthFit(10, padding);
+        background: #f3f3f6;
+        border-radius: 8px;
+        border: 1px solid #f5f5f5;
+        display: flex;
+
+        .con-left {
+          background-color: $white;
+	@include maxWidthFit(10, padding);
+	@include minWidthFit(10, padding);
+          border-radius: 8px;
+          width: 128px;
+
+          p {
+            font-size: 13px;
+            color: #c4c4c4;
+            text-align: center;
+	@include maxWidthFit(10, padding-top);
+	@include minWidthFit(10, padding-top);
+          }
+        }
+
+        .con-right {
+	@include maxWidthFit(20, padding-left);
+	@include minWidthFit(20, padding-left);
+          flex: 1;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+
+          .agree-p,
+          .text,
+          .agree {
+            width: 100%;
+          }
+
+          .agree-p {
+            font-size: 14px;
+            color: $text-color;
+          }
+
+          .text {
+          }
+
+          .price {
+            font-weight: 600;
+            font-size: 40px;
+            color: #e62129;
+          }
+
+          .originPrice {
+            font-size: 14px;
+            color: $text-color3;
+            text-decoration-line: line-through;
+          }
+
+          .agree {
+            display: flex;
+            align-items: center;
+            color: #c4c4c4;
+
+            .el-checkbox__inner {
+              border-radius: 50%;
+            }
+
+            .agree-tip {
+              margin-left: 3px;
+            }
+
+            &,
+            .el-link {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .btn-icon-con {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      &.el-button {
+        width: 200px;
+        border-radius: 30px;
+
+        span {
+          width: 100%;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .text {
+	@include maxWidthFit(16, font-size);
+	@include minWidthFit(32, font-size);
+        }
+      }
+
+      .icon {
+	@include maxWidthFit(30, width);
+	@include minWidthFit(60, width);
+      }
+
+      .text {
+        color: $white;
+	@include maxWidthFit(14, font-size);
+	@include minWidthFit(28, font-size);
+        line-height: 1.42;
+	@include maxWidthFit(10, padding-left);
+	@include minWidthFit(20, padding-left);
+      }
+    }
+
+    .payment {
+      .el-radio-group,
+      .el-radio {
+        width: 100%;
+      }
+
+      .el-radio {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+
+        &:not(:last-of-type) {
+	@include maxWidthFit(20, margin-bottom);
+	@include minWidthFit(40, margin-bottom);
+        }
+      }
+
+      .el-radio__label {
+        .btn-icon-con;
+      }
+
+      .el-radio__inner {
+        width: 28px;
+        height: 28px;
+        position: relative;
+        background: rgba(255, 255, 255, 0);
+        border-color: #f5d990;
+
+        &::after {
+          box-sizing: content-box;
+          content: '';
+          border: 1px solid $white;
+          border-left: 0;
+          border-top: 0;
+          height: 12px;
+          left: 10px;
+          top: 4px;
+          position: absolute;
+          transform: rotate(45deg) scaleY(0);
+          width: 5px;
+          transform-origin: center;
+          transition: transform 0.15s ease-in 0.05s, -webkit-transform 0.15s ease-in 0.05s;
+          background-color: rgba(255, 255, 255, 0);
+          border-radius: 0;
+        }
+      }
+
+      .is-checked {
+        .el-radio__inner {
+          background: linear-gradient(90deg, #ffe7c4 0%, #ffe9c8 24%, #ffcc8a 100%);
+
+          &::after {
+            transform: rotate(45deg) scaleY(1);
+            border-color: #2a3251;
+          }
+        }
+      }
+
+      .el-card {
+        border: 1px solid #535a76;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+      }
+    }
+
+    .agreement {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      &,
+      .el-link {
+        color: #c4c4c4;
+      }
+
+      .icon {
+	@include maxWidthFit(30, width);
+	@include minWidthFit(60, width);
+      }
+
+      .text {
+	@include maxWidthFit(14, font-size);
+	@include minWidthFit(28, font-size);
+	@include maxWidthFit(20, padding-left);
+	@include minWidthFit(40, padding-left);
+        line-height: 1.42;
+      }
+
+      .el-checkbox {
+        margin-right: 5px;
+      }
+    }
+
+    .btn-box {
+	@include maxWidthFit(40, padding-left);
+	@include minWidthFit(80, padding-left);
+	@include maxWidthFit(40, padding-right);
+	@include minWidthFit(80, padding-right);
+
+      .suzao-btn {
+        display: block;
+        background: linear-gradient(90deg, #ffe7c4 0%, #ffe9c8 24%, #ffcc8a 100%);
+        border-radius: 28px;
+        font-weight: 600;
+	@include maxWidthFit(16, font-size);
+	@include minWidthFit(32, font-size);
+        color: #353f68;
+        line-height: 1;
+	@include maxWidthFit(15, padding);
+	@include minWidthFit(30, padding);
+        // .maxWidthFit(10, padding-top);
+        // .minWidthFit(20, padding-top);
+        text-align: center;
+      }
+
+      // .price {
+      //   .maxWidthFit(22, font-size);
+      //   .minWidthFit(44, font-size);
+      //   // .maxWidthFit(16, line-height);
+      //   // .minWidthFit(32, line-height);
+      //   line-height: 1;
+      //   letter-spacing: -2px;
+      //   margin-right: 5px;
+
+      //   &::before {
+      //     content: '￥';
+      //     .maxWidthFit(12, font-size);
+      //     .minWidthFit(24, font-size);
+      //   }
+      // }
+    }
+  }
+}

@@ -5,7 +5,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-// 服务器级重定向已在 nuxt.config.ts 中配置
-// nitro.routeRules: { '/': { redirect: '/plastic/ai' } }
-</script>
+<script setup lang="ts"></script>

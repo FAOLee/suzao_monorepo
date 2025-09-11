@@ -1,9 +1,9 @@
 <template>
-  <el-dialog v-model="visible" class="login-dialog" :close-on-click-modal="false" width="988px"
+  <el-dialog v-model="visible" class="login-dialog overflow-hidden" :close-on-click-modal="false" width="988px"
     :before-close="handleClose">
-    <div class="login-box">
+    <div class="login-box flex">
       <!-- 左侧图片区域 -->
-      <div class="login-pic">
+      <div class="login-pic relative">
         <ByShare v-for="item in shareItems" :key="item.id" :item="item" />
       </div>
 
@@ -11,11 +11,7 @@
       <div class="login-content" v-loading="loading">
         <div class="top">
           <!-- 账号密码登录 -->
-          <div v-if="activeTab === 0" class="title poab-top">
-            <div class="logo">
-              <img src="/static/share-logo.svg" alt="Logo" />
-            </div>
-          </div>
+          <div v-if="activeTab === 0" class="title poab-top"> </div>
 
           <!-- 微信扫码登录 -->
           <div v-else-if="activeTab === 1" class="title">
@@ -128,13 +124,15 @@
 </template>
 
 <script setup lang="ts">
-/// <reference path="../types/global.d.ts" />
-
 import { ref, computed, onMounted, nextTick } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
 
-// 使用 Nuxt 消息提示
+// 使用 useNuxtApp 的 $message
 const { $message } = useNuxtApp()
+
+// 类型定义
+type FormInstance = any
+type FormRules = Record<string, any[]>
+type TabsPaneContext = { paneName: string | number }
 
 // API 响应类型
 interface ApiResponse<T = any> {
@@ -212,7 +210,7 @@ const shareItems = ref([
   {
     id: '1',
     title: '塑造平台',
-    image: [{ url: '/frontend/assets/login-banner.jpg' }],
+    image: [{ url: '/static/layouts/app.jpg' }],
     link: '/page/about'
   }
 ])
@@ -281,8 +279,8 @@ const resetForms = () => {
   activeName.value = 'login'
 }
 
-const handleTabClick = (tab: any) => {
-  activeName.value = tab.name
+const handleTabClick = (tab: TabsPaneContext) => {
+  activeName.value = tab.paneName as string
 }
 
 const switchToRegister = () => {
@@ -492,6 +490,46 @@ onMounted(() => {
   overflow: hidden;
 }
 
+.login-pic :deep(.img) {
+  padding-top: 124.052%;
+  cursor: pointer;
+}
+
+.login-pic :deep(.img img),
+.login-pic :deep(.img video) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* 验证码相关样式 */
+.login-content :deep(#captcha-element) {
+  height: 50px;
+}
+
+.login-content :deep(#aliyunCaptcha-sliding-wrapper) {
+  margin-bottom: 0;
+}
+
+.login-content :deep(#aliyunCaptcha-sliding-body #aliyunCaptcha-sliding-slider) {
+  background-color: white;
+  color: #9ca3af;
+}
+
+.login-content :deep(#aliyunCaptcha-sliding-body #aliyunCaptcha-sliding-slider.ok) {
+  background-color: white;
+  color: #10b981;
+}
+
+.login-content :deep(#aliyunCaptcha-sliding-body #aliyunCaptcha-sliding-left) {
+  background-color: white;
+}
+
+.login-content :deep(#aliyunCaptcha-sliding-body #aliyunCaptcha-sliding-text-box) {
+  color: #10b981;
+}
+
 .login-box {
   display: flex;
   min-height: 600px;
@@ -507,7 +545,9 @@ onMounted(() => {
 }
 
 .login-content {
-  flex: 1;
+  width: 52.025%;
+  box-shadow: none;
+  box-sizing: border-box;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -519,22 +559,19 @@ onMounted(() => {
 
 .title {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
 }
 
 .title .logo img {
   height: 60px;
 }
 
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
 .tip {
   font-size: 14px;
-  color: #666;
+  color: #6b7280;
   margin-top: 8px;
 }
 
@@ -543,15 +580,16 @@ onMounted(() => {
 }
 
 .suzao-btn {
-  background: #409eff;
-  border-color: #409eff;
+  background-color: #3b82f6;
+  border-color: #3b82f6;
   padding: 12px 24px;
   border-radius: 6px;
+  color: white;
 }
 
 .suzao-border-btn {
-  border: 1px solid #409eff;
-  color: #409eff;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
   background: transparent;
   padding: 12px 24px;
   border-radius: 6px;
@@ -581,7 +619,7 @@ onMounted(() => {
 .wx-frame {
   width: 200px;
   height: 200px;
-  border: 1px solid #e9ecef;
+  border: 1px solid #d1d5db;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -594,7 +632,7 @@ onMounted(() => {
 }
 
 .bottom {
-  margin-top: 30px;
+  margin-top: 32px;
   text-align: center;
 }
 
@@ -605,13 +643,13 @@ onMounted(() => {
 
 .agreement {
   font-size: 12px;
-  color: #666;
-  line-height: 1.4;
+  color: #6b7280;
+  line-height: 1.5;
   margin: 0;
 }
 
 .agreement .el-link {
-  color: #409eff;
+  color: #3b82f6;
   font-size: 12px;
 }
 
@@ -620,11 +658,11 @@ onMounted(() => {
   .login-box {
     flex-direction: column;
   }
-  
+
   .login-pic {
     min-height: 200px;
   }
-  
+
   .login-content {
     padding: 20px;
   }

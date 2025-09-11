@@ -1,290 +1,192 @@
 <template>
-  <header class="w-full h-16 flex items-center justify-between px-5 bg-white border-b border-gray-200 relative z-50">
-    <!-- Logo -->
-    <div class="flex-shrink-0">
-      <NuxtLink class="block" to="/">
+  <header class="suzao-navbar">
+    <!-- Logo区域 -->
+    <div class="logo-box">
+      <NuxtLink class="logo" to="/">
         <picture>
-          <source 
-            media="(max-width: 1440px)" 
-            :srcset="`/static/share-logo.png?v=${cssVersion}`" 
-          />
-          <source 
-            media="(min-width: 1441px)" 
-            :srcset="`/static/share-logo.svg?v=${cssVersion}`" 
-          />
-          <img 
-            :src="`/static/share-logo.svg?v=${cssVersion}`" 
-            :alt="$t('nav.塑造')"
-            class="h-10 w-auto"
-          />
+          <source media="(max-width: 1440px)" :srcset="`/static/share-logo.png?v=${cssVersion}`">
+          <source media="(min-width: 1441px)" :srcset="`/static/share-logo.svg?v=${cssVersion}`">
+          <img :src="`/static/share-logo.svg?v=${cssVersion}`" :alt="$t('nav.brand') || '塑造'">
         </picture>
       </NuxtLink>
     </div>
 
-    <!-- 导航菜单 -->
-    <div class="flex items-center gap-8 flex-1 justify-center">
-      <NuxtLink 
-        to="/merchant" 
-        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
-        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/merchant') }"
-      >
-        <span>{{ $t('nav.商城') }}</span>
+    <!-- 导航菜单区域 -->
+    <div class="nav-list">
+      <!-- 商城 -->
+      <NuxtLink to="/merchant" class="a list" :class="{ active: isActiveRoute('/merchant') }">
+        <span>{{ $t('nav.shop') || '商城' }}</span>
       </NuxtLink>
 
-      <NuxtLink 
-        to="/plastic/ai" 
-        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
-        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/ai') }"
-      >
-        <span>{{ $t('header.materialsAssistant') }}</span>
+      <!-- 材料助手 -->
+      <NuxtLink to="/plastic/ai" class="a list" :class="{ active: isActiveRoute('/plastic/ai') }">
+        <span>{{ $t('header.materialsAssistant') || '材料助手' }}</span>
       </NuxtLink>
 
-      <NuxtLink 
-        to="/plastic/search" 
-        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
-        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/search') }"
-      >
-        <span>{{ $t('header.propertyTable') }}</span>
+      <!-- 物性表 -->
+      <NuxtLink to="/plastic/search" class="a list" :class="{ active: isActiveRoute('/plastic/search') }">
+        <span>{{ $t('header.propertyTable') || '物性表' }}</span>
       </NuxtLink>
 
-      <NuxtLink 
-        to="/plastic/advance-search" 
-        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
-        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/advance-search') }"
-      >
-        {{ $t('header.performanceSearch') }}
+      <!-- 性能搜索 -->
+      <NuxtLink to="/plastic/advance-search" class="a list"
+        :class="{ active: isActiveRoute('/plastic/advance-search') }">
+        <span>{{ $t('header.performanceSearch') || '性能搜索' }}</span>
       </NuxtLink>
 
-      <NuxtLink 
-        to="/plastic/sg-calculator" 
-        class="text-gray-700 py-2.5 transition-colors relative hover:text-blue-600"
-        :class="{ 'text-blue-600 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-0.5 after:bg-blue-600': isActiveRoute('/plastic/sg-calculator') }"
-      >
-        {{ $t('header.formulaEditor') }}
+      <!-- 公式编辑器 -->
+      <NuxtLink to="/plastic/sg-calculator" class="a list" :class="{ active: isActiveRoute('/plastic/sg-calculator') }">
+        <span>{{ $t('header.formulaEditor') || '公式编辑器' }}</span>
       </NuxtLink>
 
       <!-- 产品与服务下拉菜单 -->
-      <div class="relative group">
-        <NuxtLink class="text-gray-700 py-2.5 transition-colors hover:text-blue-600" to="/page/attracting-merchants?tab=settled">
-          <span>{{ $t('header.productsAndServices') }}</span>
+      <div class="down attracting">
+        <NuxtLink class="a list" to="/page/attracting-merchants?tab=settled">
+          <span>{{ $t('header.productsAndServices') || '产品与服务' }}</span>
         </NuxtLink>
-        <div class="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-md p-2.5 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[1000]">
-          <NuxtLink 
-            to="/page/attracting-merchants?tab=settled"
-            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
-          >
-            {{ $t('header.agencyService') }}
+        <div class="box">
+          <NuxtLink to="/page/attracting-merchants?tab=settled">
+            {{ $t('header.agencyService') || '代理服务' }}
           </NuxtLink>
-          <NuxtLink 
-            to="/page/attracting-merchants?tab=app"
-            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
-          >
-            {{ $t('nav.材料智能助手APP') }}
+          <NuxtLink to="/page/attracting-merchants?tab=app">
+            {{ $t('nav.materialsAssistantApp') || '材料智能助手APP' }}
           </NuxtLink>
-          <NuxtLink 
-            to="/page/technology-and-support?tab=rnd"
-            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
-          >
-            {{ $t('header.rndService') }}
+          <NuxtLink to="/page/technology-and-support?tab=rnd">
+            {{ $t('header.rndService') || '研发服务' }}
           </NuxtLink>
-          <NuxtLink 
-            to="/page/technology-and-support?tab=ul"
-            class="block py-1.5 px-2 text-gray-700 hover:text-blue-600 transition-colors"
-          >
-            {{ $t('header.ulService') }}
+          <NuxtLink to="/page/technology-and-support?tab=ul">
+            {{ $t('header.ulService') || 'UL服务' }}
           </NuxtLink>
         </div>
       </div>
 
-      <!-- APP下载 -->
-      <div class="relative group">
-        <NuxtLink class="text-gray-700 py-2.5 transition-colors hover:text-blue-600" to="/page/attracting-merchants?tab=app">
+      <!-- APP下载下拉菜单 -->
+      <div class="down down-app">
+        <NuxtLink class="a list" to="/page/attracting-merchants?tab=app">
           APP下载
         </NuxtLink>
-        <div class="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-md p-2.5 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[1000]">
-          <img src="/static/layout/app.jpg" alt="扫码下载塑造APP" class="w-full" />
-          <div class="mt-2">
-            <p class="text-sm text-gray-500">扫码下载塑造APP</p>
-            <p class="text-xs text-gray-400 mt-1">
-              <span class="inline-flex items-center gap-1">
+        <div class="box">
+          <img src="/static/layouts/app.jpg" alt="扫码下载塑造APP">
+          <div class="text">
+            <div class="p1">扫码下载塑造APP</div>
+            <div class="p2">
+              <span>
                 <i class="iconfont icon-icon_pingguo"></i>
                 <i class="iconfont icon-a-icon_anzhuofuben"></i>
               </span>
-              <span class="inline-flex items-center gap-1 ml-2">
+              <span>
                 <i class="iconfont icon-icon_anzhuo-18"></i>
                 <i class="iconfont icon-icon_anzhuo-20"></i>
               </span>
-            </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- 用户信息区域 -->
-    <div class="flex items-center gap-5 flex-shrink-0">
+    <div class="info">
       <!-- 报价按钮 -->
-      <div class="relative group">
-        <NuxtLink 
-          v-if="user?.domain === 'a'" 
-          class="block transition-transform hover:scale-105 active:scale-95" 
-          to="/page/merchant-registration"
-          @click="trackEvent('我要报价')"
-        >
-          <img src="/static/page/pay/quotation-btn.png" alt="" class="h-auto" />
+      <div class="quotation">
+        <NuxtLink v-if="user" to="/page/merchant-registration" @click="trackEvent('我要报价')">
+          <img src="/static/page/pay/quotation-btn.png" alt="">
         </NuxtLink>
-        <NuxtLink 
-          v-else 
-          class="block transition-transform hover:scale-105 active:scale-95" 
-          to="/login?refer=/page/merchant-registration"
-        >
-          <img src="/static/page/pay/quotation-btn.png" alt="" class="h-auto" />
+        <NuxtLink v-else to="/login?refer=/page/merchant-registration">
+          <img src="/static/page/pay/quotation-btn.png" alt="">
         </NuxtLink>
       </div>
 
       <!-- VIP激活按钮 -->
-      <div 
-        v-if="user && vipStatus !== 'up'" 
-        class="cursor-pointer transition-transform hover:scale-105 active:scale-95" 
-        @click="openMemberVipDialog"
-      >
-        <img src="/static/layout/icon-activate-vip.png" alt="" class="h-auto" />
+      <div v-if="user && vipStatus !== 'up'" class="activate-vip" @click="openMemberVipDialog">
+        <img src="/static/layouts/icon-activate-vip.png" alt="">
       </div>
 
-      <!-- 用户菜单 -->
-      <div v-if="user">
-        <div 
-          v-if="user.domain === 'a'" 
-          class="relative group" 
-          :class="{ 'enterprise': isEnterprise }"
-        >
-          <NuxtLink class="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors py-2.5 px-4" to="/member">
-            <span class="flex items-center gap-1">
-              <img 
-                v-if="vipStatus === 'up'" 
-                src="/static/layout/icon-vip.png" 
-                alt=""
-                class="w-4 h-4"
-              />
-              {{ $t('header.userCenter') }}
-            </span>
-            <span v-if="unreadTotal" class="bg-red-500 text-white rounded-full px-2 py-0.5 text-xs min-w-[20px] text-center">{{ unreadTotal }}</span>
-          </NuxtLink>
-          
-          <div class="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-md p-4 min-w-[250px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[1000] shadow-lg">
-            <div class="border-b border-gray-200 pb-3 mb-3">
-              <NuxtLink class="block text-gray-700 hover:text-blue-600 transition-colors text-sm" to="/member#/personal">
-                {{ memberInfo.userName }} <span class="text-gray-400">></span>
-                <span class="inline-block px-2 py-0.5 text-xs rounded" :class="vipStatus === 'up' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-500'">至尊会员</span>
-              </NuxtLink>
-              <NuxtLink 
-                v-if="memberInfo.upOrderCount" 
-                class="block text-gray-700 hover:text-blue-600 transition-colors text-sm mt-1" 
-                to="/member#/order-list"
-              >
-                已投：<span class="text-blue-600 font-medium">{{ memberInfo.upOrderCount }}</span>
-              </NuxtLink>
+      <!-- 已登录用户菜单 -->
+      <div v-if="user" class="down member2" :class="{ 'enterprise': isEnterprise }">
+        <div class="name list">
+          <div class="span">
+            <img v-if="vipStatus === 'up'" src="/static/layouts/icon-vip.png" alt="">
+            {{ $t('header.userCenter') || '用户中心' }}
+          </div>
+          <span v-if="unreadTotal" class="tip-num">{{ unreadTotal }}</span>
+        </div>
+
+        <div class="box">
+          <div class="top">
+            <div class="user-name">
+              {{ memberInfo.userName }} <span>&gt;</span>
+              <span class="blue" v-if="vipStatus === 'up'">至尊会员</span>
+              <span v-else>至尊会员</span>
             </div>
-            
-            <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3">
-              <div class="text-center">
-                <NuxtLink class="block text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors" to="/member#/info-by-page/list">
-                  {{ memberInfo.exposure }}
-                </NuxtLink>
-                <p class="text-xs text-gray-500 mt-1">商品总曝光量</p>
-              </div>
-              <NuxtLink class="bg-blue-600 text-white px-3 py-1.5 rounded text-sm hover:bg-blue-700 transition-colors" to="/page/merchant-registration">
-                + 发布商品
-              </NuxtLink>
-            </div>
-            
-            <div class="space-y-1">
-              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/personal">
-                {{ $t('member.myProfile') }}
-              </NuxtLink>
-              <NuxtLink 
-                v-if="isEnterprise" 
-                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" 
-                to="/member#/order-list"
-              >
-                {{ $t('member.orderCenter') }}
-              </NuxtLink>
-              <NuxtLink 
-                v-if="isEnterprise" 
-                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" 
-                to="/member#/info-by-page"
-              >
-                {{ $t('member.dataCenter') }}
-              </NuxtLink>
-              <NuxtLink class="flex items-center justify-between py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/message">
-                <span>{{ $t('member.messages') }}</span>
-                <span v-if="unread.message" class="bg-red-500 text-white rounded-full px-1.5 py-0.5 text-xs min-w-[18px] text-center">
-                  {{ unread.message }}
-                </span>
-              </NuxtLink>
-              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/member-interest">
-                {{ $t('member.myMembers') }}
-              </NuxtLink>
-              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/fav">
-                {{ $t('member.favorites') }}
-              </NuxtLink>
-              <NuxtLink class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/info">
-                {{ $t('member.accountSettings') }}
-              </NuxtLink>
-              <NuxtLink class="flex items-center justify-between py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm" to="/member#/suggestion">
-                <span>{{ $t('member.feedback') }}</span>
-                <span v-if="unread.suggestion" class="bg-red-500 text-white rounded-full px-1.5 py-0.5 text-xs min-w-[18px] text-center">
-                  {{ unread.suggestion }}
-                </span>
-              </NuxtLink>
-              <a class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded text-sm cursor-pointer" @click="logout">
-                {{ $t('member.logout') }}
-              </a>
+            <div v-if="memberInfo.upOrderCount">
+              已投：<span class="blue">{{ memberInfo.upOrderCount }}</span>
             </div>
           </div>
+
+          <div class="center" v-if="isEnterprise">
+            <div class="left">
+              <NuxtLink class="num" to="/member#/info-by-page/list">
+                {{ memberInfo.exposure }}
+              </NuxtLink>
+              <div class="p">商品总曝光量</div>
+            </div>
+            <NuxtLink class="btn" to="/page/merchant-registration">
+              + 发布商品
+            </NuxtLink>
+          </div>
+
+          <div class="bottom">
+            <NuxtLink class="name" to="/member#/personal">
+              {{ $t('member.myProfile') || '我的资料' }}
+            </NuxtLink>
+            <NuxtLink v-if="isEnterprise" class="name" to="/member#/order-list">
+              {{ $t('member.orderCenter') || '订单中心' }}
+            </NuxtLink>
+            <NuxtLink v-if="isEnterprise" class="name" to="/member#/info-by-page">
+              {{ $t('member.dataCenter') || '数据中心' }}
+            </NuxtLink>
+            <NuxtLink class="name" to="/member#/message">
+              {{ $t('member.messages') || '消息' }}
+              <span v-if="unread.message" class="tip-num">{{ unread.message }}</span>
+            </NuxtLink>
+            <NuxtLink class="name" to="/member#/member-interest">
+              {{ $t('member.myMembers') || '我的会员' }}
+            </NuxtLink>
+            <NuxtLink class="name" to="/member#/fav">
+              {{ $t('member.favorites') || '收藏' }}
+            </NuxtLink>
+            <NuxtLink class="name" to="/member#/info">
+              {{ $t('member.accountSettings') || '账户设置' }}
+            </NuxtLink>
+            <NuxtLink class="name" to="/member#/suggestion">
+              {{ $t('member.feedback') || '意见反馈' }}
+              <span v-if="unread.suggestion" class="tip-num">{{ unread.suggestion }}</span>
+            </NuxtLink>
+            <a class="name" @click="logout">
+              {{ $t('member.logout') || '退出登录' }}
+            </a>
+          </div>
         </div>
-        
-        <NuxtLink v-else class="text-gray-700 hover:text-blue-600 transition-colors py-2.5 px-4" to="/enterprise">
-          {{ $t('nav.商家管理') }}
-        </NuxtLink>
       </div>
-      
+
       <!-- 登录按钮 -->
-      <div v-else class="text-gray-700 hover:text-blue-600 transition-colors py-2.5 px-4 cursor-pointer" @click="openLoginDialog">
-        {{ $t('header.login') }}
+      <div v-else class="name list" @click="openLoginDialog">
+        {{ $t('header.login') || '登录' }}
       </div>
     </div>
   </header>
 
   <!-- 会员VIP对话框 -->
-  <MemberVipDialog 
-    v-if="user"
-    v-model="dialogs.memberVip"
-    :vip-status="vipStatus"
-    :user="user"
-    @closed="initMemberDialog"
-  />
+  <MemberVipDialog v-if="user" v-model="dialogs.memberVip" :vip-status="vipStatus" :user="user"
+    @closed="initMemberDialog" />
 
   <!-- 登录对话框 -->
-  <LoginDialog 
-    v-if="!user"
-    v-model="dialogs.login"
-    @login-success="handleLoginSuccess"
-    @closed="handleLoginClosed"
-  />
+  <LoginDialog v-if="!user" v-model="dialogs.login" @login-success="handleLoginSuccess" @closed="handleLoginClosed" />
 </template>
 
 <script setup lang="ts">
-/// <reference path="../types/global.d.ts" />
-
-// Vue 导入
 import { ref, computed, onMounted } from 'vue'
 
-// 组件导入
-import MemberVipDialog from './MemberVipDialog.vue'
-import LoginDialog from './LoginDialog.vue'
-
-// Composables
-import { useDialogs } from '~/composables/useDialogs'
 
 // 类型定义
 interface User {
@@ -305,15 +207,17 @@ interface Unread {
   suggestion: number
 }
 
-// Nuxt 3 Composables - 现在 ESLint 应该能正确识别
+interface Dialogs {
+  memberVip: boolean
+  login: boolean
+}
+
+// Nuxt 3 Composables
 const config = useRuntimeConfig()
 const route = useRoute()
 
-// 使用官方推荐的 Nuxt 3 + @nuxtjs/i18n 方式
-const { t: $t } = useI18n()
-
 // 响应式数据
-const user = ref<User | null>(null) // 用户信息，需要从认证系统获取
+const user = ref<User | null>(null)
 const vipStatus = ref<string>('')
 const unreadTotal = ref(0)
 const memberInfo = ref<MemberInfo>({
@@ -327,7 +231,10 @@ const unread = ref<Unread>({
 })
 
 // 对话框状态管理
-const { dialogs, openMemberVipDialog, closeMemberVipDialog, openLoginDialog, closeLoginDialog } = useDialogs()
+const dialogs = ref<Dialogs>({
+  memberVip: false,
+  login: false
+})
 
 // 计算属性
 const cssVersion = computed(() => config.public.appVersion || '2024050801')
@@ -339,10 +246,20 @@ const isActiveRoute = (path: string): boolean => {
 }
 
 const trackEvent = (event: string) => {
-  // 埋点事件跟踪
   console.log('Track event:', event)
 }
 
+const openMemberVipDialog = () => {
+  dialogs.value.memberVip = true
+}
+
+const openLoginDialog = () => {
+  dialogs.value.login = true
+}
+
+const closeLoginDialog = () => {
+  dialogs.value.login = false
+}
 
 const initMemberDialog = () => {
   // 初始化会员对话框
@@ -351,8 +268,6 @@ const initMemberDialog = () => {
 const handleLoginSuccess = (userData: User) => {
   user.value = userData
   closeLoginDialog()
-  // 刷新用户相关数据
-  // loadUserData()
 }
 
 const handleLoginClosed = () => {
@@ -360,19 +275,9 @@ const handleLoginClosed = () => {
 }
 
 const logout = async () => {
-  // 登出逻辑
   user.value = null
   await navigateTo('/login')
 }
-
-// Props
-interface Props {
-  className?: string
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  className: ''
-})
 
 // 生命周期
 onMounted(() => {
@@ -380,3 +285,483 @@ onMounted(() => {
 })
 </script>
 
+<style scoped>
+/* 基础容器样式 */
+.suzao-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 21;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 70px;
+}
+
+.suzao-navbar::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #e5e5e5;
+}
+
+.suzao-navbar a {
+  text-decoration: none;
+}
+
+/* Logo区域 */
+.logo-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.logo-box,
+.logo,
+.logo img {
+  height: 100%;
+}
+
+.logo {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* 导航区域 */
+.nav-list {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.nav-list .down+.down {
+  margin-left: 5px;
+}
+
+/* 导航项样式 */
+.list {
+  display: block;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 12px;
+  line-height: 1;
+  color: #333333;
+}
+
+.list:hover {
+  background-color: rgba(93, 93, 223, 0.1);
+}
+
+.a {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* AI激活状态 */
+.ai-active span {
+  background: linear-gradient(90deg, #ebfbff 0%, #dbf5ff 42%, #b3e2ff 100%);
+  border-radius: 12px;
+  border: 1px solid #b5e3ff;
+  padding: 12px;
+  display: inline-block;
+}
+
+.ai-active:hover span {
+  background: linear-gradient(90deg, #d1f0f7 0%, #98d0f4 100%);
+}
+
+.ai-active.list {
+  padding: 0;
+}
+
+.ai-active.list:hover {
+  background-color: transparent;
+}
+
+/* 激活状态 */
+.list.active {
+  position: relative;
+}
+
+.list.active:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.list.active::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 4px;
+  background: #4141eb;
+  border-radius: 10px;
+}
+
+/* 下拉菜单 */
+.down {
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+}
+
+.down+.name,
+.down+.down {
+  margin-left: 18px;
+}
+
+.down .box {
+  background-color: #ffffff;
+  height: 0;
+  overflow: hidden;
+  transition: 0.4s;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  padding-right: 15px;
+  right: 50%;
+  bottom: 0;
+  transform: translate(50%, 100%);
+  z-index: 1;
+}
+
+.down .box a {
+  position: relative;
+}
+
+.down:hover .box {
+  box-shadow: 0px 2px 4px 2px rgba(214, 214, 214, 0.5);
+}
+
+/* APP下载特殊样式 */
+.down-app .box {
+  width: 252px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.down-app:hover .box {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: auto;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.down-app .box img {
+  width: 76px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.down-app .box .text {
+  padding-left: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.down-app .box .p1 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.down-app .box .p2 {
+  font-size: 12px;
+  font-weight: 400;
+  color: #999999;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.down-app .box .p2 span {
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+  padding: 2px 4px;
+  vertical-align: middle;
+}
+
+.down-app .box .p2 .icon-icon_anzhuo-18 {
+  color: #34d874;
+}
+
+.down-app .box .p2 .iconfont {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.down-app .box .text .p1+.p2 {
+  margin-top: 5px;
+}
+
+.down-app .box .text .iconfont+.iconfont {
+  margin-left: 3px;
+}
+
+/* 招商下拉菜单 */
+.attracting .box {
+  width: 165px;
+  border-radius: 8px;
+}
+
+.attracting .box a {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2.25;
+  color: #999999;
+  width: 100%;
+  text-align: center;
+}
+
+.attracting .box a:hover {
+  background: #f5f5f5;
+  border-radius: 8px;
+  color: #333333;
+}
+
+.attracting:hover .box {
+  border: 1px solid #f5f5f5;
+  padding: 12px;
+  height: auto;
+  bottom: 0;
+}
+
+/* 用户信息区域 */
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.info .name {
+  border: 1px solid rgba(93, 93, 223, 0.1);
+  display: block;
+  cursor: pointer;
+}
+
+.info .name .iconfont {
+  line-height: 14px;
+}
+
+.info .name:hover {
+  border-color: rgba(93, 93, 223, 0.1);
+}
+
+/* 报价按钮 */
+.quotation img {
+  max-width: 135px;
+}
+
+/* VIP激活按钮 */
+.activate-vip {
+  margin-left: 12px;
+  margin-right: 12px;
+  width: 115px;
+  cursor: pointer;
+}
+
+.activate-vip img {
+  width: 100%;
+}
+
+/* 消息提示数字 */
+.tip-num {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  background: #fe3b30;
+  border-radius: 8px;
+  color: #ffffff;
+  min-width: 16px;
+  font-size: 12px;
+  height: 16px;
+  line-height: 1;
+  padding: 2px;
+  text-align: center;
+}
+
+/* 用户菜单样式 */
+.member2 {
+  padding: 0;
+}
+
+.member2 .span {
+  display: flex;
+  align-items: center;
+}
+
+.member2 .span img {
+  margin-right: 3px;
+  width: 29px;
+  display: inline-block;
+}
+
+.member2 .box {
+  font-size: 16px;
+  line-height: 1;
+  width: 385px;
+  border-radius: 8px;
+  right: 0;
+  transform: translateY(100%);
+  display: block;
+}
+
+.member2 .box .top,
+.member2 .box .center,
+.member2 .box .bottom {
+  width: 100%;
+}
+
+.member2 .box .center {
+  display: none;
+}
+
+.member2 .box .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.member2 .box .user-name {
+  font-size: 20px;
+  line-height: 1;
+  color: #333333;
+  font-weight: bold;
+}
+
+.member2 .box .user-name span {
+  color: #c4c4c4;
+}
+
+.member2 .box .user-name .blue {
+  color: #4a49d7;
+}
+
+.member2 .box .bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.member2 .box .bottom .name {
+  box-sizing: border-box;
+  margin-top: 18px;
+  width: calc(33.33% - 12px);
+  text-align: center;
+}
+
+.member2 .box .bottom .name:not(:nth-of-type(3n)) {
+  margin-right: 18px;
+}
+
+.member2 .box .bottom .name:hover {
+  background: #f5f5f5;
+  border-radius: 8px;
+  color: #333333;
+}
+
+.member2:hover .box {
+  box-shadow: 0px 0px 10px 0px rgba(134, 134, 134, 0.5);
+  border: 1px solid #f5f5f5;
+  padding: 15px;
+  height: auto;
+  bottom: 0;
+}
+
+.member2.enterprise .box .top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.member2.enterprise .box .center {
+  margin-top: 20px;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to top, #f9f7f8 0%, #e8e4fe 100%);
+  border-radius: 8px;
+  border: 1px solid #f6f4ff;
+}
+
+.member2.enterprise .box .center .left {
+  display: block;
+  width: auto;
+  pointer-events: all;
+}
+
+.member2.enterprise .box .center .left .num {
+  font-size: 28px;
+  color: #333333;
+  line-height: 40px;
+}
+
+.member2.enterprise .box .center .left .p {
+  font-size: 14px;
+  color: #666666;
+}
+
+.member2.enterprise .box .center .btn {
+  padding: 18px 26px;
+  background: linear-gradient(90deg, #fff0da 0%, #ffe9c8 24%, #ffdeb3 100%);
+  box-shadow: 0px 2px 4px 0px #dfb782;
+  border-radius: 28px;
+  border: 1px solid #f5f5f5;
+  font-size: 18px;
+  color: #452206;
+}
+
+.member2.enterprise:hover .box {
+  height: 350px;
+}
+
+/* 响应式样式 - 移动端 */
+@media (max-width: 992px) {
+  .suzao-navbar {
+    padding-top: calc(14 / 750 * 100vw);
+    padding-bottom: calc(14 / 750 * 100vw);
+    padding-left: calc(30 / 750 * 100vw);
+    padding-right: calc(30 / 750 * 100vw);
+    height: calc(90 / 750 * 100vw);
+  }
+
+  .logo {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .nav-list,
+  .info {
+    display: none;
+  }
+}
+</style>

@@ -1,0 +1,346 @@
+@import '../_variables.scss';
+html {
+	@include minWidthFit(200, padding-bottom);
+}
+
+.foot-tab {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+	@include minWidthFit(50, padding-top);
+	@include minWidthFit(50, padding-bottom);
+	@include minWidthFit(24, padding-left);
+	@include minWidthFit(24, padding-right);
+
+  background-color: $white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  .logo {
+    height: 100%;
+    flex: 1;
+	@include minWidthFit(40, padding-right);
+    img {
+	@include minWidthFit(92, max-height);
+    }
+  }
+
+  .open-btn {
+    color: $white;
+    background-color: $color;
+	@include minWidthFit(30, padding-top);
+	@include minWidthFit(30, padding-bottom);
+	@include minWidthFit(40, padding-left);
+	@include minWidthFit(40, padding-right);
+	@include bd(28);
+	@include minWidthFit(36, font-size);
+    line-height: 1;
+    overflow: hidden;
+    text-decoration: none;
+  }
+}
+
+.sgc {
+  background-color: $black;
+
+  .wrap-r,
+  .s-item {
+	@include maxWidthFit(12,margin-bottom);
+	@include minWidthFit(20,margin-bottom);
+  }
+
+  .wrap-sgc {
+	@include maxWidthFit(32,padding-top);
+	@include maxWidthFit(32,padding-bottom);
+	@include maxWidthFit(45,padding-left);
+	@include maxWidthFit(45,padding-right);
+	@include minWidthFit(40,padding);
+	@include minWidthFit(40 + 20 + 24*2 + 96,padding-top);
+
+    position: relative;
+	@include bd(12);
+  }
+
+  .wrap-r {
+    color: $white;
+	@include maxWidthFit(12,padding-top);
+	@include minWidthFit(24,padding-top);
+	@include maxWidthFit(12,padding-bottom);
+	@include minWidthFit(24,padding-bottom);
+	@include maxWidthFit(20,padding-left);
+	@include minWidthFit(40,padding-left);
+	@include maxWidthFit(20,padding-right);
+	@include minWidthFit(40,padding-right);
+    line-height: 1;
+    display: flex;
+
+    position: fixed;
+    z-index: 99;
+	@include minWidthFit(40,top);
+	@include minWidthFit(40,left);
+	@include minWidthFit(40,right);
+
+    &::after {
+      content: '';
+      position: absolute;
+	@include minWidthFit(-40,top);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      background-color: $black;
+      height: 100%;
+      z-index: 0;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $text-color;
+	@include bd(8);
+    }
+    .t1,
+    .t2 {
+      position: relative;
+      z-index: 1;
+    }
+
+    .t1 {
+	@include maxWidthFit(48,font-size);
+	@include minWidthFit(96,font-size);
+	@include maxWidthFit(10,padding-right);
+	@include minWidthFit(20,padding-right);
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    .t2 {
+	@include maxWidthFit(30,font-size);
+	@include minWidthFit(60,font-size);
+    }
+  }
+  .s-item {
+    display: flex;
+	@include maxWidthFit(16, font-size);
+	@include minWidthFit(28, font-size);
+    position: relative;
+
+    &.disabled {
+      color: $placeholder-color;
+    }
+
+    .c1,
+    .c2,
+    .c3 {
+      span {
+	@include maxWidthFit(40,min-height);
+	@include minWidthFit(80,min-height);
+	@include maxWidthFit(10,padding);
+	@include minWidthFit(20,padding);
+        background-color: $white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+	@include bd(8);
+      }
+    }
+    .c1 {
+      width: 50%;
+    }
+    .c3,
+    .c2 {
+      width: 25%;
+	@include maxWidthFit(16,padding-left);
+	@include minWidthFit(20,padding-left);
+      text-align: right;
+      span {
+        justify-content: end;
+	@include minWidthFit(10,padding-left);
+      }
+    }
+  }
+  .add-item {
+    text-align: center;
+    border: 1px $white dashed;
+    background-color: $text-color;
+    color: $white;
+    cursor: pointer;
+	@include maxWidthFit(16,font-size);
+	@include minWidthFit(32,font-size);
+	@include maxWidthFit(8,padding);
+	@include minWidthFit(16,padding);
+	@include bd(8);
+	@include maxWidthFit(57,margin-bottom);
+	@include minWidthFit(57,margin-bottom);
+  }
+  .wrap-btn {
+    display: flex;
+    .c {
+      width: 50%;
+      span {
+	@include maxWidthFit(18,font-size);
+	@include minWidthFit(36,font-size);
+        text-align: center;
+        cursor: pointer;
+	@include bd(8);
+        width: 100%;
+        display: block;
+	@include maxWidthFit(10,padding);
+      }
+    }
+
+    .c1 {
+      span {
+        color: $text-color2;
+        background-color: $white;
+      }
+    }
+
+    .c2 {
+	@include maxWidthFit(16,padding-left);
+      span {
+        color: $white;
+        background-color: $red;
+
+        &:hover {
+          background-color: #bd0d15;
+        }
+      }
+    }
+  }
+  .wrap-total {
+    display: flex;
+
+    &.active {
+      align-items: center;
+      .c {
+        span {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          color: $text-color3;
+          background-color: $text-color;
+	@include minWidthFit(22, font-size);
+        }
+      }
+
+      .c1 {
+        a {
+          display: inline-flex;
+	@include minWidthFit(22, font-size);
+          color: $white;
+          span {
+            color: $white;
+	@include maxWidthFit(10,padding-right);
+          }
+        }
+      }
+    }
+
+    .c {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+	@include bd(8);
+      color: $text-color;
+      flex: 1;
+	@include minWidthFit(26,font-size);
+      color: $white;
+
+      span {
+        background: rgba(0, 0, 0, 0);
+        width: auto;
+	@include minWidthFit(44,font-size);
+        line-height: 1;
+      }
+    }
+
+    .c1 {
+      a {
+        display: inline-flex;
+	@include maxWidthFit(14, font-size);
+        color: $white;
+        img {
+	@include maxWidthFit(10,padding-left);
+        }
+      }
+    }
+
+    .c2.active {
+      background-color: $red;
+    }
+
+    .c3.active {
+	@include maxWidthFit(16,margin-left);
+	@include minWidthFit(20,margin-left);
+      background-color: #ff9f00;
+    }
+  }
+}
+
+.sgc-d {
+  background: $background-color;
+	@include maxWidthFit(10, padding);
+	@include minWidthFit(20, padding);
+
+  .hty-item {
+    background-color: $white;
+	@include bd(12);
+    overflow: hidden;
+	@include minWidthFit(36, margin-bottom);
+	@include minWidthFit(20, padding);
+	@include minWidthFit(10, padding-bottom);
+
+    .time {
+      text-align: center;
+      color: $text-color3;
+	@include maxWidthFit(10, padding);
+	@include minWidthFit(20, padding);
+    }
+    .head {
+      background: #ffefe2;
+	@include bd(4);
+      display: flex;
+    }
+    .c {
+	@include maxWidthFit(8, padding);
+	@include minWidthFit(16, padding);
+	@include maxWidthFit(15, font-size);
+	@include minWidthFit(30, font-size);
+      color: $black;
+    }
+    .c1 {
+      flex: 1;
+    }
+    .c2,
+    .c3 {
+      width: 100px;
+      text-align: right;
+    }
+    .list {
+      display: flex;
+      &:not(&:last-of-type) {
+        border-bottom: 1px solid $border-color;
+      }
+      .c2,
+      .c3 {
+        font-weight: bold;
+      }
+      .t1 {
+        color: $red;
+        font-weight: bold;
+      }
+      .t2 {
+        font-size: 10px;
+        color: $text-color3;
+      }
+    }
+  }
+}

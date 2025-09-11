@@ -1,0 +1,1492 @@
+@use '../_variables.scss' as *;
+
+// 移除对全局body的样式修改，这些应该通过Vue组件的局部样式来处理
+.attracting-merchants {
+  &.suzao-main {
+    display: block;
+    &::before {
+      display: none;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  .ghost {
+    animation: float 2s ease-out infinite;
+  }
+  .section {
+	@include maxWidthFit(30,padding-top);
+	@include maxWidthFit(30,padding-bottom);
+	@include minWidthFit(60,padding-top);
+	@include minWidthFit(60,padding-bottom);
+  }
+  .section2 {
+	@include maxWidthFit(60,padding-top);
+	@include maxWidthFit(60,padding-bottom);
+	@include minWidthFit(90,padding-top);
+	@include minWidthFit(90,padding-bottom);
+  }
+  .wap-btn {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    z-index: 10;
+    width: 100%;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    background: $color;
+    text-align: center;
+
+    .apply-btn {
+      border-radius: 0;
+	@include minWidthFit(38,font-size);
+      line-height: 1;
+      color: $white;
+	@include minWidthFit(30,padding-top);
+	@include minWidthFit(30,padding-bottom);
+	@include minWidthFit(50,padding-left);
+	@include minWidthFit(50,padding-right);
+      background: $color;
+	@include minWidthFit(18,border-radius);
+      display: none;
+    }
+    &.rnd-btn {
+      .rnd {
+        display: block;
+      }
+    }
+    &.settled-btn {
+      .settled {
+        display: block;
+      }
+    }
+    &.app-btn {
+      .app {
+        display: block;
+      }
+    }
+    @media (max-width: $ipadH) {
+      display: block;
+    }
+  }
+  .title {
+	@include maxWidthFit(40,font-size);
+    line-height: 1.25;
+    color: $text-color;
+	@include minWidthFit(42,font-size);
+    @media (max-width: $ipadH) {
+      font-weight: bold;
+    }
+  }
+  .title2 {
+	@include maxWidthFit(36,font-size);
+    line-height: 1.25;
+    font-weight: bold;
+    color: $text-color;
+	@include minWidthFit(42,font-size);
+  }
+
+  .banner {
+    position: relative;
+    @media (max-width: $ipadH) {
+      text-align: center;
+    }
+    .bg {
+      width: 100%;
+    }
+    .jiantou {
+      position: absolute;
+      width: 5.524%;
+      left: 59%;
+      top: 54%;
+      @media (max-width: $ipadH) {
+        width: 10%;
+        left: 64%;
+        top: 50%;
+      }
+    }
+
+    .tip {
+      cursor: pointer;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background: linear-gradient(270deg, #ffe1aa, #ffd795);
+	@include maxWidthFit(20,border-top-left-radius);
+	@include maxWidthFit(20,border-bottom-left-radius);
+	@include maxWidthFit(20,font-size);
+      color: #d20b0e;
+	@include maxWidthFit(20,width);
+	@include maxWidthFit(25,padding-top);
+	@include maxWidthFit(25,padding-bottom);
+	@include maxWidthFit(20,padding-left);
+	@include maxWidthFit(20,padding-right);
+      text-align: center;
+      font-weight: bold;
+      box-sizing: content-box;
+      @media (min-width: $ipadH-min) {
+        &:hover {
+          color: #810003;
+        }
+      }
+
+      @media (max-width: $ipadH) {
+        display: none;
+      }
+    }
+
+    .to-bottom {
+      position: absolute;
+	@include minWidthFit(15,bottom);
+	@include minWidthFit(26,width);
+	@include minWidthFit(31,height);
+      left: 50%;
+      transform: translateX(-50%);
+      background: url('#{$src}page/attracting-merchants/to-bottom.png?#{$ver}') center;
+      background-size: 100% 100%;
+      // animation: scrollToBottom 2s infinite linear;
+    }
+
+    .text-con {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translateY(-50%);
+      @media (max-width: $ipadH) {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transform: none;
+      }
+      .text {
+        font-size: 24px;
+      }
+      .title {
+        margin-top: 15px;
+        color: $white;
+      }
+
+      .pc {
+        @media (max-width: $ipadH) {
+          display: none;
+        }
+      }
+      .wap {
+        display: none;
+        width: 100%;
+        height: 100%;
+        @media (max-width: $ipadH) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .download {
+    display: flex;
+    margin-top: 20px;
+
+    .down-btn {
+      width: 170px;
+      height: 50px;
+      position: relative;
+	@include bd(8);
+      font-size: 16px;
+      padding: 10px;
+      margin-right: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      .iconfont {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+      &.ios {
+        color: $text-color;
+        background-color: $white;
+      }
+      &.android {
+        color: $white;
+        background-color: #0ca96b;
+      }
+
+      .box {
+        position: absolute;
+        background-color: $white;
+        width: 160px;
+        top: 90%;
+        left: 50%;
+        height: 0;
+        transition: height 0.4s;
+        overflow: hidden;
+        transform: translateX(-50%);
+	@include bd(12);
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+      &:hover {
+        .box {
+          border: 1px solid $background-color;
+          box-shadow: 0px 0px 12px 0px #f1f1f1;
+          height: 160px;
+        }
+      }
+    }
+  }
+
+  .tab {
+    border-bottom: 1px solid $border-color;
+    .con {
+      display: flex;
+      flex-wrap: wrap;
+      &::before {
+        right: 0;
+      }
+      @media (max-width: $ipadH) {
+        padding: 0;
+      }
+    }
+    .box {
+      flex: 1;
+	@include maxWidthFit(26, font-size);
+	@include minWidthFit(26, font-size);
+      line-height: 1;
+      color: $text-color3;
+	@include maxWidthFit(25,padding);
+	@include minWidthFit(25,padding);
+      text-align: center;
+      cursor: pointer;
+      &::before {
+        left: 0;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+	@include maxWidthFit(68,width);
+	@include minWidthFit(68,width);
+	@include maxWidthFit(10,height);
+	@include minWidthFit(10,height);
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      &.active {
+        color: $text-color;
+        font-weight: bold;
+
+        &::after {
+          background-color: $color;
+        }
+      }
+    }
+
+    .con,
+    .box {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        content: '';
+        background-color: $border-color;
+      }
+    }
+  }
+
+  .image-text {
+    @media (max-width: $ipadH) {
+      text-align: center;
+    }
+    .con {
+      display: flex;
+      align-items: center;
+
+      &.reverse {
+        flex-direction: row-reverse;
+      }
+
+      @media (max-width: $ipadH) {
+        display: block;
+      }
+    }
+    .text-con {
+      flex: 1;
+    }
+    .image-con {
+      position: relative;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .to-top {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    position: fixed;
+	@include maxWidthFit(30,right);
+	@include maxWidthFit(60,bottom);
+	@include maxWidthFit(87,width);
+	@include minWidthFit(30,right);
+	@include minWidthFit(120,bottom);
+	@include minWidthFit(87,width);
+
+    margin-bottom: constant(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.4s;
+    z-index: 10;
+
+    &.dn {
+      opacity: 0;
+      pointer-events: none;
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+  .main {
+    position: relative;
+    overflow: hidden;
+    .rnd,
+    .settled,
+    .app {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+      pointer-events: none;
+      &.active {
+        position: relative;
+        z-index: 1;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+	@include maxWidthFit(15,width);
+	@include minWidthFit(15,width);
+    background-color: $white;
+    border: 1px solid #cccccc;
+	@include bd(4);
+  }
+
+  .rnd {
+    .bgc {
+      background-color: $background-color;
+    }
+    .apply-btn {
+      margin-top: 20px;
+      cursor: pointer;
+	@include maxWidthFit(20,font-size);
+	@include minWidthFit(30,font-size);
+      line-height: 1;
+      color: $white;
+	@include maxWidthFit(10,padding-top);
+	@include maxWidthFit(10,padding-bottom);
+	@include maxWidthFit(40,padding-left);
+	@include maxWidthFit(40,padding-right);
+	@include minWidthFit(20,padding-top);
+	@include minWidthFit(20,padding-bottom);
+	@include minWidthFit(40,padding-left);
+	@include minWidthFit(40,padding-right);
+      background: $color;
+	@include bd(12);
+      display: inline-block;
+      @media (min-width: $ipadH-min) {
+        &:hover {
+          background: $colorHover;
+        }
+      }
+      @media (max-width: $ipadH) {
+        display: none;
+      }
+    }
+
+    .rnd1 {
+      .image {
+        width: 60%;
+	@include minWidthFit(20, margin-top);
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+      }
+      .ul {
+	@include maxWidthFit(5, margin-top);
+	@include minWidthFit(10, margin-top);
+        .text {
+	@include maxWidthFit(20, font-size);
+	@include minWidthFit(28, font-size);
+          color: $text-color;
+        }
+        .tip {
+	@include maxWidthFit(14, font-size);
+	@include minWidthFit(20, font-size);
+          line-height: 1.4;
+          color: $text-color2;
+        }
+        .text,
+        .tip {
+	@include maxWidthFit(5, padding-top);
+	@include minWidthFit(10, padding-top);
+        }
+      }
+    }
+
+    .rnd2 {
+      .title,
+      .p {
+        text-align: center;
+      }
+      .p {
+        cursor: pointer;
+	@include maxWidthFit(15,padding-top);
+	@include maxWidthFit(22,font-size);
+	@include minWidthFit(30,font-size);
+        color: $color;
+      }
+      .ul {
+	@include maxWidthFit(30,padding-top);
+	@include minWidthFit(30,padding-top);
+        display: flex;
+        flex-wrap: wrap;
+	@include maxWidthFit(-16,margin);
+	@include minWidthFit(-10,margin);
+
+        .li {
+          width: 25%;
+	@include maxWidthFit(32,padding);
+	@include minWidthFit(20,padding);
+        }
+
+        @media (max-width: $ipadH) {
+          .li {
+            width: 50%;
+          }
+        }
+      }
+      .box {
+        text-align: left;
+        background: $white;
+	@include bd(20);
+        height: 100%;
+        overflow: hidden;
+        transition: box-shadow 0.4s;
+        background: linear-gradient(180deg, #fad677 0%, #fad677 50%, #f3ac42 100%);
+        img {
+          width: 100%;
+          display: block;
+        }
+        @media (min-width: $ipadH-min) {
+          &:hover {
+            box-shadow: 5px 9px 10px 0px rgba(174, 179, 187, 0.19);
+          }
+        }
+      }
+      .bottom {
+	@include maxWidthFit(20,padding);
+	@include maxWidthFit(15,padding-top);
+	@include minWidthFit(30,padding);
+	@include minWidthFit(20,padding-top);
+        color: $text-color;
+        .text1 {
+	@include maxWidthFit(28, font-size);
+	@include minWidthFit(28, font-size);
+          line-height: 1;
+        }
+        .text2 {
+	@include maxWidthFit(10,padding-top);
+	@include minWidthFit(10,padding-top);
+	@include maxWidthFit(14, font-size);
+	@include minWidthFit(20, font-size);
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .rnd3 {
+      .con {
+	@include bd(20);
+        overflow: hidden;
+        align-items: normal;
+        .text-con {
+          position: relative;
+          background-color: $color;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $white;
+	@include maxWidthFit(80,padding);
+	@include minWidthFit(80,padding);
+
+          &::after {
+            content: '';
+            background: url('#{$src}page/attracting-merchants/yinhao.png?#{$ver}') no-repeat center;
+            background-size: 100%;
+	@include maxWidthFit(47,width);
+	@include minWidthFit(47,width);
+	@include maxWidthFit(38,height);
+	@include minWidthFit(38,height);
+            line-height: 1;
+            position: absolute;
+	@include maxWidthFit(40,left);
+	@include minWidthFit(40,left);
+	@include maxWidthFit(100,top);
+	@include minWidthFit(100,top);
+            color: $white;
+            font-weight: bold;
+            font-family: cursive;
+          }
+          .title3 {
+	@include maxWidthFit(32, font-size);
+	@include minWidthFit(32, font-size);
+          }
+          .p {
+	@include maxWidthFit(10,padding-top);
+	@include minWidthFit(10,padding-top);
+	@include maxWidthFit(14, font-size);
+	@include minWidthFit(20, font-size);
+          }
+          .apply-btn {
+	@include maxWidthFit(40,margin-top);
+	@include minWidthFit(40,margin-top);
+            background-color: $white;
+            color: $color;
+          }
+        }
+        .image-con {
+          width: 60%;
+          @media (max-width: $ipadH) {
+            width: 100%;
+          }
+          background-color: $white;
+	@include maxWidthFit(20,padding-top);
+	@include minWidthFit(20,padding-top);
+	@include maxWidthFit(30,padding-right);
+	@include minWidthFit(30,padding-right);
+	@include maxWidthFit(50,padding-bottom);
+	@include minWidthFit(50,padding-bottom);
+	@include maxWidthFit(30,padding-left);
+	@include minWidthFit(30,padding-left);
+        }
+      }
+      .swiper-pagination {
+        width: auto;
+        left: 70%;
+	@include maxWidthFit(30,bottom);
+	@include minWidthFit(30,bottom);
+        transform: translateX(-50%);
+        @media (max-width: $ipadH) {
+          left: 50%;
+        }
+      }
+    }
+
+    .rnd4 {
+      .image {
+        width: 60%;
+	@include minWidthFit(20, margin-top);
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+      }
+      .text {
+	@include maxWidthFit(60,padding-left);
+	@include minWidthFit(0,padding-left);
+        .p {
+	@include maxWidthFit(20,padding-top);
+	@include minWidthFit(20,padding-top);
+	@include maxWidthFit(18,font-size);
+	@include minWidthFit(24,font-size);
+        }
+      }
+    }
+
+    .rnd5 {
+      .image {
+        width: 60%;
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+        .swiper {
+	@include maxWidthFit(20,padding-bottom);
+	@include minWidthFit(20,padding-bottom);
+        }
+        .swiper-pagination {
+          bottom: 0px;
+        }
+      }
+      .apply-btn {
+        text-align: center;
+	@include maxWidthFit(20, font-size);
+	@include minWidthFit(20, font-size);
+	@include maxWidthFit(200,width);
+
+	@include maxWidthFit(15,padding);
+	@include minWidthFit(15,padding-top);
+	@include minWidthFit(15,padding-bottom);
+	@include minWidthFit(25,padding-left);
+	@include minWidthFit(25,padding-right);
+	@include minWidthFit(0,margin-top);
+        @media (max-width: $ipadH) {
+          width: auto;
+          display: block;
+        }
+      }
+      .ul {
+	@include minWidthFit(20,padding-bottom);
+        @media (max-width: $ipadH) {
+          display: flex;
+          justify-content: space-between;
+        }
+        .li {
+          &:not(&.active) {
+            .apply-btn {
+              background-color: $white;
+              color: $text-color2;
+            }
+          }
+        }
+      }
+    }
+
+    .rnd6 {
+      background-color: $color;
+      .title,
+      .p {
+        color: $white;
+        text-align: center;
+      }
+      .con {
+	@include maxWidthFit(500,max-width);
+        margin: auto;
+      }
+      .p {
+	@include maxWidthFit(18, font-size);
+	@include minWidthFit(24, font-size);
+	@include maxWidthFit(15,margin-top);
+	@include minWidthFit(15,margin-top);
+        display: flex;
+        align-items: center;
+
+        &::after,
+        &::before {
+          content: '';
+          flex: 1;
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+        span {
+	@include maxWidthFit(10,margin-left);
+	@include minWidthFit(10,margin-left);
+	@include maxWidthFit(10,margin-right);
+	@include minWidthFit(10,margin-right);
+        }
+      }
+      .el-form {
+	@include maxWidthFit(40,margin-top);
+	@include minWidthFit(40,margin-top);
+        .el-form-item {
+	@include minWidthFit(40,margin-bottom);
+        }
+      }
+      .suzao-btn {
+        background: #ea8e0a;
+	@include bd(12);
+	@include maxWidthFit(20,font-size);
+	@include minWidthFit(30,font-size);
+	@include maxWidthFit(60,height);
+	@include minWidthFit(80,height);
+      }
+      .el-input__inner {
+	@include maxWidthFit(60,height);
+	@include minWidthFit(80,height);
+	@include maxWidthFit(60,line-height);
+	@include minWidthFit(80,line-height);
+	@include bd(12);
+      }
+      .el-radio-group {
+	@include maxWidthFit(-10,margin-bottom);
+	@include minWidthFit(-10,margin-bottom);
+        .el-radio {
+          width: 25%;
+          margin-right: 0;
+	@include maxWidthFit(10,margin-bottom);
+	@include minWidthFit(10,margin-bottom);
+          @media (max-width: $ipadH) {
+            width: 33.33%;
+          }
+        }
+      }
+      .el-radio__input {
+        &.is-checked {
+          .el-radio__inner {
+            background: #ea8e0a;
+          }
+        }
+      }
+      .is-checked .el-radio__label,
+      .el-radio {
+        color: $white;
+      }
+    }
+  }
+  .settled {
+    .data {
+      background: linear-gradient(0deg, #fef5de, $white);
+      border-bottom: 1px solid #e4cfa7;
+      .con {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .box {
+	@include maxWidthFit(20,padding-top);
+	@include maxWidthFit(20,padding-bottom);
+	@include minWidthFit(20,padding-top);
+	@include minWidthFit(20,padding-bottom);
+        text-align: center;
+        color: $text-color;
+        .key {
+	@include maxWidthFit(18,font-size);
+	@include minWidthFit(18,font-size);
+          line-height: 2;
+        }
+        .value {
+	@include maxWidthFit(48,font-size);
+	@include minWidthFit(40,font-size);
+          line-height: 1;
+          font-weight: bold;
+        }
+      }
+    }
+    .apply-btn {
+      cursor: pointer;
+	@include maxWidthFit(22,font-size);
+	@include minWidthFit(38,font-size);
+      line-height: 1;
+      color: $white;
+	@include maxWidthFit(15,padding-top);
+	@include maxWidthFit(15,padding-bottom);
+	@include maxWidthFit(40,padding-left);
+	@include maxWidthFit(40,padding-right);
+	@include minWidthFit(30,padding-top);
+	@include minWidthFit(30,padding-bottom);
+	@include minWidthFit(50,padding-left);
+	@include minWidthFit(50,padding-right);
+      background: $color;
+	@include maxWidthFit(18,border-radius);
+	@include minWidthFit(18,border-radius);
+      display: inline-block;
+      @media (min-width: $ipadH-min) {
+        &:hover {
+          background: $colorHover;
+        }
+      }
+      @media (max-width: $ipadH) {
+        display: none;
+      }
+    }
+
+    .image-text1 {
+      .title {
+        span {
+          display: block;
+        }
+      }
+      .text {
+        color: $text-color;
+        .top {
+          background: linear-gradient(270deg, rgba(255, 241, 214, 0.5), rgba(255, 191, 81, 0.5), rgba(255, 138, 81, 0.5));
+	@include maxWidthFit(22,font-size);
+	@include minWidthFit(24,font-size);
+	@include maxWidthFit(10,padding-top);
+	@include maxWidthFit(10,padding-bottom);
+	@include maxWidthFit(15,padding-left);
+	@include maxWidthFit(15,padding-right);
+	@include minWidthFit(8,padding-top);
+	@include minWidthFit(8,padding-bottom);
+	@include minWidthFit(20,padding-left);
+	@include minWidthFit(20,padding-right);
+          display: inline-block;
+        }
+        .text {
+	@include maxWidthFit(30,padding-top);
+	@include maxWidthFit(30,padding-bottom);
+	@include maxWidthFit(40,padding-right);
+	@include maxWidthFit(18,font-size);
+	@include minWidthFit(20,padding);
+	@include minWidthFit(24,font-size);
+          line-height: 1.45;
+        }
+      }
+      .image {
+        width: 45%;
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+        .bg {
+          width: 100%;
+        }
+        .image {
+          animation: scaleBreathe 2s infinite linear;
+        }
+        .image-top-1 {
+          position: absolute;
+          top: 10%;
+          left: 27%;
+          height: 7.43%;
+          width: 7.78%;
+        }
+        .image-top-2 {
+          position: absolute;
+          top: 9%;
+          left: 43%;
+          width: 19.099%;
+          height: 18.244%;
+        }
+        .image-top-3 {
+          position: absolute;
+          top: 10%;
+          left: 68%;
+          width: 20.782%;
+          height: 19.852%;
+        }
+        .image-left-1 {
+          position: absolute;
+          left: 5%;
+          top: 31%;
+          width: 12.92%;
+          height: 12.342%;
+        }
+        .image-left-2 {
+          position: absolute;
+          left: 6%;
+          top: 45%;
+          width: 14.792%;
+          height: 14.13%;
+        }
+        .image-left-3 {
+          position: absolute;
+          left: 1%;
+          top: 60%;
+          width: 17.225%;
+          height: 16.454%;
+        }
+        .image-right-1 {
+          position: absolute;
+          right: 5%;
+          top: 30%;
+          width: 17.787%;
+          height: 16.99%;
+        }
+        .image-right-2 {
+          position: absolute;
+          right: 3%;
+          top: 56%;
+          width: 20.035%;
+          height: 19.138%;
+        }
+        .image-right-3 {
+          position: absolute;
+          right: 7%;
+          top: 73%;
+          width: 21.158%;
+          height: 20.032%;
+        }
+        .image-bottom-1 {
+          position: absolute;
+          bottom: 15%;
+          left: 26%;
+          width: 16.29%;
+          height: 15.56%;
+        }
+      }
+    }
+
+    .image-text2 {
+      .image {
+        width: 65%;
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+      }
+      .title {
+	@include maxWidthFit(36,font-size);
+	@include minWidthFit(36,font-size);
+        span {
+          display: block;
+        }
+      }
+      .ul {
+	@include maxWidthFit(30,padding-top);
+	@include maxWidthFit(20,padding-bottom);
+	@include minWidthFit(20,padding);
+        .li {
+	@include maxWidthFit(10,padding);
+	@include minWidthFit(10,padding);
+	@include minWidthFit(20,font-size);
+        }
+      }
+      .p {
+	@include minWidthFit(28,font-size);
+	@include minWidthFit(80,padding-bottom);
+        font-weight: bold;
+      }
+    }
+
+    .section-full {
+      text-align: center;
+      .title {
+        color: $text-color;
+	@include maxWidthFit(20,padding-bottom);
+	@include minWidthFit(24,padding-bottom);
+        font-weight: bold;
+      }
+      .p {
+	@include maxWidthFit(18,font-size);
+        color: $text-color;
+        line-height: 1.6;
+	@include maxWidthFit(30,padding-bottom);
+	@include minWidthFit(28,font-size);
+	@include minWidthFit(20,padding-bottom);
+      }
+
+      .con {
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        font-size: 0;
+        &::after,
+        &::before {
+          position: absolute;
+          content: '';
+          width: 10%;
+          height: 100%;
+          top: 0;
+          background-color: $white;
+          z-index: 1;
+        }
+        &::before {
+          left: 0;
+          background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        }
+        &::after {
+          right: 0;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        }
+      }
+
+      .line_odd,
+      .line_even {
+        animation: 60s linear infinite;
+	@include maxWidthFit(2478,width);
+	@include minWidthFit(2478,width);
+	@include maxWidthFit(10,padding-top);
+	@include maxWidthFit(10,padding-bottom);
+      }
+      .line_odd {
+        animation-name: scrollToLeft;
+      }
+      .line_even {
+        animation-name: scrollToRight;
+      }
+      .logo_img {
+        width: 50%;
+        display: inline-block;
+      }
+    }
+
+    .banner2 {
+      background: #e4ecfb;
+
+      .text {
+        .ul {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+	@include maxWidthFit(30,padding-top);
+	@include maxWidthFit(30,padding-bottom);
+	@include maxWidthFit(30,padding-right);
+	@include minWidthFit(60,margin);
+	@include minWidthFit(10,padding-top);
+	@include minWidthFit(10,padding-bottom);
+	@include minWidthFit(30,padding-left);
+	@include minWidthFit(30,padding-right);
+
+          .li {
+	@include maxWidthFit(20,font-size);
+	@include minWidthFit(20,font-size);
+	@include maxWidthFit(10,padding-top);
+	@include maxWidthFit(10,padding-bottom);
+	@include minWidthFit(13,padding-top);
+	@include minWidthFit(13,padding-bottom);
+            &.col1 {
+              width: 100%;
+            }
+            &.col2 {
+              width: 50%;
+            }
+            &.col4 {
+              width: 25%;
+            }
+
+            .iconfont-ren {
+	@include maxWidthFit(16,width);
+	@include maxWidthFit(18,height);
+	@include minWidthFit(16,width);
+	@include minWidthFit(18,height);
+              background: url('#{$src}page/attracting-merchants/ren.png?#{$ver}') no-repeat center;
+              background-size: 100% 100%;
+              display: inline-block;
+              margin-right: 3px;
+            }
+          }
+
+          @media (max-width: $ipadH) {
+            margin-bottom: 0;
+            background-color: $white;
+            border-radius: 10px;
+            .li {
+              text-align: left;
+            }
+          }
+        }
+      }
+      .image {
+        width: 50%;
+        .bg {
+          width: 83%;
+          margin-left: auto;
+        }
+
+        @media (max-width: $ipadH) {
+          width: 100%;
+          .bg {
+            margin: auto;
+          }
+        }
+      }
+    }
+
+    .list {
+      text-align: center;
+
+      .ul {
+	@include maxWidthFit(50,padding-top);
+	@include maxWidthFit(20,padding-bottom);
+
+	@include minWidthFit(80,padding-top);
+	@include minWidthFit(50,padding-bottom);
+        display: flex;
+        flex-wrap: wrap;
+	@include maxWidthFit(-20,margin);
+	@include minWidthFit(-20,margin);
+
+        .li {
+          width: 25%;
+	@include maxWidthFit(20,padding);
+	@include minWidthFit(20,padding);
+        }
+
+        @media (max-width: $ipadH) {
+          .li {
+            width: 50%;
+          }
+        }
+      }
+      .p {
+	@include maxWidthFit(16,font-size);
+	@include minWidthFit(24,font-size);
+        color: $text-color2;
+      }
+      .box {
+        background: $white;
+        // border: 1px solid #e5e4e6;
+	@include maxWidthFit(6,border-radius);
+        overflow: hidden;
+        transition: box-shadow 0.4s;
+        img {
+          width: 100%;
+          display: block;
+        }
+        @media (min-width: $ipadH-min) {
+          &:hover {
+            box-shadow: 5px 9px 10px 0px rgba(174, 179, 187, 0.19);
+          }
+        }
+      }
+      // .top {
+      //   background: rgba(0, 0, 0, 0.5);
+      //   color: $white;
+      //   .maxWidthFit(28,font-size);
+      //   line-height: 1;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   .maxWidthFit(80,height);
+      // }
+      // .bottom {
+      //   .maxWidthFit(236,height);
+      //   img {
+      //     display: block;
+      //     width: 100%;
+      //   }
+      // }
+    }
+
+    .banner3 {
+      background: #e9f0fb;
+      .con {
+        flex-direction: row-reverse;
+      }
+      .image {
+        width: 60%;
+      }
+      .p {
+	@include maxWidthFit(30,padding-top);
+	@include maxWidthFit(80,padding-bottom);
+	@include minWidthFit(24,font-size);
+      }
+      @media (max-width: $ipadH) {
+        .image {
+          width: 100%;
+        }
+      }
+    }
+
+    .banner5 {
+	@include maxWidthFit(30,padding-top);
+	@include minWidthFit(120,padding-top);
+      background-color: #c6dcff;
+      background-image: url('#{$src}page/attracting-merchants/image-bg6.png?#{$ver}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      .con {
+        flex-direction: row-reverse;
+      }
+      .image {
+        width: 50%;
+	@include minWidthFit(120,margin-top);
+      }
+
+      .title2 {
+        span {
+          display: block;
+        }
+      }
+      .p {
+	@include maxWidthFit(10,padding-top);
+	@include minWidthFit(40,padding-top);
+	@include minWidthFit(22,font-size);
+        + .p {
+	@include minWidthFit(20,padding-top);
+        }
+      }
+      .apply-btn {
+	@include maxWidthFit(20,margin-top);
+      }
+
+      @media (max-width: $ipadH) {
+        background-image: none;
+        .image {
+          width: 100%;
+        }
+      }
+    }
+
+    .banner6 {
+      position: relative;
+      .bg {
+        width: 100%;
+      }
+      .con {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: $white;
+
+        .title {
+          color: $white;
+	@include maxWidthFit(30,padding-bottom);
+	@include minWidthFit(50,padding-bottom);
+        }
+        .p {
+	@include maxWidthFit(50,padding-bottom);
+	@include minWidthFit(80,padding-bottom);
+        }
+
+        @media (max-width: $ipadH) {
+          .title,
+          .p {
+            line-height: 2;
+            span {
+              display: block;
+            }
+          }
+        }
+        .apply-btn {
+	@include maxWidthFit(60, margin-bottom);
+        }
+
+        .contact {
+          span {
+            position: relative;
+	@include maxWidthFit(20,padding-left);
+	@include maxWidthFit(20,padding-right);
+	@include minWidthFit(24,font-size);
+
+            &::after,
+            &::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              width: 114px;
+              height: 1px;
+              background: no-repeat;
+            }
+            &::after {
+              right: 100%;
+              background-image: url('#{$src}page/attracting-merchants/line-right.png?#{$ver}');
+              background-size: 100% 100%;
+            }
+            &::before {
+              left: 100%;
+              background-image: url('#{$src}page/attracting-merchants/line-left.png?#{$ver}');
+              background-size: 100% 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .app {
+    color: $text-color;
+    .image-text {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $border-color;
+      }
+      .li,
+      .text {
+	@include maxWidthFit(22,font-size);
+	@include minWidthFit(26,font-size);
+      }
+      .p {
+	@include maxWidthFit(18,font-size);
+	@include minWidthFit(24,font-size);
+      }
+
+      .title {
+        + .p,
+        + .ul,
+        + .text {
+	@include maxWidthFit(20,padding-top);
+	@include minWidthFit(20,padding-top);
+        }
+      }
+      .text,
+      .li {
+        line-height: 1.8;
+      }
+
+      .span {
+        display: block;
+      }
+    }
+    .app1 {
+      .image-con {
+        width: 55%;
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+          max-width: 447px;
+          margin: auto;
+        }
+      }
+      .text {
+	@include maxWidthFit(10,padding-right);
+	@include minWidthFit(10,padding-right);
+      }
+      .p {
+	@include maxWidthFit(20,padding-top);
+	@include minWidthFit(20,padding-top);
+      }
+    }
+    .app2 {
+      .image-con img {
+        width: 100%;
+        max-width: 450px;
+      }
+    }
+    .app2,
+    .app3 {
+      .image {
+        width: 50%;
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+      }
+    }
+    .app4 {
+      .image-con {
+        width: 45%;
+        @media (max-width: $ipadH) {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+          max-width: 262px;
+          margin: auto;
+        }
+      }
+    }
+
+    .app5 {
+      @media (max-width: $ipadH) {
+        display: none;
+      }
+      .text-con {
+        display: flex;
+        align-items: center;
+        .logo {
+          width: 110px;
+        }
+        .title3 {
+	@include maxWidthFit(28,font-size);
+	@include maxWidthFit(20,padding-bottom);
+          line-height: 1;
+        }
+        .text {
+	@include maxWidthFit(36,font-size);
+          line-height: 1;
+        }
+        .logo-text-con {
+	@include maxWidthFit(40,padding-left);
+        }
+      }
+      .image-con {
+        width: 50%;
+      }
+      .download {
+        justify-content: flex-end;
+        .down-btn {
+	@include maxWidthFit(230,width);
+	@include maxWidthFit(70,height);
+	@include maxWidthFit(20,font-size);
+	@include maxWidthFit(30,margin-right);
+          .box {
+            top: auto;
+            bottom: 90%;
+          }
+        }
+        .ios {
+          background-color: $text-color;
+          color: $white;
+        }
+      }
+    }
+
+    .apply-btn {
+	@include maxWidthFit(20,margin-top);
+	@include minWidthFit(20,margin-top);
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      img {
+	@include maxWidthFit(20,width);
+	@include minWidthFit(30,width);
+	@include maxWidthFit(20,height);
+	@include minWidthFit(30,height);
+      }
+      span {
+	@include maxWidthFit(10,margin-left);
+	@include minWidthFit(15,margin-left);
+	@include maxWidthFit(14,font-size);
+	@include minWidthFit(21,font-size);
+        color: $color;
+        text-decoration-line: underline;
+        transition: margin-left 0.4s;
+      }
+      &:hover {
+        span {
+	@include maxWidthFit(20,margin-left);
+	@include minWidthFit(20,margin-left);
+        }
+      }
+    }
+    .swiper {
+      width: 100%;
+      max-width: 524px;
+      .swiper-pagination {
+        bottom: 35px;
+      }
+    }
+  }
+}
+@keyframes float {
+  50% {
+    transform: translate(0, 10px);
+  }
+}
+
+@keyframes scrollToRight {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+@keyframes scrollToLeft {
+  from {
+    transform: translate3d(0%, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes scaleBreathe {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scrollToBottom {
+  from {
+    background-position-y: -15px;
+  }
+  to {
+    background-position-y: 15px;
+  }
+}

@@ -6,7 +6,7 @@
     :before-close="handleClose"
   >
     <div class="header">
-      <img class="header-icon" src="/static/layout/icon-diamond.png" alt="VIP图标" />
+      <img class="header-icon" src="/static/layouts/icon-diamond.png" alt="VIP图标" />
       <div class="header-text">
         <div class="header-title">开通超级VIP专享</div>
         <div v-if="vipStatus !== 'up'" class="header-tip">

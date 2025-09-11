@@ -1,11 +1,8 @@
 <template>
   <div class="min-h-screen flex flex-col">
-    <SuzaoHeader />
-    <main class="flex-1 pt-[70px] lg:pt-[90px]">
+    <main>
       <NuxtPage />
     </main>
-    <SuzaoFooter />
-    <SuzaoBar />
   </div>
 </template>
 <script setup lang="ts"></script>

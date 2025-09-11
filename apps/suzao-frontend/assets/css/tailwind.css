@@ -1,67 +1,7 @@
-/* =========================================
-   全局样式初始化 + TailwindCSS preflight
-   ========================================= */
+/* ==============================================
+   TailwindCSS 主文件
+   ============================================== */
 
-/* 1. 强制 body、html 重置 */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #fff;
-  color: #000;
-  line-height: 1.5;
-}
-
-/* 2. 所有元素 box-sizing 统一 */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-/* 3. 列表去掉默认样式 */
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* 4. 链接去掉下划线 */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* 5. 图片、视频、canvas 默认垂直对齐 */
-img,
-video,
-canvas,
-svg {
-  vertical-align: middle;
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* 6. 表格去掉默认间距 */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* 7. Tailwind 基础 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import 'tailwindcss'; */
-
-/* 8. 可选暗黑模式全局背景 */
-body.dark {
-  background-color: #000;
-  color: #fff;
-}

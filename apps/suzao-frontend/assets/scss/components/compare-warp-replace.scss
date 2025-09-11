@@ -1,0 +1,215 @@
+@import '../_variables.scss';
+.compare-warp-replace {
+  position: fixed;
+  margin-right: -10px;
+  margin-top: 10px;
+	@include bd(4);
+  overflow: hidden;
+	@include maxWidthFit(14,font-size);
+  z-index: 1002;
+  .box-shadow;
+  border: 1px solid $border-color;
+	@include maxWidthFit($header-height,top);
+  right: calc((100% + ~'#{$maxWidth}px') / 2);
+  @media (max-width: 1720px) {
+    right: auto;
+    margin-right: 0;
+    left: 0;
+  }
+
+  .compare-thumbnail {
+    cursor: pointer;
+    color: $white;
+    background: $color;
+	@include maxWidthFit(40,width);
+	@include maxWidthFit(8,padding-top);
+	@include maxWidthFit(8,padding-bottom);
+	@include maxWidthFit(12,padding-left);
+	@include maxWidthFit(12,padding-right);
+
+    .lang-en & .contrast {
+      writing-mode: vertical-rl;
+    }
+    .num {
+	@include maxWidthFit(12,font-size);
+      line-height: 1;
+      width: 14px;
+      height: 14px;
+      color: $color;
+      background-color: $white;
+      border-radius: 50%;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+	@include maxWidthFit(5,margin-top);
+    }
+  }
+
+  .compare-table {
+    background-color: $white;
+	@include maxWidthFit(300,width);
+	@include minWidthFit(300,width);
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $background-color;
+      color: $text-color;
+	@include maxWidthFit(10,padding-top);
+	@include maxWidthFit(10,padding-bottom);
+	@include maxWidthFit(20,padding-left);
+	@include maxWidthFit(20,padding-right);
+
+      span {
+	@include maxWidthFit(16,font-size);
+        line-height: 1;
+        display: flex;
+        align-items: center;
+
+        &::before {
+	@include maxWidthFit(2,margin-right);
+          content: '';
+          width: 23px;
+          height: 18px;
+          display: block;
+          background: url('/frontend/assets/ai/pk.png?#{$ver}') no-repeat;
+          background-size: contain;
+        }
+      }
+      i {
+	@include maxWidthFit(20,font-size);
+        cursor: pointer;
+      }
+    }
+
+    .compare-content {
+	@include maxWidthFit(20,padding);
+      .el-checkbox__inner {
+        border-radius: 50%;
+      }
+
+      .el-checkbox-group {
+        border-radius: 16px;
+        border: 1px solid $border-color;
+        padding-left: 10px;
+        padding-right: 10px;
+	@include maxWidthFit(15, margin-bottom);
+        overflow-x: hidden;
+        .scrollbar;
+        max-height: 220px;
+      }
+      .zhname {
+        color: $text-color;
+      }
+      .name {
+        color: $text-color2;
+      }
+      .sp_name {
+        color: $red;
+      }
+      .p_base_gradeno {
+        color: $color;
+      }
+      .checkbox-title {
+	@include maxWidthFit(10,padding-top);
+	@include maxWidthFit(10,padding-bottom);
+        background: linear-gradient(270deg, #e3feff 0%, #e2f6ff 100%);
+        text-align: center;
+        color: #16607c;
+        border-radius: 16px 16px 0 0;
+        border: 1px solid $border-color;
+        border-bottom: none;
+        + .el-checkbox-group {
+          border-top: none;
+          border-radius: 0 0 16px 16px;
+        }
+      }
+      .el-checkbox {
+        width: 100%;
+	@include maxWidthFit(10,padding-top);
+	@include maxWidthFit(10,padding-bottom);
+        margin-right: 0;
+        .el-checkbox__label {
+          font-size: 12px;
+        }
+
+        + .el-checkbox {
+          border-top: 1px solid $border-color;
+        }
+      }
+    }
+
+    .compare-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+
+      .el-button,
+      .el-link {
+        flex: 1;
+      }
+    }
+
+    .btnLink {
+      vertical-align: top;
+      border: 1px solid $border-color;
+      line-height: 1;
+      white-space: nowrap;
+      text-align: center;
+      outline: 0;
+      margin: 0;
+	@include maxWidthFit(12,padding-top);
+	@include maxWidthFit(12,padding-bottom);
+	@include maxWidthFit(20,padding-left);
+	@include maxWidthFit(20,padding-right);
+	@include bd(4);
+      background-color: $colorHover;
+      color: $white;
+      border-color: $colorHover;
+      &:hover {
+        color: $white;
+      }
+      &.is-disabled {
+        background-color: $white;
+        color: $text-color3;
+        border-color: $border-color;
+      }
+    }
+
+    .el-button {
+	@include maxWidthFit(12,padding-top);
+	@include maxWidthFit(12,padding-bottom);
+	@include maxWidthFit(20,padding-left);
+	@include maxWidthFit(20,padding-right);
+
+      & + .el-link {
+	@include maxWidthFit(20,margin-left);
+      }
+    }
+  }
+
+  .db {
+    display: block;
+    width: 100%;
+    .btnLink {
+      width: 100%;
+    }
+  }
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: $color;
+  border-color: $color;
+}
+.el-checkbox__input.is-checked + .el-checkbox__label {
+  color: $color;
+}
+.el-checkbox__inner:hover {
+  border-color: $color;
+}

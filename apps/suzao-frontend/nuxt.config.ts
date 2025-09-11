@@ -4,10 +4,17 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2025-09-09',
+  devtools: { enabled: false },
   // 配置路由重定向
   nitro: {
     routeRules: {
-      '/': { redirect: '/plastic/ai' }
+      '/': { redirect: '/merchant' }
+    }
+  },
+  // 路由级别的页面元数据配置
+  router: {
+    options: {
+      // 这里可以配置全局路由选项
     }
   },
   typescript: {
@@ -31,23 +38,13 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@element-plus/nuxt'
   ],
-  elementPlus: {
-    /** Options */
-    namespace: 'el',
-    importStyle: 'scss',
-    themes: ['dark'],
-    injectionID: {
-      prefix: 1024,
-      current: 0,
-    },
-  },
   i18n: {
     locales: [
       { code: 'zh', file: 'zh.json', name: '中文' },
       { code: 'en', file: 'en.json', name: 'English' }
     ],
     defaultLocale: 'zh',
-    langDir: 'locales',
+    langDir: 'locales/',
     lazy: true,
     strategy: 'prefix_except_default',
     bundle: {
@@ -61,6 +58,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
+    '@/assets/css/tailwind.css',
     '@/assets/css/element-theme.scss',
     '@/assets/css/global.css',
     '@/assets/css/iconfont.css'
