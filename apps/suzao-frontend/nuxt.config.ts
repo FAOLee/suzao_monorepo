@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://localhost:3001/api',
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'https://wn3r59eejh.17suzao.com',
       appName: process.env.NUXT_PUBLIC_APP_NAME || 'Suzao',
       appVersion: process.env.NUXT_PUBLIC_APP_VERSION || '1.0.0',
       appEnv: process.env.NUXT_PUBLIC_APP_ENV || 'development',
@@ -34,29 +34,10 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    '@nuxtjs/i18n',
+    // '@nuxtjs/i18n', // 暂时移除i18n模块
     '@vueuse/nuxt',
     '@element-plus/nuxt'
   ],
-  i18n: {
-    locales: [
-      { code: 'zh', file: 'zh.json', name: '中文' },
-      { code: 'en', file: 'en.json', name: 'English' }
-    ],
-    defaultLocale: 'zh',
-    langDir: 'locales/',
-    lazy: true,
-    strategy: 'prefix_except_default',
-    bundle: {
-      optimizeTranslationDirective: false
-    },
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      alwaysRedirect: false,
-      fallbackLocale: 'zh'
-    }
-  },
   css: [
     '@/assets/css/tailwind.css',
     '@/assets/css/element-theme.scss',
@@ -70,6 +51,21 @@ export default defineNuxtConfig({
     }
   },
   vite: {
-    plugins: [tsconfigPaths()]
+    plugins: [tsconfigPaths()],
+    server: {
+      proxy: {
+        '/core': {
+          target: process.env.NUXT_PUBLIC_API_BASE_URL || 'https://wn3r59eejh.17suzao.com',
+          changeOrigin: true,
+          secure: true
+        },
+        '/api': {
+          target: process.env.NUXT_PUBLIC_API_BASE_URL || 'https://wn3r59eejh.17suzao.com',
+          changeOrigin: true,
+          secure: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }
+    }
   }
 })

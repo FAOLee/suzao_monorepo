@@ -25,7 +25,7 @@ declare global {
   const useRouter: () => Router
   const useNuxtApp: () => {
     $router: Router
-    $i18n?: any
+    // 删除 i18n 可选参考
     [key: string]: any
   }
   const navigateTo: (url: string, options?: { replace?: boolean }) => Promise<void>
@@ -34,12 +34,6 @@ declare global {
   const readonly: <T>(target: T) => T
   const onUnmounted: (callback: () => void) => void
   
-  // I18n Composables
-  const useI18n: () => {
-    $t: (key: string) => string
-    locale: Ref<string>
-    availableLocales: string[]
-  }
 
   // Vue 3 Composables (已经有全局定义，但为了确保)
   const ref: <T>(value: T) => Ref<T>

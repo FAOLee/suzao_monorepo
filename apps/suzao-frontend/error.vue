@@ -34,14 +34,14 @@
           @click="handleError" 
           size="default"
         >
-          {{ safeTranslate('error.retry', 'Retry') }}
+          重试
         </el-button>
         
         <el-button 
           @click="navigateToHome"
           size="default"
         >
-          {{ safeTranslate('error.backHome', 'Back to Home') }}
+          返回首页
         </el-button>
       </div>
       
@@ -69,67 +69,32 @@ const props = defineProps<Props>()
 
 // 根据错误状态码获取标题
 const getErrorTitle = () => {
-  const titleKey = (() => {
-    switch (props.error.statusCode) {
-      case 404:
-        return 'error.pageNotFound'
-      case 500:
-        return 'error.serverError'
-      case 403:
-        return 'error.forbidden'
-      default:
-        return 'error.somethingWrong'
-    }
-  })()
-  
-  return safeTranslate(titleKey, getDefaultTitle(props.error.statusCode))
+  switch (props.error.statusCode) {
+    case 404:
+      return '页面未找到'
+    case 500:
+      return '服务器内部错误'
+    case 403:
+      return '禁止访问'
+    default:
+      return '出现了一些问题'
+  }
 }
 
 // 根据错误状态码获取消息
 const getErrorMessage = () => {
-  const messageKey = (() => {
-    switch (props.error.statusCode) {
-      case 404:
-        return 'error.pageNotFoundMessage'
-      case 500:
-        return 'error.serverErrorMessage'
-      case 403:
-        return 'error.forbiddenMessage'
-      default:
-        return 'error.unknownMessage'
-    }
-  })()
-  
-  return safeTranslate(messageKey, getDefaultMessage(props.error.statusCode))
-}
-
-// 默认标题（fallback）
-const getDefaultTitle = (statusCode: number) => {
-  switch (statusCode) {
+  switch (props.error.statusCode) {
     case 404:
-      return 'Page Not Found'
+      return '抱歉，您访问的页面不存在。可能是页面已被删除、移动或您输入了错误的地址。'
     case 500:
-      return 'Internal Server Error'
+      return '服务器遇到了一个错误，无法完成您的请求。我们正在努力修复这个问题。'
     case 403:
-      return 'Access Denied'
+      return '您没有权限访问此页面。请联系管理员或确认您的登录状态。'
     default:
-      return 'Something Went Wrong'
+      return '发生了意外错误。请稍后重试，如果问题持续存在请联系技术支持。'
   }
 }
 
-// 默认消息（fallback）
-const getDefaultMessage = (statusCode: number) => {
-  switch (statusCode) {
-    case 404:
-      return 'Sorry, the page you are looking for does not exist.'
-    case 500:
-      return 'The server encountered an error and could not complete your request.'
-    case 403:
-      return 'You do not have permission to access this page.'
-    default:
-      return 'An unexpected error occurred. Please try again later.'
-  }
-}
 
 // 错误处理函数
 const handleError = () => {
@@ -142,15 +107,4 @@ const navigateToHome = () => {
   navigateTo('/')
 }
 
-// 国际化函数
-const { $t } = useNuxtApp()
-
-// 安全的翻译函数
-const safeTranslate = (key: string, fallback: string): string => {
-  try {
-    return $t(key) || fallback
-  } catch (e) {
-    return fallback
-  }
-}
 </script>

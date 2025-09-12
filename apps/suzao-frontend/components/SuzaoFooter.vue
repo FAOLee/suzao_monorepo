@@ -1,46 +1,46 @@
 <template>
-  <footer class="bg-white min-h-[40px] flex items-center">
+  <footer class="bg-white min-h-[40px] flex items-center m-0 p-0">
     <div class="main-width flex flex-nowrap justify-between items-center box-border gap-[3px] lg:flex-wrap lg:gap-2 lg:justify-center">
       <span class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px] lg:hidden">
-        {{ $t('footer.company') }}
+        深圳塑造新材料技术有限公司
       </span>
       <a 
         class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px] no-underline hover:text-[#333333] hover:underline lg:hidden"
         href="tel:400-869-1788"
-        :title="$t('footer.phone', '联系电话')"
+        title="联系电话"
       >
         400-869-1788
       </a>
       <a 
         class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px] no-underline hover:text-[#333333] hover:underline lg:hidden"
         href="mailto:service@17suzao.com"
-        :title="$t('footer.email', '联系邮箱')"
+        title="联系邮箱"
       >
         service@17suzao.com
       </a>
       <NuxtLink 
         class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px] no-underline hover:text-[#333333] hover:underline lg:hidden"
         to="/page/about" 
-        :title="$t('footer.about')" 
+        title="关于我们" 
         target="_blank"
       >
-        {{ $t('footer.about') }}
+        关于我们
       </NuxtLink>
       <NuxtLink 
         class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px] no-underline hover:text-[#333333] hover:underline lg:hidden"
         to="/page/privacy-policy" 
-        :title="$t('footer.privacyPolicy')"
+        title="隐私政策"
         target="_blank"
       >
-        {{ $t('footer.privacyPolicy') }}
+        隐私政策
       </NuxtLink>
       <NuxtLink 
         class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px] no-underline hover:text-[#333333] hover:underline lg:hidden"
         to="/page/disclaimer" 
-        :title="$t('footer.disclaimer')"
+        title="免责声明"
         target="_blank"
       >
-        {{ $t('footer.disclaimer') }}
+        免责声明
       </NuxtLink>
       <span class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px]">Copyright © 2014 - {{ currentYear }} 17SUZAO</span>
       <a 
@@ -48,14 +48,14 @@
         href="https://beian.miit.gov.cn" 
         target="_blank"
       >
-        {{ $t('footer.beian') }}
+        粤ICP备14067911号
       </a>
       <a 
         class="whitespace-nowrap flex-shrink-0 transition-colors duration-400 text-[12px] leading-[1.2] text-[#8d9696] mx-[3px] no-underline hover:text-[#333333] hover:underline lg:hidden"
         href="https://main.bkt.17suzao.com/static/b220221366.png" 
         target="_blank"
       >
-        {{ $t('footer.license') }}
+        增值电信业务经营许可证粤B2-20221366
       </a>
     </div>
   </footer>
