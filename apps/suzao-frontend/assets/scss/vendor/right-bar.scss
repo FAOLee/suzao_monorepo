@@ -2,6 +2,8 @@
 @use 'sass:math';
 
 .right-bar {
+  padding: 0; // 重置所有padding
+  margin: 0;  // 重置所有margin
   position: fixed;
   right: 0;
   bottom: 50%;
@@ -10,6 +12,8 @@
   line-height: 0;
 
   .aside {
+    padding: 0; // 重置 padding
+    margin: 0;  // 重置 margin
     display: flex;
     flex-wrap: wrap;
     align-items: center;

@@ -20,7 +20,8 @@
       "Bash(rm:*)",
       "Bash(tasklist:*)",
       "Bash(netstat:*)",
-      "Bash(npx tailwindcss:*)"
+      "Bash(npx tailwindcss:*)",
+      "Bash(pnpm run dev:*)"
     ],
     "deny": [],
     "ask": []
