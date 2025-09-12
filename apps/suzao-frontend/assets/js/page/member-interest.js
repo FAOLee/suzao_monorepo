@@ -2,7 +2,7 @@ addEventListener('load', () => {
   const merchantRegistration = new Vue({
     el: '#memberInterest',
     data() {
-      const iconSrc = '/frontend/assets/layout/icon-member'
+      const iconSrc = '/static/layout/icon-member'
       const ver = '.png?ver=20250220'
       return {
         loading: true,
@@ -40,12 +40,12 @@ addEventListener('load', () => {
         goodsList: [],
         payTab: [
           {
-            icon: '/frontend/assets/page/pay/' + 'pay-wx.png',
+            icon: '/static/page/pay/' + 'pay-wx.png',
             text: '微信支付',
             id: 'wx_pay'
           },
           {
-            icon: '/frontend/assets/page/pay/' + 'pay-zfb.png',
+            icon: '/static/page/pay/' + 'pay-zfb.png',
             text: '支付宝支付',
             id: 'ali_pay'
           }

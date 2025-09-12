@@ -12,19 +12,19 @@ addEventListener('load', () => {
   const becomeSettledList = [
     {
       text: '资料审核中',
-      icon: '/frontend/assets/layout/icon-settled-loading.png'
+      icon: '/static/layout/icon-settled-loading.png'
     },
     {
       text: '审核失败',
-      icon: '/frontend/assets/layout/icon-settled-error.png'
+      icon: '/static/layout/icon-settled-error.png'
     },
     {
       text: '审核成功(立即激活)',
-      icon: '/frontend/assets/layout/icon-settled-ok.png'
+      icon: '/static/layout/icon-settled-ok.png'
     },
     {
       text: '申请成为供应商',
-      icon: '/frontend/assets/layout/icon-settled.png'
+      icon: '/static/layout/icon-settled.png'
     }
   ]
   const pathnameListPos = {
@@ -69,7 +69,7 @@ addEventListener('load', () => {
   const settledApp = new Vue({
     el: '#settledApp',
     data() {
-      const iconSrc = '/frontend/assets/layout/icon-member'
+      const iconSrc = '/static/layout/icon-member'
       const ver = '.png?ver=20250220'
       return {
         // 申请成为商家
@@ -121,12 +121,12 @@ addEventListener('load', () => {
         goodsList: [],
         payTab: [
           {
-            icon: '/frontend/assets/page/pay/' + 'pay-wx.png',
+            icon: '/static/page/pay/' + 'pay-wx.png',
             text: '微信支付',
             id: 'wx_pay'
           },
           {
-            icon: '/frontend/assets/page/pay/' + 'pay-zfb.png',
+            icon: '/static/page/pay/' + 'pay-zfb.png',
             text: '支付宝支付',
             id: 'ali_pay'
           }

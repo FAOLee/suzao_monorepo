@@ -1,16 +1,18 @@
 @import '../_variables.scss';
+
 .compare-warp {
   position: fixed;
   margin-right: -10px;
   margin-top: 10px;
-	@include bd(4);
+  @include bd(4);
   overflow: hidden;
-	@include maxWidthFit(14,font-size);
+  @include maxWidthFit(14, font-size);
   z-index: 1002;
   .box-shadow;
   border: 1px solid $border-color;
-	@include maxWidthFit($header-height,top);
+  @include maxWidthFit($header-height, top);
   right: calc((100% + ~'#{$maxWidth}px') / 2);
+
   @media (max-width: 1720px) {
     right: auto;
     margin-right: 0;
@@ -21,17 +23,18 @@
     cursor: pointer;
     color: $white;
     background: $color;
-	@include maxWidthFit(40,width);
-	@include maxWidthFit(8,padding-top);
-	@include maxWidthFit(8,padding-bottom);
-	@include maxWidthFit(12,padding-left);
-	@include maxWidthFit(12,padding-right);
+    @include maxWidthFit(40, width);
+    @include maxWidthFit(8, padding-top);
+    @include maxWidthFit(8, padding-bottom);
+    @include maxWidthFit(12, padding-left);
+    @include maxWidthFit(12, padding-right);
 
     .lang-en & .contrast {
       writing-mode: vertical-rl;
     }
+
     .num {
-	@include maxWidthFit(12,font-size);
+      @include maxWidthFit(12, font-size);
       line-height: 1;
       width: 14px;
       height: 14px;
@@ -43,14 +46,14 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-	@include maxWidthFit(5,margin-top);
+      @include maxWidthFit(5, margin-top);
     }
   }
 
   .compare-table {
     background-color: $white;
-	@include maxWidthFit(240,width);
-	@include minWidthFit(240,width);
+    @include maxWidthFit(240, width);
+    @include minWidthFit(240, width);
 
     .header {
       display: flex;
@@ -59,37 +62,40 @@
       justify-content: space-between;
       background-color: $background-color;
       color: $text-color;
-	@include maxWidthFit(10,padding-top);
-	@include maxWidthFit(10,padding-bottom);
-	@include maxWidthFit(20,padding-left);
-	@include maxWidthFit(20,padding-right);
+      @include maxWidthFit(10, padding-top);
+      @include maxWidthFit(10, padding-bottom);
+      @include maxWidthFit(20, padding-left);
+      @include maxWidthFit(20, padding-right);
 
       span {
-	@include maxWidthFit(16,font-size);
+        @include maxWidthFit(16, font-size);
         line-height: 1;
         display: flex;
         align-items: center;
 
         &::before {
-	@include maxWidthFit(2,margin-right);
+          @include maxWidthFit(2, margin-right);
           content: '';
           width: 23px;
           height: 18px;
           display: block;
-          background: url('/frontend/assets/ai/pk.png?#{$ver}') no-repeat;
+          background: url('/static/ai/pk.png') no-repeat;
           background-size: contain;
         }
       }
+
       i {
-	@include maxWidthFit(20,font-size);
+        @include maxWidthFit(20, font-size);
         cursor: pointer;
       }
     }
-    .el-table--enable-row-hover .el-table__body tr:hover > td {
+
+    .el-table--enable-row-hover .el-table__body tr:hover>td {
       background-color: rgba(0, 0, 0, 0) !important;
     }
+
     .el-table {
-	@include maxWidthFit(14,font-size);
+      @include maxWidthFit(14, font-size);
 
       .el-table__empty-block,
       .el-table__body {
@@ -97,8 +103,8 @@
       }
 
       .cell {
-	@include maxWidthFit(20,padding-left);
-	@include maxWidthFit(20,padding-right);
+        @include maxWidthFit(20, padding-left);
+        @include maxWidthFit(20, padding-right);
         min-height: 35px;
         display: flex;
         flex-wrap: wrap;
@@ -108,14 +114,15 @@
 
       .delete {
         padding: 0;
+
         .cell {
           padding-left: 0;
         }
 
         .el-icon-delete {
           cursor: pointer;
-	@include maxWidthFit(18,font-size);
-	@include maxWidthFit(8,padding);
+          @include maxWidthFit(18, font-size);
+          @include maxWidthFit(8, padding);
           border-radius: 50%;
           transition: background-color 0.4s;
 
@@ -127,10 +134,10 @@
     }
 
     .el-table__empty-text {
-	@include maxWidthFit(15,padding-top);
-	@include maxWidthFit(15,padding-bottom);
+      @include maxWidthFit(15, padding-top);
+      @include maxWidthFit(15, padding-bottom);
       line-height: 1.36;
-	@include maxWidthFit(14,font-size);
+      @include maxWidthFit(14, font-size);
       width: 80%;
     }
 
@@ -139,8 +146,8 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-	@include maxWidthFit(20,padding);
-	@include maxWidthFit(10,padding-top);
+      @include maxWidthFit(20, padding);
+      @include maxWidthFit(10, padding-top);
 
       .el-button,
       .el-link {
@@ -156,17 +163,19 @@
       text-align: center;
       outline: 0;
       margin: 0;
-	@include maxWidthFit(12,padding-top);
-	@include maxWidthFit(12,padding-bottom);
-	@include maxWidthFit(20,padding-left);
-	@include maxWidthFit(20,padding-right);
-	@include bd(4);
+      @include maxWidthFit(12, padding-top);
+      @include maxWidthFit(12, padding-bottom);
+      @include maxWidthFit(20, padding-left);
+      @include maxWidthFit(20, padding-right);
+      @include bd(4);
       background-color: $colorHover;
       color: $white;
       border-color: $colorHover;
+
       &:hover {
         color: $white;
       }
+
       &.is-disabled {
         background-color: $white;
         color: $text-color3;
@@ -175,13 +184,13 @@
     }
 
     .el-button {
-	@include maxWidthFit(12,padding-top);
-	@include maxWidthFit(12,padding-bottom);
-	@include maxWidthFit(20,padding-left);
-	@include maxWidthFit(20,padding-right);
+      @include maxWidthFit(12, padding-top);
+      @include maxWidthFit(12, padding-bottom);
+      @include maxWidthFit(20, padding-left);
+      @include maxWidthFit(20, padding-right);
 
-      & + .el-link {
-	@include maxWidthFit(20,margin-left);
+      &+.el-link {
+        @include maxWidthFit(20, margin-left);
       }
     }
   }

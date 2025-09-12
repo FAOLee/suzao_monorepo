@@ -35,8 +35,7 @@ $ipadH-min: 993px;
 $ipadV-min: 751px;
 $wap-min: 481px;
 
-$ver: 'ver=20231214';
-$src: '/frontend/assets/';
+$src: '/static/';
 
 @mixin bd($size: 4) {
   border-radius: #{$size}px;
@@ -73,9 +72,11 @@ $src: '/frontend/assets/';
 
 @mixin maxWidthFit($px, $attr) {
   #{$attr}: #{$px}px;
+
   @media (max-width: $pcM) and (min-width: $pcS-min) {
     #{$attr}: #{$px - 1}px;
   }
+
   @media (max-width: $pcS) and (min-width: $ipadH-min) {
     #{$attr}: calc((#{$px} - 2) / #{$maxWidth} * 100vw);
   }

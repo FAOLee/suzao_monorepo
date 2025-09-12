@@ -7,7 +7,7 @@ addEventListener('load', () => {
     el: '#attracting-merchants',
     data() {
       const ver = `?ver=2025053001`
-      const src = `/frontend/assets/page/attracting-merchants/`
+      const src = `/static/page/attracting-merchants/`
       return {
         tabList: [
           {
@@ -245,7 +245,7 @@ addEventListener('load', () => {
             bgImg: `${src}app4.png${ver}`
           },
           'image-text5': {
-            logoSrc: `/frontend/assets/share-logo.png${ver}`,
+            logoSrc: `/static/share-logo.png${ver}`,
             logoTitle: CHAT_TEXT.app,
             slogan: CHAT_TEXT.slogan
           },

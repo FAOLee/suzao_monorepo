@@ -664,7 +664,7 @@ addEventListener('load', () => {
         <div class="tip">
           ${CHAT_TEXT.compare}
         </div>
-        <a :href="linkFormat(item.code)" class="operate-btn" target="_blank"><img class="icon-pk" src="/frontend/assets/ai/pk.png?ver=2024030401"> 查看对比结果</a>
+        <a :href="linkFormat(item.code)" class="operate-btn" target="_blank"><img class="icon-pk" src="/static/ai/pk.png?ver=2024030401"> 查看对比结果</a>
       </div>
       `
   })

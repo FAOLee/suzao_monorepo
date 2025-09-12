@@ -4,10 +4,23 @@
 
 /* 基础样式重置和字体配置 */
 @layer base {
+  /* 完整的CSS重置 */
+  * {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     font-family:
       -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
       'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   /* 防止水平滚动条 */
@@ -15,6 +28,8 @@
   body {
     max-width: 100vw;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   body {
@@ -35,6 +50,47 @@
   /* 确保根容器不会产生额外滚动条 */
   #__nuxt {
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 移除所有默认margin */
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 列表样式重置 */
+  ul, ol {
+    list-style: none;
+  }
+
+  /* 表格样式重置 */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* 链接样式重置 */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* 按钮样式重置 */
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* 输入框样式重置 */
+  input, textarea, select {
+    border: none;
+    outline: none;
+    background: none;
   }
 
   /* 暗黑模式 */

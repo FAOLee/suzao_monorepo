@@ -1636,7 +1636,7 @@ addEventListener('load', () => {
           </div>`
         }
         return `<span class="recommendedSmallBusinessBtn">
-         <div class="box"><img src="/frontend/assets/ai/icon-company.png" alt=""> <span class="red">${recommendedSmallBusiness[lineUuId].length}</span>个商家 <i class="el-icon-arrow-right"></i></div>
+         <div class="box"><img src="/static/ai/icon-company.png" alt=""> <span class="red">${recommendedSmallBusiness[lineUuId].length}</span>个商家 <i class="el-icon-arrow-right"></i></div>
          <div class="cont-box">${contBox}</div>
         </span>`
       },

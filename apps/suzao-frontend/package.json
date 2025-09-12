@@ -6,8 +6,13 @@
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
+    "build:prod": "NODE_ENV=production nuxt build",
     "preview": "nuxt preview",
-    "lint": "eslint . --ext .ts,.vue"
+    "preview:prod": "NODE_ENV=production nuxt preview",
+    "lint": "eslint . --ext .ts,.vue",
+    "type-check": "nuxt typecheck",
+    "clean": "rm -rf .nuxt dist .output",
+    "env:check": "nuxt info"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",

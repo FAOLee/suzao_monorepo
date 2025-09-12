@@ -5,16 +5,16 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-	@include maxWidthFit(13, padding-top);
-	@include maxWidthFit(13, padding-bottom);
-	@include maxWidthFit(20, padding-left);
-	@include maxWidthFit(20, padding-right);
-	@include minWidthFit(14, padding-top);
-	@include minWidthFit(14, padding-bottom);
-	@include minWidthFit(30, padding-left);
-	@include minWidthFit(30, padding-right);
-	@include maxWidthFit($header-height, height);
-	@include minWidthFit($header-wap-height, height);
+  @include maxWidthFit(13, padding-top);
+  @include maxWidthFit(13, padding-bottom);
+  @include maxWidthFit(20, padding-left);
+  @include maxWidthFit(20, padding-right);
+  @include minWidthFit(14, padding-top);
+  @include minWidthFit(14, padding-bottom);
+  @include minWidthFit(30, padding-left);
+  @include minWidthFit(30, padding-right);
+  @include maxWidthFit($header-height, height);
+  @include minWidthFit($header-wap-height, height);
   background-color: $white;
   position: fixed;
   top: 0;
@@ -34,9 +34,9 @@
 
   .list {
     display: block;
-	@include maxWidthFit(16, font-size);
-	@include maxWidthFit(12, border-radius);
-	@include maxWidthFit(12, padding);
+    @include maxWidthFit(16, font-size);
+    @include maxWidthFit(12, border-radius);
+    @include maxWidthFit(12, padding);
     line-height: 1;
     color: $text-color;
 
@@ -55,8 +55,8 @@
     align-items: center;
 
     .logo {
-	@include minWidthFit(0, padding-top);
-	@include minWidthFit(0, padding-bottom);
+      @include minWidthFit(0, padding-top);
+      @include minWidthFit(0, padding-bottom);
     }
 
     &,
@@ -66,16 +66,16 @@
     }
 
     .down {
-	@include maxWidthFit(20, margin-left);
-	@include maxWidthFit(0, margin-right);
+      @include maxWidthFit(20, margin-left);
+      @include maxWidthFit(0, margin-right);
     }
   }
 
   .a {
     box-sizing: border-box;
     display: inline-block;
-	@include maxWidthFit(5, margin-left);
-	@include maxWidthFit(5, margin-right);
+    @include maxWidthFit(5, margin-left);
+    @include maxWidthFit(5, margin-right);
   }
 
   .ai-active {
@@ -101,7 +101,7 @@
       content: '';
       background: linear-gradient(to right, #fa0000 0%, #ffa30c 100%);
       border-radius: 8px 8px 8px 1px;
-	@include maxWidthFit(12, font-size);
+      @include maxWidthFit(12, font-size);
       color: $white;
       line-height: 1;
       padding: 1px 5px 3px;
@@ -116,7 +116,7 @@
       justify-content: center;
       overflow: hidden;
       position: relative;
-	@include maxWidthFit(12, padding);
+      @include maxWidthFit(12, padding);
     }
 
     &.hot {
@@ -142,17 +142,19 @@
     flex: 1;
     display: flex;
     justify-content: flex-end;
-	@include maxWidthFit(10, padding-right);
+    @include maxWidthFit(10, padding-right);
 
-    .down + .down {
-	@include maxWidthFit(5, margin-left);
+    .down+.down {
+      @include maxWidthFit(5, margin-left);
     }
 
     .list.active {
       position: relative;
+
       &:hover {
         background-color: rgba(0, 0, 0, 0);
       }
+
       &::after {
         content: '';
         position: absolute;
@@ -172,9 +174,9 @@
     font-size: 0;
     line-height: 0;
 
-    + .name,
-    + .down {
-	@include maxWidthFit(18, margin-left);
+    +.name,
+    +.down {
+      @include maxWidthFit(18, margin-left);
     }
 
     .box {
@@ -185,8 +187,8 @@
       position: absolute;
       display: flex;
       flex-wrap: wrap;
-	@include maxWidthFit(15, padding-left);
-	@include maxWidthFit(15, padding-right);
+      @include maxWidthFit(15, padding-left);
+      @include maxWidthFit(15, padding-right);
       right: 50%;
       bottom: 0;
       transform: translate(50%, 100%);
@@ -215,18 +217,18 @@
         }
 
         .text {
-	@include maxWidthFit(15, padding-left);
+          @include maxWidthFit(15, padding-left);
           flex: 1;
 
           .p1 {
-	@include maxWidthFit(14, font-size);
+            @include maxWidthFit(14, font-size);
             font-weight: 500;
             color: $text-color;
             line-height: 1.5;
           }
 
           .p2 {
-	@include maxWidthFit(12, font-size);
+            @include maxWidthFit(12, font-size);
             font-weight: 400;
             color: $text-color3;
             line-height: 1.4;
@@ -237,7 +239,7 @@
             span {
               background: $background-color;
               border-radius: 8px;
-	@include maxWidthFit(12, font-size);
+              @include maxWidthFit(12, font-size);
               font-weight: 500;
               color: $text-color;
               padding: 2px 4px;
@@ -249,27 +251,27 @@
             }
 
             .iconfont {
-	@include maxWidthFit(16, font-size);
+              @include maxWidthFit(16, font-size);
               vertical-align: middle;
             }
           }
 
-          p + p {
-	@include maxWidthFit(5, padding-top);
+          p+p {
+            @include maxWidthFit(5, padding-top);
           }
 
-          .iconfont + .iconfont {
-	@include maxWidthFit(3, padding-left);
+          .iconfont+.iconfont {
+            @include maxWidthFit(3, padding-left);
           }
         }
       }
 
       &:hover {
         .box {
-	@include maxWidthFit(10, padding-top);
-	@include maxWidthFit(10, padding-bottom);
-	@include maxWidthFit(15, padding-left);
-	@include maxWidthFit(15, padding-right);
+          @include maxWidthFit(10, padding-top);
+          @include maxWidthFit(10, padding-bottom);
+          @include maxWidthFit(15, padding-left);
+          @include maxWidthFit(15, padding-right);
           height: auto;
           bottom: 0;
         }
@@ -284,7 +286,7 @@
         border-radius: 8px;
 
         a {
-	@include maxWidthFit(16, font-size);
+          @include maxWidthFit(16, font-size);
           font-weight: 400;
           line-height: 2.25;
           color: $text-color3;
@@ -302,7 +304,7 @@
       &:hover {
         .box {
           border: 1px solid $background-color;
-	@include maxWidthFit(15, padding);
+          @include maxWidthFit(15, padding);
           height: 246px;
           bottom: 0;
         }
@@ -394,7 +396,7 @@
         .box {
           box-shadow: 0px 0px 10px 0px rgba(134, 134, 134, 0.5);
           border: 1px solid $background-color;
-	@include maxWidthFit(15, padding);
+          @include maxWidthFit(15, padding);
           height: auto;
           bottom: 0;
         }
@@ -457,19 +459,21 @@
 
     &.attracting {
       img {
-	@include maxWidthFit(131, max-width);
+        @include maxWidthFit(131, max-width);
       }
+
       .box {
         width: 165px;
         border-radius: 8px;
 
         a {
-	@include maxWidthFit(14, font-size);
+          @include maxWidthFit(14, font-size);
           font-weight: 400;
           line-height: 2.25;
           color: $text-color3;
           width: 100%;
           text-align: center;
+
           &:hover {
             background: $background-color;
             border-radius: 8px;
@@ -481,7 +485,7 @@
       &:hover {
         .box {
           border: 1px solid $background-color;
-	@include maxWidthFit(12, padding);
+          @include maxWidthFit(12, padding);
           height: auto;
           bottom: 0;
         }
@@ -501,7 +505,7 @@
         height: 8px;
         content: '';
         display: block;
-        background: url('/frontend/assets/layout/icon-v1.png') no-repeat;
+        background: url('/static/layout/icon-v1.png') no-repeat;
         background-size: 11px 8px;
       }
 
@@ -510,7 +514,7 @@
         color: #e5b372;
 
         &:before {
-          background-image: url('/frontend/assets/layout/icon-v2.png');
+          background-image: url('/static/layout/icon-v2.png');
         }
       }
     }
@@ -537,13 +541,13 @@
 
     .settled {
       position: relative;
-	@include maxWidthFit(45, padding-left);
+      @include maxWidthFit(45, padding-left);
       cursor: pointer;
 
       .icon-settled {
         position: absolute;
-	@include maxWidthFit(12, left);
-	@include maxWidthFit(25, width);
+        @include maxWidthFit(12, left);
+        @include maxWidthFit(25, width);
         top: 50%;
         transform: translateY(-50%);
       }
@@ -551,7 +555,8 @@
       background: linear-gradient(90deg, #fff0da 0%, #ffe9c8 24%, #ffdeb3 100%);
       border-radius: 12px;
       color: #452206;
-      transition: background 0.4s, box-shadow 0.4s;
+      transition: background 0.4s,
+      box-shadow 0.4s;
 
       &::before {
         content: '';
@@ -576,14 +581,14 @@
       position: relative;
       cursor: pointer;
       background: linear-gradient(90deg, #fc9b7f 0%, #ff6b4a 100%);
-	@include bd(12);
+      @include bd(12);
       color: $white;
-	@include maxWidthFit(40, padding-left);
-	@include maxWidthFit(20, padding-right);
+      @include maxWidthFit(40, padding-left);
+      @include maxWidthFit(20, padding-right);
       font-weight: bold;
 
       .big-icon {
-	@include maxWidthFit(24, font-size);
+        @include maxWidthFit(24, font-size);
         line-height: 0;
         position: absolute;
         top: 50%;
@@ -599,15 +604,16 @@
 
     .quotation {
       img {
-	@include maxWidthFit(135, max-width);
+        @include maxWidthFit(135, max-width);
       }
     }
+
     .tip-num {
       position: absolute;
       right: -3px;
       top: -3px;
       background: #fe3b30;
-	@include bd(8);
+      @include bd(8);
       color: $white;
       min-width: 16px;
       font-size: 12px;
@@ -630,9 +636,9 @@
   }
 
   .activate-vip {
-	@include maxWidthFit(12, margin-left);
-	@include maxWidthFit(12, margin-right);
-	@include maxWidthFit(115, width);
+    @include maxWidthFit(12, margin-left);
+    @include maxWidthFit(12, margin-right);
+    @include maxWidthFit(115, width);
     cursor: pointer;
 
     img {
@@ -681,8 +687,8 @@
 
 .become-dialog {
   .el-dialog {
-	@include maxWidthFit(500, max-width);
-	@include minWidthFit($maxWidth, max-width);
+    @include maxWidthFit(500, max-width);
+    @include minWidthFit($maxWidth, max-width);
     background: linear-gradient(180deg, #fbe8d6 0%, #fff4eb 11%, $white 100%);
     border-radius: 12px;
   }
@@ -704,30 +710,30 @@
   }
 
   .el-dialog__body {
-	@include maxWidthFit(10, padding-top);
-	@include maxWidthFit(10, padding-bottom);
-	@include maxWidthFit(50, padding-left);
-	@include maxWidthFit(50, padding-right);
-	@include minWidthFit(10, padding-top);
-	@include minWidthFit(10, padding-bottom);
-	@include minWidthFit(50, padding-left);
-	@include minWidthFit(50, padding-right);
+    @include maxWidthFit(10, padding-top);
+    @include maxWidthFit(10, padding-bottom);
+    @include maxWidthFit(50, padding-left);
+    @include maxWidthFit(50, padding-right);
+    @include minWidthFit(10, padding-top);
+    @include minWidthFit(10, padding-bottom);
+    @include minWidthFit(50, padding-left);
+    @include minWidthFit(50, padding-right);
   }
 
   .el-button {
-	@include maxWidthFit(17, padding-top);
-	@include maxWidthFit(17, padding-bottom);
-	@include maxWidthFit(20, padding-left);
-	@include maxWidthFit(20, padding-right);
-	@include minWidthFit(29, padding-top);
-	@include minWidthFit(29, padding-bottom);
-	@include minWidthFit(20, padding-left);
-	@include minWidthFit(20, padding-right);
+    @include maxWidthFit(17, padding-top);
+    @include maxWidthFit(17, padding-bottom);
+    @include maxWidthFit(20, padding-left);
+    @include maxWidthFit(20, padding-right);
+    @include minWidthFit(29, padding-top);
+    @include minWidthFit(29, padding-bottom);
+    @include minWidthFit(20, padding-left);
+    @include minWidthFit(20, padding-right);
   }
 
   .el-input__inner {
-	@include maxWidthFit(50, height);
-	@include minWidthFit(80, height);
+    @include maxWidthFit(50, height);
+    @include minWidthFit(80, height);
   }
 
   .el-radio__inner {
@@ -736,9 +742,9 @@
   }
 
   .el-radio__label {
-	@include maxWidthFit(16, font-size);
-	@include minWidthFit(20, font-size);
-	@include minWidthFit(10, padding-left);
+    @include maxWidthFit(16, font-size);
+    @include minWidthFit(20, font-size);
+    @include minWidthFit(10, padding-left);
     -webkit-text-size-adjust: none;
   }
 
@@ -764,6 +770,7 @@
   }
 
   @media (max-width: $ipadH) {
+
     input,
     textarea {
       font-size: 16px !important;
@@ -862,8 +869,8 @@
 
 .login-content {
   #captcha-element {
-	@include maxWidthFit(50, height);
-	@include minWidthFit(50, height);
+    @include maxWidthFit(50, height);
+    @include minWidthFit(50, height);
   }
 
   #aliyunCaptcha-sliding-wrapper {
@@ -927,8 +934,8 @@
     display: flex;
     align-items: center;
     color: #653a08;
-	@include maxWidthFit(25, padding);
-	@include minWidthFit(25, padding);
+    @include maxWidthFit(25, padding);
+    @include minWidthFit(25, padding);
 
     .header-icon {
       width: 54px;
@@ -951,14 +958,14 @@
     }
 
     .el-link {
-	@include maxWidthFit(25, margin-top);
-	@include minWidthFit(25, margin-top);
+      @include maxWidthFit(25, margin-top);
+      @include minWidthFit(25, margin-top);
     }
   }
 
   .content {
-	@include maxWidthFit(15, padding);
-	@include minWidthFit(15, padding);
+    @include maxWidthFit(15, padding);
+    @include minWidthFit(15, padding);
     display: flex;
 
     .content-left {
@@ -970,16 +977,16 @@
       flex-wrap: wrap;
       align-items: baseline;
       // align-content: flex-start;
-	@include maxWidthFit(15, padding);
-	@include minWidthFit(15, padding);
+      @include maxWidthFit(15, padding);
+      @include minWidthFit(15, padding);
       color: #653a08;
 
       .left-title {
         width: 100%;
         font-size: 20px;
         text-align: center;
-	@include maxWidthFit(10, padding-bottom);
-	@include minWidthFit(10, padding-bottom);
+        @include maxWidthFit(10, padding-bottom);
+        @include minWidthFit(10, padding-bottom);
       }
 
       .w50 {
@@ -987,8 +994,8 @@
         justify-content: center;
         display: flex;
         flex-wrap: wrap;
-	@include maxWidthFit(5, padding);
-	@include minWidthFit(5, padding);
+        @include maxWidthFit(5, padding);
+        @include minWidthFit(5, padding);
 
         img {
           width: 55px;
@@ -1010,29 +1017,29 @@
     }
 
     .content-right {
-	@include maxWidthFit(25, padding-left);
-	@include minWidthFit(25, padding-left);
+      @include maxWidthFit(25, padding-left);
+      @include minWidthFit(25, padding-left);
       flex: 1;
       overflow: hidden;
     }
 
     .content-ul {
-	@include maxWidthFit(10, padding-bottom);
-	@include minWidthFit(10, padding-bottom);
+      @include maxWidthFit(10, padding-bottom);
+      @include minWidthFit(10, padding-bottom);
 
       .ul {
         display: flex;
         overflow-y: hidden;
         .scrollbar;
-	@include maxWidthFit(5, padding-top);
-	@include minWidthFit(5, padding-top);
-	@include maxWidthFit(10, padding-bottom);
-	@include minWidthFit(10, padding-bottom);
+        @include maxWidthFit(5, padding-top);
+        @include minWidthFit(5, padding-top);
+        @include maxWidthFit(10, padding-bottom);
+        @include minWidthFit(10, padding-bottom);
 
         .li {
           &:nth-of-type(n + 2) {
-	@include maxWidthFit(25, padding-left);
-	@include minWidthFit(25, padding-left);
+            @include maxWidthFit(25, padding-left);
+            @include minWidthFit(25, padding-left);
           }
 
           .box {
@@ -1055,10 +1062,10 @@
         .box {
           position: relative;
           border-radius: 16px;
-	@include maxWidthFit(20, padding-top);
-	@include minWidthFit(20, padding-top);
-	@include maxWidthFit(20, padding-bottom);
-	@include minWidthFit(20, padding-bottom);
+          @include maxWidthFit(20, padding-top);
+          @include minWidthFit(20, padding-top);
+          @include maxWidthFit(20, padding-bottom);
+          @include minWidthFit(20, padding-bottom);
           text-align: center;
         }
 
@@ -1100,8 +1107,8 @@
       .tab {
         background: #f3f3f6;
         border-radius: 8px;
-	@include maxWidthFit(2, padding);
-	@include minWidthFit(2, padding);
+        @include maxWidthFit(2, padding);
+        @include minWidthFit(2, padding);
         display: flex;
       }
 
@@ -1111,8 +1118,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-	@include maxWidthFit(10, padding);
-	@include minWidthFit(10, padding);
+        @include maxWidthFit(10, padding);
+        @include minWidthFit(10, padding);
         cursor: pointer;
 
         .icon {
@@ -1122,8 +1129,8 @@
         .text {
           font-size: 14px;
           color: $text-color;
-	@include maxWidthFit(5, padding-left);
-	@include minWidthFit(5, padding-left);
+          @include maxWidthFit(5, padding-left);
+          @include minWidthFit(5, padding-left);
         }
 
         &.active {
@@ -1133,10 +1140,10 @@
       }
 
       .pay-con {
-	@include maxWidthFit(20, margin-top);
-	@include minWidthFit(20, margin-top);
-	@include maxWidthFit(10, padding);
-	@include minWidthFit(10, padding);
+        @include maxWidthFit(20, margin-top);
+        @include minWidthFit(20, margin-top);
+        @include maxWidthFit(10, padding);
+        @include minWidthFit(10, padding);
         background: #f3f3f6;
         border-radius: 8px;
         border: 1px solid #f5f5f5;
@@ -1144,8 +1151,8 @@
 
         .con-left {
           background-color: $white;
-	@include maxWidthFit(10, padding);
-	@include minWidthFit(10, padding);
+          @include maxWidthFit(10, padding);
+          @include minWidthFit(10, padding);
           border-radius: 8px;
           width: 128px;
 
@@ -1153,14 +1160,14 @@
             font-size: 13px;
             color: #c4c4c4;
             text-align: center;
-	@include maxWidthFit(10, padding-top);
-	@include minWidthFit(10, padding-top);
+            @include maxWidthFit(10, padding-top);
+            @include minWidthFit(10, padding-top);
           }
         }
 
         .con-right {
-	@include maxWidthFit(20, padding-left);
-	@include minWidthFit(20, padding-left);
+          @include maxWidthFit(20, padding-left);
+          @include minWidthFit(20, padding-left);
           flex: 1;
           display: flex;
           align-items: center;
@@ -1177,8 +1184,7 @@
             color: $text-color;
           }
 
-          .text {
-          }
+          .text {}
 
           .price {
             font-weight: 600;
@@ -1227,7 +1233,7 @@
   }
 
   &::after {
-    background: url('/frontend/assets/layout/icon-activate-vip.png') no-repeat;
+    background: url('/static/layout/icon-activate-vip.png') no-repeat;
     background-size: 100%;
     position: absolute;
     top: 50%;

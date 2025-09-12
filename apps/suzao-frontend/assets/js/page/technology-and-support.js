@@ -3,7 +3,7 @@ addEventListener('load', () => {
     el: '#technology-and-support',
     data() {
       const ver = `?ver=2025051001`
-      const src = `/frontend/assets/page/technology-and-support/`
+      const src = `/static/page/technology-and-support/`
       return {
         tabList: [
           {

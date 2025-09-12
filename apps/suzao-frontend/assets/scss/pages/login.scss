@@ -1,0 +1,408 @@
+@import '../variables';
+
+// 补充缺失的混合和类
+@mixin f {
+  display: flex;
+}
+
+@mixin f-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin poab {
+  position: absolute;
+}
+
+@mixin pore {
+  position: relative;
+}
+
+@mixin vertical {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 登录页面样式隔离 - 只在login页面生效
+.login-page {
+  // 主容器垂直居中，高度减去header和footer
+  @include f-center;
+  min-height: calc(100vh - #{$header-height + $footer-height}px);
+  
+  // 移动端适配不同的header高度
+  @media (max-width: $ipadH) {
+    min-height: calc(100vh - #{$header-wap-height + $footer-height}px);
+  }
+
+  &>.flex-box {
+    @include pore;
+    z-index: 1;
+    @include f;
+    @include maxWidthFit(1200, width);
+    @include maxWidthFit(515, min-width);
+    @include minWidthFit(1200, width);
+    @include minWidthFit(515, min-width);
+  }
+
+  &>.flex-center-box {
+    @include f-center;
+    @include maxWidthFit(1200, width);
+    @include minWidthFit(1200, width);
+  }
+
+  .login-pic {
+    flex: 1;
+
+    .content {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: relative;
+        display: block;
+        width: 100%;
+        padding-top: 86%;
+        z-index: -1;
+      }
+
+      .box {
+        @include poab;
+        @include vertical;
+        left: 0;
+
+        .logo {
+          @include maxWidthFit(50, height);
+          @include minWidthFit(50, height);
+        }
+
+        .text {
+          @include maxWidthFit(30, padding-top);
+          @include minWidthFit(30, padding-top);
+
+          .p1 {
+            @include maxWidthFit(32, font-size);
+            @include minWidthFit(32, font-size);
+            font-weight: 500;
+            color: $text-color;
+            line-height: 1;
+          }
+
+          .p2 {
+            @include maxWidthFit(14, font-size);
+            @include minWidthFit(14, font-size);
+            font-weight: 400;
+            color: $text-color;
+            line-height: 1;
+          }
+
+          .p1+.p2 {
+            @include maxWidthFit(12, padding-top);
+            @include minWidthFit(12, padding-top);
+          }
+        }
+      }
+    }
+  }
+
+  .login-content {
+    @media (min-width: $ipadH) {
+      width: 43%;
+      background-color: $white;
+      box-shadow: 0px 0px 4px 0px rgba(211, 211, 211, 0.5);
+    }
+
+    @include f;
+    flex-direction: column;
+    @include maxWidthFit(24, border-radius);
+    @include maxWidthFit(50, padding-top);
+    @include maxWidthFit(40, padding-bottom);
+    @include maxWidthFit(60, padding-left);
+    @include maxWidthFit(60, padding-right);
+    @include minWidthFit(24, border-radius);
+    @include minWidthFit(50, padding-top);
+    @include minWidthFit(40, padding-bottom);
+    @include minWidthFit(50, padding-left);
+    @include minWidthFit(50, padding-right);
+
+    .el-button {
+      width: 100%;
+      @include maxWidthFit(15, padding-top);
+      @include maxWidthFit(15, padding-bottom);
+      @include maxWidthFit(20, padding-left);
+      @include maxWidthFit(20, padding-right);
+      @include maxWidthFit(18, font-size);
+      @include minWidthFit(15, padding-top);
+      @include minWidthFit(15, padding-bottom);
+      @include minWidthFit(20, padding-left);
+      @include minWidthFit(20, padding-right);
+      @include minWidthFit(18, font-size);
+
+      .iconfont {
+        @include maxWidthFit(22, font-size);
+        @include minWidthFit(22, font-size);
+      }
+    }
+
+    .el-input__inner {
+      @include maxWidthFit(50, height);
+      @include maxWidthFit(50, line-height);
+      @include minWidthFit(40, height);
+      @include minWidthFit(40, line-height);
+    }
+
+    .el-form {
+      .el-form-item {
+        @include maxWidthFit(30, margin-bottom);
+        @include minWidthFit(20, margin-bottom);
+      }
+    }
+
+    .el-form-item__content {
+      @include maxWidthFit(14, font-size);
+      @include maxWidthFit(40, line-height);
+      @include minWidthFit(14, font-size);
+      @include minWidthFit(40, line-height);
+    }
+
+    .top {
+      flex-grow: 1;
+      position: relative;
+      @include f;
+      flex-direction: column;
+
+      .title {
+        text-align: center;
+        color: $text-color;
+
+        .tip {
+          @include maxWidthFit(12, font-size);
+          @include maxWidthFit(5, padding-top);
+          @include minWidthFit(12, font-size);
+          @include minWidthFit(5, padding-top);
+          font-weight: 400;
+          color: $placeholder-color;
+          line-height: 1.4;
+        }
+
+        .iconfont {
+          color: #09bb07; // 微信绿色
+        }
+
+        &,
+        .iconfont {
+          @include maxWidthFit(24, font-size);
+          @include minWidthFit(24, font-size);
+          font-weight: 500;
+        }
+      }
+
+      .poab-top {
+        position: absolute;
+        @include maxWidthFit(-8, top);
+        @include minWidthFit(-8, top);
+      }
+    }
+
+    .el-tabs {
+      position: relative;
+      width: 100%;
+
+      .el-tabs__header {
+        @include maxWidthFit(15, margin-bottom);
+        @include minWidthFit(30, margin-bottom);
+      }
+
+      &.wx {
+        .el-tabs__header {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      .el-tabs__nav-wrap::after {
+        display: none;
+      }
+
+      .el-tabs__active-bar {
+        height: 7px;
+        background: linear-gradient(90deg,
+            rgba(93, 93, 223, 0) 0%,
+            rgba(93, 93, 223, 0) 30%,
+            #5d5ddf 31%,
+            rgba(93, 93, 223, 0.2) 69%,
+            rgba(93, 93, 223, 0) 70%,
+            rgba(93, 93, 223, 0) 100%);
+      }
+
+      .el-tabs__nav-scroll {
+        @include f;
+        justify-content: center;
+      }
+
+      .el-tabs__item {
+        color: $placeholder-color;
+        font-weight: 500;
+        line-height: 1.375;
+        @include maxWidthFit(24, font-size);
+        @include minWidthFit(24, font-size);
+
+        &.is-active {
+          color: $text-color;
+        }
+      }
+    }
+
+    .bottom {
+      .el-button {
+        @include bd(12);
+      }
+
+      .agreement {
+        text-align: center;
+        line-height: 1.36;
+        @include maxWidthFit(30, padding-top);
+        @include maxWidthFit(12, font-size);
+        @include minWidthFit(30, padding-top);
+        @include minWidthFit(12, font-size);
+        color: $placeholder-color;
+
+        .el-link {
+          @include maxWidthFit(12, font-size);
+          @include minWidthFit(12, font-size);
+          vertical-align: top;
+        }
+      }
+    }
+
+    .captcha-img {
+      @include maxWidthFit(175, width);
+      @include minWidthFit(108, width);
+      @include minWidthFit(0, padding);
+      @include maxWidthFit(50, height);
+      @include minWidthFit(40, height);
+    }
+
+    img.captcha-img {
+      cursor: pointer;
+    }
+
+    .btn-box {
+      &.el-form-item {
+        @include maxWidthFit(30, margin-bottom);
+        @include minWidthFit(30, margin-bottom);
+      }
+
+      .el-form-item__content {
+        @include f;
+        justify-content: center;
+      }
+
+      .el-button {
+        width: 100%;
+        @include maxWidthFit(20, margin-bottom);
+        @include minWidthFit(20, margin-bottom);
+      }
+
+      .el-link {
+        line-height: 1.36;
+        @include maxWidthFit(5, margin-left);
+        @include maxWidthFit(5, margin-right);
+        @include minWidthFit(5, margin-left);
+        @include minWidthFit(5, margin-right);
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        @media (max-width: $ipadH) {}
+      }
+    }
+
+    .wx-btn {
+      .iconfont {
+        color: #09bb07;
+        @include maxWidthFit(24, font-size);
+        @include maxWidthFit(5, margin-right);
+        @include minWidthFit(24, font-size);
+        @include minWidthFit(5, margin-right);
+      }
+
+      @include bd(12);
+
+      &:hover {
+        color: $text-color2;
+        border-color: $text-color2;
+      }
+
+      @media (max-width: $ipadH) {
+        display: none;
+      }
+    }
+
+    .wx-box {
+      @include f-center;
+      width: 100%;
+      flex: 1;
+      @include maxWidthFit(28, padding);
+      @include minWidthFit(28, padding);
+
+      .wx-frame {
+        border: 1px solid $border-color;
+        @include maxWidthFit(231, width);
+        @include maxWidthFit(231, height);
+        @include maxWidthFit(16, padding);
+        @include minWidthFit(231, width);
+        @include minWidthFit(231, height);
+        @include minWidthFit(16, padding);
+        box-shadow: 0px 0px 6px 0px rgba(198, 198, 198, 0.5);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .wx-img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .forget-content {
+    background-color: $white;
+    width: 100%;
+    @include f-center;
+
+    .top {
+      flex: auto;
+      width: 38%;
+      @include maxWidthFit(550, height);
+      @include minWidthFit(550, height);
+    }
+  }
+
+  .code {
+    .el-form-item__content {
+      @include f;
+
+      .el-input {
+        flex: 1;
+      }
+    }
+
+    .el-input {
+      .el-input__inner {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    .el-button {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
