@@ -297,11 +297,12 @@ onMounted(() => {
   left: 0;
   right: 0;
   z-index: 21;
-  padding-top: 13px;
-  padding-bottom: 13px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 20px;
   padding-right: 20px;
   height: 70px;
+  box-sizing: border-box;
 }
 
 .suzao-navbar::after {
@@ -325,10 +326,14 @@ onMounted(() => {
   align-items: center;
 }
 
-.logo-box,
+.logo-box {
+  height: 40px;
+}
+
 .logo,
 .logo img {
   height: 100%;
+  max-height: 40px;
 }
 
 .logo {
@@ -351,7 +356,7 @@ onMounted(() => {
 /* 导航项样式 */
 .list {
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 12px;
   padding: 12px;
   line-height: 1;
@@ -404,7 +409,7 @@ onMounted(() => {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
   width: 32px;
   height: 4px;
   background: #4141eb;
@@ -559,6 +564,8 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
 }
 
 .info .name {
@@ -582,8 +589,6 @@ onMounted(() => {
 
 /* VIP激活按钮 */
 .activate-vip {
-  margin-left: 12px;
-  margin-right: 12px;
   width: 115px;
   cursor: pointer;
 }
@@ -747,8 +752,8 @@ onMounted(() => {
 /* 响应式样式 - 移动端 */
 @media (max-width: 992px) {
   .suzao-navbar {
-    padding-top: calc(14 / 750 * 100vw);
-    padding-bottom: calc(14 / 750 * 100vw);
+    padding-top: calc(16 / 750 * 100vw);
+    padding-bottom: calc(16 / 750 * 100vw);
     padding-left: calc(30 / 750 * 100vw);
     padding-right: calc(30 / 750 * 100vw);
     height: calc(90 / 750 * 100vw);
