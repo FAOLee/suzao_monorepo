@@ -9,7 +9,7 @@
     "build:ui": "pnpm --filter @suzao/ui build",
     "build:utils": "pnpm --filter @suzao/utils build",
     "build:frontend": "pnpm --filter suzao-frontend build",
-    "build:test": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend -- --dotenv .env.test",
+    "build": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend -- --dotenv .env",
     "build:prod": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend -- --dotenv .env.production"
   },
   "devDependencies": {

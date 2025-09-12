@@ -21,7 +21,16 @@
       "Bash(tasklist:*)",
       "Bash(netstat:*)",
       "Bash(npx tailwindcss:*)",
-      "Bash(pnpm run dev:*)"
+      "Bash(pnpm run dev:*)",
+      "Bash(git log:*)",
+      "Bash(npm run env:check:*)",
+      "Bash(echo:*)",
+      "Bash(npm run build:*)",
+      "Bash(node:*)",
+      "Bash(timeout:*)",
+      "Bash(grep:*)",
+      "Bash(pnpm exec:*)",
+      "Read(//d//**)"
     ],
     "deny": [],
     "ask": []
