@@ -30,7 +30,8 @@
       "Bash(timeout:*)",
       "Bash(grep:*)",
       "Bash(pnpm exec:*)",
-      "Read(//d//**)"
+      "Read(//d//**)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
