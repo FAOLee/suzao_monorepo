@@ -8,12 +8,31 @@ packages/*/dist/
 apps/*/.nuxt/
 apps/*/.output/
 
-# Environment files
-.env
+# Nuxt specific
+.nuxt
+.nitro
+.cache
+
+# Logs
+*.log*
+lerna-debug.log*
+
+# Environment files (local only)
 .env.local
 .env.*.local
 
 # IDE & OS
 .vscode/
 .DS_Store
-*.log
+.fleet
+.idea
+*.swp
+*.swo
+
+# Testing
+coverage/
+*.tsbuildinfo
+
+# Temporary files
+*.tmp
+*.temp

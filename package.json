@@ -5,12 +5,15 @@
     "dev:ui": "pnpm --filter @suzao/ui dev",
     "dev:utils": "pnpm --filter @suzao/utils dev",
     "dev:frontend": "pnpm --filter suzao-frontend dev",
+    "dev:frontend:test": "pnpm --filter suzao-frontend dev:test",
+    "dev:frontend:prod": "pnpm --filter suzao-frontend dev:prod",
     "dev": "concurrently -n UI,Utils,Frontend -c blue,magenta,green \"pnpm run dev:ui\" \"pnpm run dev:utils\" \"pnpm run dev:frontend\"",
+    "dev:test": "concurrently -n UI,Utils,Frontend -c blue,magenta,green \"pnpm run dev:ui\" \"pnpm run dev:utils\" \"pnpm run dev:frontend:test\"",
+    "dev:prod": "concurrently -n UI,Utils,Frontend -c blue,magenta,green \"pnpm run dev:ui\" \"pnpm run dev:utils\" \"pnpm run dev:frontend:prod\"",
     "build:ui": "pnpm --filter @suzao/ui build",
     "build:utils": "pnpm --filter @suzao/utils build",
     "build:frontend": "pnpm --filter suzao-frontend build",
-    "build": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend -- --dotenv .env",
-    "build:prod": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend -- --dotenv .env.production"
+    "build": "pnpm run build:ui && pnpm run build:utils && pnpm run build:frontend"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
